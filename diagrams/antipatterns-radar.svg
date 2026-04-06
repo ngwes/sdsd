@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="780" viewBox="0 0 900 780" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="780" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#f1f5f9">Mappa degli Anti-Pattern degli Stakeholder</text>
+  <text x="450" y="62" text-anchor="middle" font-size="13" fill="#64748b">Frequenza × Danno Potenziale</text>
+
+  <!-- Axes -->
+  <line x1="100" y1="680" x2="820" y2="680" stroke="#334155" stroke-width="2"/>
+  <line x1="100" y1="680" x2="100" y2="100" stroke="#334155" stroke-width="2"/>
+
+  <!-- Axis labels -->
+  <text x="460" y="720" text-anchor="middle" font-size="14" fill="#64748b">FREQUENZA →</text>
+  <text x="40" y="400" text-anchor="middle" font-size="14" fill="#64748b" transform="rotate(-90, 40, 400)">DANNO POTENZIALE →</text>
+
+  <!-- Axis ticks -->
+  <text x="100" y="698" text-anchor="middle" font-size="11" fill="#475569">Raro</text>
+  <text x="280" y="698" text-anchor="middle" font-size="11" fill="#475569">Occasionale</text>
+  <text x="460" y="698" text-anchor="middle" font-size="11" fill="#475569">Frequente</text>
+  <text x="640" y="698" text-anchor="middle" font-size="11" fill="#475569">Molto freq.</text>
+  <text x="820" y="698" text-anchor="middle" font-size="11" fill="#475569">Costante</text>
+
+  <text x="92" y="685" text-anchor="end" font-size="11" fill="#475569">Basso</text>
+  <text x="92" y="565" text-anchor="end" font-size="11" fill="#475569">Medio</text>
+  <text x="92" y="445" text-anchor="end" font-size="11" fill="#475569">Alto</text>
+  <text x="92" y="325" text-anchor="end" font-size="11" fill="#475569">Critico</text>
+  <text x="92" y="110" text-anchor="end" font-size="11" fill="#475569">Devastante</text>
+
+  <!-- Grid lines -->
+  <line x1="100" y1="560" x2="820" y2="560" stroke="#1e293b" stroke-width="1"/>
+  <line x1="100" y1="440" x2="820" y2="440" stroke="#1e293b" stroke-width="1"/>
+  <line x1="100" y1="320" x2="820" y2="320" stroke="#1e293b" stroke-width="1"/>
+  <line x1="100" y1="200" x2="820" y2="200" stroke="#1e293b" stroke-width="1"/>
+  <line x1="280" y1="100" x2="280" y2="680" stroke="#1e293b" stroke-width="1"/>
+  <line x1="460" y1="100" x2="460" y2="680" stroke="#1e293b" stroke-width="1"/>
+  <line x1="640" y1="100" x2="640" y2="680" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Danger zone (top-right) -->
+  <rect x="460" y="100" width="360" height="340" rx="0" fill="#450a0a" opacity="0.3"/>
+  <text x="640" y="130" text-anchor="middle" font-size="12" fill="#ef4444" opacity="0.7">⚠️ ZONA CRITICA</text>
+  <text x="640" y="148" text-anchor="middle" font-size="11" fill="#ef4444" opacity="0.6">Priorità assoluta di mitigazione</text>
+
+  <!-- Safe zone (bottom-left) -->
+  <rect x="100" y="440" width="360" height="240" rx="0" fill="#052e16" opacity="0.3"/>
+  <text x="280" y="600" text-anchor="middle" font-size="11" fill="#22c55e" opacity="0.6">Zona gestibile</text>
+
+  <!-- Anti-pattern bubbles -->
+  <!-- AP-01: Requisito Fantasma - high freq, high damage -->
+  <circle cx="620" cy="280" r="45" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+  <text x="620" y="274" text-anchor="middle" font-size="11" font-weight="bold" fill="#fca5a5">AP-01</text>
+  <text x="620" y="290" text-anchor="middle" font-size="10" fill="#fca5a5">Requisito</text>
+  <text x="620" y="304" text-anchor="middle" font-size="10" fill="#fca5a5">Fantasma</text>
+
+  <!-- AP-02: Cambia-Idea Seriale - very high freq, critical damage -->
+  <circle cx="740" cy="170" r="50" fill="#7f1d1d" stroke="#ef4444" stroke-width="3" opacity="0.9"/>
+  <text x="740" y="162" text-anchor="middle" font-size="11" font-weight="bold" fill="#fca5a5">AP-02</text>
+  <text x="740" y="178" text-anchor="middle" font-size="10" fill="#fca5a5">Cambia-Idea</text>
+  <text x="740" y="194" text-anchor="middle" font-size="10" fill="#fca5a5">Seriale</text>
+
+  <!-- AP-03: Tunnel della Soluzione - frequent, medium damage -->
+  <circle cx="540" cy="490" r="38" fill="#451a03" stroke="#f97316" stroke-width="2" opacity="0.9"/>
+  <text x="540" y="484" text-anchor="middle" font-size="11" font-weight="bold" fill="#fdba74">AP-03</text>
+  <text x="540" y="498" text-anchor="middle" font-size="10" fill="#fdba74">Tunnel</text>
+  <text x="540" y="512" text-anchor="middle" font-size="10" fill="#fdba74">Soluzione</text>
+
+  <!-- AP-04: Stakeholder Invisibile - occasional, high damage -->
+  <circle cx="310" cy="300" r="42" fill="#1c1917" stroke="#eab308" stroke-width="2" opacity="0.9"/>
+  <text x="310" y="294" text-anchor="middle" font-size="11" font-weight="bold" fill="#fde047">AP-04</text>
+  <text x="310" y="308" text-anchor="middle" font-size="10" fill="#fde047">Stakeholder</text>
+  <text x="310" y="322" text-anchor="middle" font-size="10" fill="#fde047">Invisibile</text>
+
+  <!-- AP-05: Proxy senza Autorità - frequent, medium damage -->
+  <circle cx="490" cy="580" r="35" fill="#1c1917" stroke="#eab308" stroke-width="2" opacity="0.9"/>
+  <text x="490" y="574" text-anchor="middle" font-size="11" font-weight="bold" fill="#fde047">AP-05</text>
+  <text x="490" y="588" text-anchor="middle" font-size="10" fill="#fde047">Proxy</text>
+  <text x="490" y="602" text-anchor="middle" font-size="10" fill="#fde047">Autorità</text>
+
+  <!-- AP-06: Sì ma - very freq, medium damage -->
+  <circle cx="680" cy="490" r="40" fill="#1e293b" stroke="#a78bfa" stroke-width="2" opacity="0.9"/>
+  <text x="680" y="484" text-anchor="middle" font-size="11" font-weight="bold" fill="#c4b5fd">AP-06</text>
+  <text x="680" y="498" text-anchor="middle" font-size="10" fill="#c4b5fd">"Sì, ma..."</text>
+  <text x="680" y="512" text-anchor="middle" font-size="10" fill="#c4b5fd">Seriale</text>
+
+  <!-- AP-07: Ottimista Cronico - constant, high damage -->
+  <circle cx="770" cy="330" r="43" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+  <text x="770" y="324" text-anchor="middle" font-size="11" font-weight="bold" fill="#fca5a5">AP-07</text>
+  <text x="770" y="338" text-anchor="middle" font-size="10" fill="#fca5a5">Ottimista</text>
+  <text x="770" y="352" text-anchor="middle" font-size="10" fill="#fca5a5">Cronico</text>
+
+  <!-- AP-08: HIPPO - occasional, medium damage -->
+  <circle cx="340" cy="490" r="36" fill="#1e293b" stroke="#a78bfa" stroke-width="2" opacity="0.9"/>
+  <text x="340" y="484" text-anchor="middle" font-size="11" font-weight="bold" fill="#c4b5fd">AP-08</text>
+  <text x="340" y="498" text-anchor="middle" font-size="10" fill="#c4b5fd">HIPPO</text>
+
+  <!-- AP-09: Deadliner Arbitrario - freq, high damage -->
+  <circle cx="580" cy="370" r="44" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" opacity="0.9"/>
+  <text x="580" y="362" text-anchor="middle" font-size="11" font-weight="bold" fill="#fca5a5">AP-09</text>
+  <text x="580" y="376" text-anchor="middle" font-size="10" fill="#fca5a5">Deadliner</text>
+  <text x="580" y="390" text-anchor="middle" font-size="10" fill="#fca5a5">Arbitrario</text>
+
+  <!-- AP-10: Blame Shifter - occasional, devastating damage -->
+  <circle cx="220" cy="170" r="48" fill="#7f1d1d" stroke="#ef4444" stroke-width="3" opacity="0.9"/>
+  <text x="220" y="162" text-anchor="middle" font-size="11" font-weight="bold" fill="#fca5a5">AP-10</text>
+  <text x="220" y="178" text-anchor="middle" font-size="10" fill="#fca5a5">Blame</text>
+  <text x="220" y="194" text-anchor="middle" font-size="10" fill="#fca5a5">Shifter</text>
+
+  <!-- AP-11: Feature Smuggler - very freq, medium damage -->
+  <circle cx="650" cy="580" r="37" fill="#1e293b" stroke="#a78bfa" stroke-width="2" opacity="0.9"/>
+  <text x="650" y="574" text-anchor="middle" font-size="11" font-weight="bold" fill="#c4b5fd">AP-11</text>
+  <text x="650" y="588" text-anchor="middle" font-size="10" fill="#c4b5fd">Feature</text>
+  <text x="650" y="602" text-anchor="middle" font-size="10" fill="#c4b5fd">Smuggler</text>
+
+  <!-- AP-12: Tester a Posteriori - frequent, high damage -->
+  <circle cx="450" cy="370" r="40" fill="#1c1917" stroke="#eab308" stroke-width="2" opacity="0.9"/>
+  <text x="450" y="362" text-anchor="middle" font-size="11" font-weight="bold" fill="#fde047">AP-12</text>
+  <text x="450" y="376" text-anchor="middle" font-size="10" fill="#fde047">Tester</text>
+  <text x="450" y="390" text-anchor="middle" font-size="10" fill="#fde047">Posteriori</text>
+
+  <!-- Legend -->
+  <rect x="100" y="730" width="700" height="40" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="130" cy="750" r="10" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+  <text x="148" y="755" font-size="11" fill="#fca5a5">Priorità critica</text>
+  <circle cx="270" cy="750" r="10" fill="#1c1917" stroke="#eab308" stroke-width="2"/>
+  <text x="288" y="755" font-size="11" fill="#fde047">Alta priorità</text>
+  <circle cx="400" cy="750" r="10" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+  <text x="418" y="755" font-size="11" fill="#c4b5fd">Media priorità</text>
+  <circle cx="530" cy="750" r="10" fill="#451a03" stroke="#f97316" stroke-width="2"/>
+  <text x="548" y="755" font-size="11" fill="#fdba74">Bassa priorità</text>
+
+  <!-- Footer -->
+  <text x="870" y="775" text-anchor="end" font-size="10" fill="#475569">SDSD v1.0 — Anti-Pattern Map</text>
+</svg>

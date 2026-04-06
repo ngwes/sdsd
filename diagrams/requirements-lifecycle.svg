@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1100" height="620" viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="1100" height="620" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="550" y="42" text-anchor="middle" font-size="22" font-weight="bold" fill="#f1f5f9">Ciclo di Vita dei Requisiti — SDSD</text>
+  <text x="550" y="65" text-anchor="middle" font-size="13" fill="#64748b">Dalla necessità di business al codice in produzione, con traceability completa</text>
+
+  <!-- Phase boxes -->
+  <!-- Phase 1: Elicitazione -->
+  <rect x="30" y="100" width="170" height="380" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <rect x="30" y="100" width="170" height="40" rx="10" fill="#6366f1"/>
+  <rect x="30" y="128" width="170" height="12" fill="#6366f1"/>
+  <text x="115" y="126" text-anchor="middle" font-size="13" font-weight="bold" fill="white">1. ELICITAZIONE</text>
+  <text x="115" y="165" text-anchor="middle" font-size="11" fill="#a5b4fc">Tecniche:</text>
+  <text x="115" y="185" text-anchor="middle" font-size="11" fill="#c7d2fe">• Interviste strutturate</text>
+  <text x="115" y="203" text-anchor="middle" font-size="11" fill="#c7d2fe">• Job Shadowing</text>
+  <text x="115" y="221" text-anchor="middle" font-size="11" fill="#c7d2fe">• Workshop facilitati</text>
+  <text x="115" y="239" text-anchor="middle" font-size="11" fill="#c7d2fe">• Event Storming</text>
+  <text x="115" y="257" text-anchor="middle" font-size="11" fill="#c7d2fe">• Prototyping</text>
+  <text x="115" y="275" text-anchor="middle" font-size="11" fill="#c7d2fe">• Analisi documenti</text>
+  <line x1="50" y1="295" x2="180" y2="295" stroke="#4338ca" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="115" y="315" text-anchor="middle" font-size="11" fill="#a5b4fc">Output:</text>
+  <text x="115" y="335" text-anchor="middle" font-size="11" fill="#c7d2fe">• Lista raw requirements</text>
+  <text x="115" y="353" text-anchor="middle" font-size="11" fill="#c7d2fe">• Glossario bozza</text>
+  <text x="115" y="371" text-anchor="middle" font-size="11" fill="#c7d2fe">• User personas</text>
+  <text x="115" y="389" text-anchor="middle" font-size="11" fill="#c7d2fe">• Stakeholder map</text>
+  <line x1="50" y1="409" x2="180" y2="409" stroke="#4338ca" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="115" y="432" text-anchor="middle" font-size="10" fill="#818cf8">⚠️ SDSD: documenta</text>
+  <text x="115" y="449" text-anchor="middle" font-size="10" fill="#818cf8">ogni assunzione</text>
+  <text x="115" y="466" text-anchor="middle" font-size="10" fill="#818cf8">esplicitamente</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="200" y1="290" x2="228" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 2: Analisi -->
+  <rect x="228" y="100" width="170" height="380" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="228" y="100" width="170" height="40" rx="10" fill="#8b5cf6"/>
+  <rect x="228" y="128" width="170" height="12" fill="#8b5cf6"/>
+  <text x="313" y="126" text-anchor="middle" font-size="13" font-weight="bold" fill="white">2. ANALISI</text>
+  <text x="313" y="165" text-anchor="middle" font-size="11" fill="#c4b5fd">Attività:</text>
+  <text x="313" y="185" text-anchor="middle" font-size="11" fill="#ddd6fe">• Classificazione RF/RNF</text>
+  <text x="313" y="203" text-anchor="middle" font-size="11" fill="#ddd6fe">• Prioritizzazione MoSCoW</text>
+  <text x="313" y="221" text-anchor="middle" font-size="11" fill="#ddd6fe">• Risoluzione conflitti</text>
+  <text x="313" y="239" text-anchor="middle" font-size="11" fill="#ddd6fe">• Impact mapping</text>
+  <text x="313" y="257" text-anchor="middle" font-size="11" fill="#ddd6fe">• Stima preliminare</text>
+  <text x="313" y="275" text-anchor="middle" font-size="11" fill="#ddd6fe">• FURPS+ checklist</text>
+  <line x1="248" y1="295" x2="378" y2="295" stroke="#6d28d9" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="313" y="315" text-anchor="middle" font-size="11" fill="#c4b5fd">Output:</text>
+  <text x="313" y="335" text-anchor="middle" font-size="11" fill="#ddd6fe">• SRS bozza</text>
+  <text x="313" y="353" text-anchor="middle" font-size="11" fill="#ddd6fe">• Lista prioritizzata</text>
+  <text x="313" y="371" text-anchor="middle" font-size="11" fill="#ddd6fe">• Glossario raffinato</text>
+  <text x="313" y="389" text-anchor="middle" font-size="11" fill="#ddd6fe">• Risk register</text>
+  <line x1="248" y1="409" x2="378" y2="409" stroke="#6d28d9" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="313" y="432" text-anchor="middle" font-size="10" fill="#a78bfa">⚠️ SDSD: identifica</text>
+  <text x="313" y="449" text-anchor="middle" font-size="10" fill="#a78bfa">stakeholder mancanti</text>
+  <text x="313" y="466" text-anchor="middle" font-size="10" fill="#a78bfa">prima di procedere</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="398" y1="290" x2="426" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 3: Specifica -->
+  <rect x="426" y="100" width="170" height="380" rx="10" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+  <rect x="426" y="100" width="170" height="40" rx="10" fill="#06b6d4"/>
+  <rect x="426" y="128" width="170" height="12" fill="#06b6d4"/>
+  <text x="511" y="126" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3. SPECIFICA</text>
+  <text x="511" y="165" text-anchor="middle" font-size="11" fill="#a5f3fc">Formato:</text>
+  <text x="511" y="185" text-anchor="middle" font-size="11" fill="#cffafe">• User Stories (INVEST)</text>
+  <text x="511" y="203" text-anchor="middle" font-size="11" fill="#cffafe">• Acceptance Criteria</text>
+  <text x="511" y="221" text-anchor="middle" font-size="11" fill="#cffafe">• Gherkin scenarios</text>
+  <text x="511" y="239" text-anchor="middle" font-size="11" fill="#cffafe">• Mockup/wireframe</text>
+  <text x="511" y="257" text-anchor="middle" font-size="11" fill="#cffafe">• SRS formale (se req.)</text>
+  <text x="511" y="275" text-anchor="middle" font-size="11" fill="#cffafe">• Non-functional specs</text>
+  <line x1="446" y1="295" x2="576" y2="295" stroke="#0891b2" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="511" y="315" text-anchor="middle" font-size="11" fill="#a5f3fc">Tracciabilità:</text>
+  <text x="511" y="335" text-anchor="middle" font-size="11" fill="#cffafe">• RTM popolata</text>
+  <text x="511" y="353" text-anchor="middle" font-size="11" fill="#cffafe">• ID univoci a ogni req.</text>
+  <text x="511" y="371" text-anchor="middle" font-size="11" fill="#cffafe">• Link parent-child</text>
+  <text x="511" y="389" text-anchor="middle" font-size="11" fill="#cffafe">• Ownership assegnata</text>
+  <line x1="446" y1="409" x2="576" y2="409" stroke="#0891b2" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="511" y="432" text-anchor="middle" font-size="10" fill="#67e8f9">⚠️ SDSD: usa INVEST</text>
+  <text x="511" y="449" text-anchor="middle" font-size="10" fill="#67e8f9">per verificare ogni</text>
+  <text x="511" y="466" text-anchor="middle" font-size="10" fill="#67e8f9">storia (Testable!)</text>
+
+  <!-- Arrow 3->4 -->
+  <line x1="596" y1="290" x2="624" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 4: Validazione -->
+  <rect x="624" y="100" width="170" height="380" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <rect x="624" y="100" width="170" height="40" rx="10" fill="#10b981"/>
+  <rect x="624" y="128" width="170" height="12" fill="#10b981"/>
+  <text x="709" y="126" text-anchor="middle" font-size="13" font-weight="bold" fill="white">4. VALIDAZIONE</text>
+  <text x="709" y="165" text-anchor="middle" font-size="11" fill="#a7f3d0">Tecniche:</text>
+  <text x="709" y="185" text-anchor="middle" font-size="11" fill="#d1fae5">• Walkthrough con PO</text>
+  <text x="709" y="203" text-anchor="middle" font-size="11" fill="#d1fae5">• Review con domain exp.</text>
+  <text x="709" y="221" text-anchor="middle" font-size="11" fill="#d1fae5">• Prototype testing</text>
+  <text x="709" y="239" text-anchor="middle" font-size="11" fill="#d1fae5">• Checklist validazione</text>
+  <text x="709" y="257" text-anchor="middle" font-size="11" fill="#d1fae5">• Three Amigos review</text>
+  <text x="709" y="275" text-anchor="middle" font-size="11" fill="#d1fae5">• Conflict check</text>
+  <line x1="644" y1="295" x2="774" y2="295" stroke="#059669" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="709" y="315" text-anchor="middle" font-size="11" fill="#a7f3d0">Output:</text>
+  <text x="709" y="335" text-anchor="middle" font-size="11" fill="#d1fae5">• ✅ Sign-off formale</text>
+  <text x="709" y="353" text-anchor="middle" font-size="11" fill="#d1fae5">• RTM aggiornata</text>
+  <text x="709" y="371" text-anchor="middle" font-size="11" fill="#d1fae5">• Scope baseline</text>
+  <text x="709" y="389" text-anchor="middle" font-size="11" fill="#d1fae5">• Acceptance test draft</text>
+  <line x1="644" y1="409" x2="774" y2="409" stroke="#059669" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="709" y="432" text-anchor="middle" font-size="10" fill="#6ee7b7">⚠️ SDSD: FIRMA</text>
+  <text x="709" y="449" text-anchor="middle" font-size="10" fill="#6ee7b7">obbligatoria con data</text>
+  <text x="709" y="466" text-anchor="middle" font-size="10" fill="#6ee7b7">e nome del PO</text>
+
+  <!-- Arrow 4->5 -->
+  <line x1="794" y1="290" x2="822" y2="290" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Phase 5: Gestione -->
+  <rect x="822" y="100" width="240" height="380" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="822" y="100" width="240" height="40" rx="10" fill="#f59e0b"/>
+  <rect x="822" y="128" width="240" height="12" fill="#f59e0b"/>
+  <text x="942" y="126" text-anchor="middle" font-size="13" font-weight="bold" fill="#1c1917">5. GESTIONE CONTINUA</text>
+  <text x="942" y="165" text-anchor="middle" font-size="11" fill="#fde68a">Processi:</text>
+  <text x="942" y="185" text-anchor="middle" font-size="11" fill="#fef3c7">• Change Request process</text>
+  <text x="942" y="203" text-anchor="middle" font-size="11" fill="#fef3c7">• Impact assessment CR</text>
+  <text x="942" y="221" text-anchor="middle" font-size="11" fill="#fef3c7">• Backlog refinement</text>
+  <text x="942" y="239" text-anchor="middle" font-size="11" fill="#fef3c7">• RAID log update</text>
+  <text x="942" y="257" text-anchor="middle" font-size="11" fill="#fef3c7">• Velocity tracking</text>
+  <text x="942" y="275" text-anchor="middle" font-size="11" fill="#fef3c7">• Sprint review/accept.</text>
+  <line x1="842" y1="295" x2="1042" y2="295" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="942" y="315" text-anchor="middle" font-size="11" fill="#fde68a">Protezioni:</text>
+  <text x="942" y="335" text-anchor="middle" font-size="11" fill="#fef3c7">• Scope baseline difesa</text>
+  <text x="942" y="353" text-anchor="middle" font-size="11" fill="#fef3c7">• CR budget allocation</text>
+  <text x="942" y="371" text-anchor="middle" font-size="11" fill="#fef3c7">• Decision log update</text>
+  <text x="942" y="389" text-anchor="middle" font-size="11" fill="#fef3c7">• RTM maintenance</text>
+  <line x1="842" y1="409" x2="1042" y2="409" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="942" y="432" text-anchor="middle" font-size="10" fill="#fbbf24">⚠️ SDSD: nessun</text>
+  <text x="942" y="449" text-anchor="middle" font-size="10" fill="#fbbf24">cambiamento senza</text>
+  <text x="942" y="466" text-anchor="middle" font-size="10" fill="#fbbf24">CR formale firmata</text>
+
+  <!-- Feedback arrow from phase 5 back to phase 1 -->
+  <path d="M 942 480 Q 942 560 550 560 Q 180 560 115 480" stroke="#475569" stroke-width="1.5" stroke-dasharray="6,4" fill="none" marker-end="url(#arrowGray)"/>
+  <text x="550" y="553" text-anchor="middle" font-size="11" fill="#64748b">Nuovi requisiti o cambiamenti → riparte il ciclo con CR formale</text>
+
+  <!-- RTM bar at bottom -->
+  <rect x="30" y="510" width="1040" height="50" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="550" y="533" text-anchor="middle" font-size="12" font-weight="bold" fill="#60a5fa">REQUIREMENTS TRACEABILITY MATRIX (RTM) — attraversa tutte le fasi</text>
+  <text x="550" y="552" text-anchor="middle" font-size="11" fill="#93c5fd">REQ-ID → User Story → Task → Commit → Test → Acceptance → Production</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="1070" y="610" text-anchor="end" font-size="10" fill="#475569">SDSD v1.0 — Requirements Lifecycle</text>
+</svg>
