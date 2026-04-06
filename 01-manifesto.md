@@ -1,206 +1,206 @@
-# 01 — Il Manifesto SDSD
+# 01 — The SDSD Manifesto
 
-## Dichiarazione d'Intenti
+## Declaration of Intent
 
-Noi, software developer che operano quotidianamente nel caos organizzativo, riconosciamo una verità fondamentale che raramente viene detta ad alta voce:
+We, software developers who operate daily in organizational chaos, acknowledge a fundamental truth that is rarely spoken aloud:
 
-> **La maggior parte dei problemi software non sono problemi tecnici. Sono problemi umani con conseguenze tecniche.**
+> **Most software problems are not technical problems. They are human problems with technical consequences.**
 
-Il codice sbagliato è quasi sempre il sintomo. La causa è a monte: requisiti interpretati, decisioni non documentate, cambi di rotta non tracciati, responsabilità attribuite al team di sviluppo per decisioni prese altrove.
+Wrong code is almost always the symptom. The cause lies upstream: interpreted requirements, undocumented decisions, untracked course changes, responsibility attributed to the development team for decisions made elsewhere.
 
-SDSD nasce dalla necessità di dotare il developer di una serie di pratiche, pattern e comportamenti che permettano di:
+SDSD was born from the need to equip the developers with a set of practices, patterns, and behaviors that allow them to:
 
-1. **Fare software di qualità** nonostante l'ambiente circostante
-2. **Proteggersi** da attribuzioni di colpa ingiuste
-3. **Proteggere il prodotto** da interferenze irrazionali
-4. **Proteggere il progetto** da requisiti volatili e scope creep
-5. **Creare un ambiente di lavoro professionale** anche dove non esiste
-
----
-
-## I 12 Principi SDSD
-
-### Principio 1: La Scrittura È Legge
-*"Ciò che non è scritto non esiste."*
-
-Ogni decisione, ogni requisito, ogni cambio di direzione deve essere documentato. Le conversazioni verbali evaporano. Le email vengono cancellate. I messaggi su Slack scompaiono. Un documento firmato è permanente.
-
-**Pratica derivata:** nessuna decisione architettuale, nessun requirement change, nessun accordo progettuale senza documento scritto e approvato.
+1. **Build quality software** despite the surrounding environment
+2. **Protect themselves** from unfaire blame attribution
+3. **Protect the product** from irrational interference
+4. **Protect the project** from volatile requirements and scope creep
+5. **Create a professional working environment** even where none exists
 
 ---
 
-### Principio 2: La Firma è Responsabilità
-*"Chi firma, possiede."*
+## The 12 SDSD Principles
 
-I requisiti approvati verbalmente appartengono a nessuno. I requisiti firmati appartengono a chi li ha firmati. Il meccanismo di sign-off formale trasferisce la responsabilità della definizione al suo legittimo proprietario: il business.
+### Principle 1: Writing is Law
+*"What is not written does not exist."*
 
-**Pratica derivata:** ogni documento di requisito, ogni ADR, ogni Change Request deve avere un campo "approvato da" con firma (digitale o analogica) e data.
+Every decision, every requirement, every change of direction must be documented. Verbal conversations evaporate. Emails get deleted. Slack messages disappear. A signed document is permanent.
 
----
-
-### Principio 3: Il Cambiamento Ha un Costo
-*"Non esiste la piccola modifica."*
-
-Ogni modifica ai requisiti ha un costo: di tempo, di refactoring, di test, di regressione, di coordinamento. Questo costo deve essere reso visibile e comunicato prima che il cambiamento venga approvato. Rendere i costi trasparenti riduce i cambi arbitrari.
-
-**Pratica derivata:** ogni Change Request deve includere una stima d'impatto (effort, costo, rischi, funzionalità impattate).
+**Derived practice:** no architectural decision, no requirement change, no project agreement without a written and approved document.
 
 ---
 
-### Principio 4: Le Assunzioni Sono Pericolose Solo se Implicite
-*"Se devi assumere, documenta l'assunzione."*
+### Principle 2: Signature is Responsibility
+*"Who signs, owns."*
 
-In assenza di requisiti completi, i developer fanno assunzioni. Questo è inevitabile. Ciò che non è inevitabile è fare assunzioni senza dichiararle. Un'assunzione documentata è difendibile. Un'assunzione implicita è una trappola.
+Verbally approved requirements belong to no one. Signed requirements belong to whoever signed them. The formal sign-off mechanism transfers the responsibility for definition to its rightful owner: the business.
 
-**Pratica derivata:** ogni User Story, ogni ADR, ogni documento tecnico deve avere una sezione "Assunzioni" esplicita.
-
----
-
-### Principio 5: Il Demo è la Verita
-*"Mostra, non descrivere."*
-
-Gli stakeholder non capiscono i documenti. Capiscono ciò che vedono. I demo frequenti (anche di prototipi, anche di wireframe, anche di mock) sono il meccanismo più efficace per correggere la rotta prima che il costo della correzione diventi insostenibile.
-
-**Pratica derivata:** demo incrementali ad ogni sprint/milestone, con feedback strutturato e documentato.
+**Derived practice:** every requirements document, every ADR, every Change Request must have an "approved by" field with a signature (digital or analog) and a date.
 
 ---
 
-### Principio 6: Il Linguaggio Condiviso è Pace
-*"Se chiamate la stessa cosa con nomi diversi, state parlando di cose diverse."*
+### Principle 3: Change Has a Cost
+*"There is no such thing as a small change."*
 
-Uno dei principali vettori di incomprensione è il linguaggio. Business e developer usano termini diversi per gli stessi concetti, o gli stessi termini per concetti diversi. Creare e mantenere un vocabolario condiviso (Ubiquitous Language) è un atto difensivo fondamentale.
+Every change to requirements has a cost: time, refactoring, testing, regression, coordination. This cost must be made visible and communicated before the change is approved. Making costs transparent reduces arbitrary changes.
 
-**Pratica derivata:** glossario condiviso, aggiornato, visibile a tutti. Nessun documento di requisito senza riferimento al glossario.
-
----
-
-### Principio 7: I Test Sono Prove
-*"Un test verde è una garanzia firmata."*
-
-I test automatici non sono solo strumenti di qualità. Sono prove formali che il software si comporta come concordato. In caso di contestazione, una suite di test completa è il documento più potente che un developer può produrre.
-
-**Pratica derivata:** Acceptance Test Driven Development (ATDD) — i test di accettazione vengono scritti insieme al business prima dello sviluppo.
+**Derived practice:** every Change Request must include an impact estimate (effort, cost, risks, affected features).
 
 ---
 
-### Principio 8: La Tracciabilità è Protezione
-*"Ogni riga di codice ha un padre."*
+### Principle 4: Assumptions Are Dangerous Only When Implicit
+*"If you must assume, document the assumption."*
 
-Essere in grado di tracciare un comportamento del sistema fino al requisito che lo ha originato è la difesa più efficace contro l'accusa di "avete fatto la cosa sbagliata". La Requirements Traceability Matrix (RTM) è il meccanismo formale per questa protezione.
+In the absence of complete requirements, developers make assumptions. This is inevitable. What is not inevitable is making assumptions without declaring them. A documented assumption is defensible. An implicit assumption is a trap.
 
-**Pratica derivata:** ogni Feature/Story/Task deve essere collegata al requisito padre. Il codice deve essere collegabile alla storia che lo ha originato.
-
----
-
-### Principio 9: L'Architettura si Spiega, Non si Subisce
-*"Una decisione architettuale non documentata è una bomba a orologeria."*
-
-Le decisioni architetturali hanno una vita lunghissima e un impatto enorme. Devono essere documentate, motivate e approvate. Gli Architecture Decision Records (ADR) sono lo strumento standard per questo.
-
-**Pratica derivata:** ADR per ogni decisione architetturale rilevante, con contesto, opzioni considerate, decisione presa e conseguenze.
+**Derived practice:** every User Story, every ADR, every technical document must have an explicit "Assumptions" section.
 
 ---
 
-### Principio 10: Il Confine del Progetto è Sacro
-*"Scope creep non è un'aggiunta. È un furto."*
+### Principle 5: The Demo is the Truth
+*"Show, don't describe."*
 
-Ogni funzionalità non pianificata che entra nel progetto senza passare dal processo formale di change management è un furto di risorse, tempo e attenzione. Il confine del progetto (scope) deve essere definito, approvato e difeso.
+Stakeholders don't understand documents. They understand what they see. Frequent demos (even of prototypes, even of wireframes, even of mocks) are the most effective mechanism for correcting course before the cost of correction becomes unsustainable.
 
-**Pratica derivata:** processo formale di Change Request, con valutazione dell'impatto e approvazione esplicita prima di qualsiasi cambiamento.
-
----
-
-### Principio 11: L'Incertezza si Gestisce, Non si Nega
-*"Se non sai, dillo. E documentalo."*
-
-Negare l'incertezza è il modo più rapido per creare false aspettative e fallire le scadenze. Identificare esplicitamente le aree di incertezza, comunicarle e pianificare meccanismi di gestione del rischio è segno di professionalità, non di debolezza.
-
-**Pratica derivata:** Risk Register, spike tecnici per la riduzione dell'incertezza, comunicazione proattiva dei rischi.
+**Derived practice:** incremental demos at every sprint/milestone, with structured and documented feedback.
 
 ---
 
-### Principio 12: Il Professionista si Forma Continuamente
-*"L'ignoranza del dominio è temporanea. L'ignoranza delle pratiche è una scelta."*
+### Principle 6: Shared Language is Peace
+*"If you call the same thing by different names, you are talking about different things."*
 
-SDSD non giustifica l'arroganza tecnica. Un developer che non fa sforzi per comprendere il dominio di business è parte del problema, non della soluzione. La protezione offerta da SDSD è tanto più efficace quanto più il developer è genuinamente competente — sia tecnicamente che nel dominio.
+One of the main vectors of misunderstanding is language. Business and developers use different terms for the same concepts, or the same terms for different concepts. Creating and maintaining a shared vocabulary (Ubiquitous Language) is a fundamental defensive act.
 
-**Pratica derivata:** domain learning continuo, Event Storming, shadowing con domain expert, lettura della documentazione di dominio.
+**Derived practice:** a shared, updated glossary, visible to everyone. No requirements document without a reference to the glossary.
 
 ---
 
-## Il Manifesto SDSD (Versione Compatta)
+### Principle 7: Tests Are Proof
+*"A green test is a signed guarantee."*
+
+Automated tests are not just quality tools. They are formal proof that the software behaves as agreed. In the event of a dispute, a complete test suite is the most powerful document a developer can produce.
+
+**Derived practice:** Acceptance Test Driven Development (ATDD) — acceptance tests are written together with the business before development begins.
+
+---
+
+### Principle 8: Traceability is Protection
+*"Every line of code has a parent."*
+
+Being able to trace a system behavior back to the requirement that originated it is the most effective defense against the accusation of "you built the wrong thing." The Requirements Traceability Matrix (RTM) is the formal mechanism for this protection.
+
+**Derived practice:** every Feature/Story/Task must be linked to its parent requirement. Code must be traceable to the story that originated it.
+
+---
+
+### Principle 9: Architecture is Explained, Not Suffered
+*"An undocumented architectural decision is a time bomb."*
+
+Architectural decisions have a very long life and enormous impact. They must be documented, justified, and approved. Architecture Decision Records (ADR) are the standard tool for this.
+
+**Derived practice:** ADR for every relevant architectural decision, including context, options considered, decision made, and consequences.
+
+---
+
+### Principle 10: The Project Boundary is Sacred
+*"Scope creep is not an addition. It is theft."*
+
+Every unplanned feature that enters the project without going through the formal change management process is a theft of resources, time, and attention. The project boundary (scope) must be defined, approved, and defended.
+
+**Derived practice:** formal Change Request process, with impact assessment and explicit approval before any change.
+
+---
+
+### Principle 11: Uncertainty is Managed, Not Denied
+*"If you don't know, say so. And document it."*
+
+Denying uncertainty is the fastest way to create false expectations and miss deadlines. Explicitly identifying areas of uncertainty, communicating them, and planning risk management mechanisms is a sign of professionalism, not weakness.
+
+**Derived practice:** Risk Register, technical spikes to reduce uncertainty, proactive communication of risks.
+
+---
+
+### Principle 12: The Professional Continuously Learns
+*"Ignorance of the domain is temporary. Ignorance of best practices is a choice."*
+
+SDSD does not justify technical arrogance. A developer who makes no effort to understand the business domain is part of the problem, not the solution. The protection offered by SDSD is all the more effective the more genuinely competent the developer is — both technically and in the domain.
+
+**Derived practice:** continuous domain learning, Event Storming, shadowing with domain experts, reading domain documentation.
+
+---
+
+## The SDSD Manifesto (Compact Version)
 
 ```
-Preferiamo:
+We prefer:
 
-  Documentazione scritta e firmata
-    piuttosto che accordi verbali
+  Written and signed documentation
+    over verbal agreements
 
-  Responsabilità esplicite e tracciate
-    piuttosto che responsabilità diffuse e implicite
+  Explicit and tracked responsibilities
+    over diffuse and implicit responsibilities
 
-  Change Request formali con impatto valutato
-    piuttosto che "piccole modifiche" non tracciate
+  Formal Change Requests with assessed impact
+    over untracked "small changes"
 
-  Demo frequenti con feedback documentato
-    piuttosto che lunghi periodi di sviluppo al buio
+  Frequent demos with documented feedback
+    over long development periods in the dark
 
-  Un linguaggio condiviso e preciso
-    piuttosto che termini ambigui interpretati liberamente
+  A shared and precise language
+    over ambiguous terms freely interpreted
 
-  Test di accettazione concordati prima dello sviluppo
-    piuttosto che validazioni post-hoc soggettive
+  Acceptance tests agreed before development
+    over subjective post-hoc validations
 
-  Rischi e incertezze comunicati proattivamente
-    piuttosto che ottimismo sistematico e scadenze mancate
+  Risks and uncertainties proactively communicated
+    over systematic optimism and missed deadlines
 
-Questo non significa che gli elementi a destra non abbiano valore.
-Significa che siamo stati bruciati troppe volte da essi.
+This does not mean that the items on the right have no value.
+It means we have been burned too many times by them.
 ```
 
 ---
 
-## La Mappa Mentale di SDSD
+## The SDSD Mind Map
 
 ```
 SDSD
-├── Protezione dei Requisiti
-│   ├── Requirements Engineering rigoroso
-│   ├── Sign-off formale
+├── Requirements Protection
+│   ├── Rigorous Requirements Engineering
+│   ├── Formal sign-off
 │   ├── Requirements Traceability Matrix
-│   └── Ubiquitous Language / Glossario
+│   └── Ubiquitous Language / Glossary
 │
-├── Protezione delle Decisioni
+├── Decision Protection
 │   ├── Architecture Decision Records
 │   ├── Decision Log
 │   ├── RFC Process
-│   └── Meeting Minutes con azioni tracciate
+│   └── Meeting Minutes with tracked actions
 │
-├── Protezione dallo Scope
+├── Scope Protection
 │   ├── Change Request Process
 │   ├── Impact Assessment
 │   ├── Definition of Ready
-│   └── Backlog grooming formale
+│   └── Formal backlog grooming
 │
-├── Protezione della Qualità
+├── Quality Protection
 │   ├── Definition of Done
-│   ├── Acceptance Criteria espliciti
+│   ├── Explicit Acceptance Criteria
 │   ├── BDD / ATDD
-│   └── Test come contratto
+│   └── Tests as contracts
 │
-├── Protezione Architetturale
+├── Architectural Protection
 │   ├── Anti-Corruption Layer (DDD)
 │   ├── Bounded Contexts
 │   ├── Feature Flags
 │   └── Defensive Programming
 │
-└── Protezione della Comunicazione
+└── Communication Protection
     ├── Demo driven development
-    ├── Strutture di escalation
+    ├── Escalation structures
     ├── Stakeholder matrix
-    └── Risk Register pubblico
+    └── Public Risk Register
 ```
 
 ---
 
-*Prossimo: [02 — Dati e Statistiche sui Fallimenti Software](./02-dati-statistiche.md)*
+*Next: [02 — Data and Statistics on Software Failures](./02-dati-statistiche.md)*

@@ -1,180 +1,180 @@
-# 06 — ADR & Documentazione Decisionale
+# 06 — ADR & Decision Documentation
 
-> *"Una decisione non documentata non è una decisione. È un'intenzione dimenticata."*
+> *"An undocumented decision is not a decision. It is a forgotten intention."*
 
-La documentazione delle decisioni è il pilastro centrale della protezione SDSD. Se una decisione non è scritta, non esiste. Se esiste ma non è firmata, non ha un proprietario. Se ha un proprietario ma non è tracciabile, non è difendibile.
+Decision documentation is the central pillar of SDSD protection. If a decision is not written down, it does not exist. If it exists but is not signed, it has no owner. If it has an owner but is not traceable, it is not defensible.
 
 ---
 
 ## Architecture Decision Records (ADR)
 
-### Cos'è un ADR
+### What is an ADR
 
-Un Architecture Decision Record documenta una singola decisione architettuale significativa: il contesto in cui è stata presa, le opzioni considerate, la decisione finale e le sue conseguenze.
+An Architecture Decision Record documents a single significant architectural decision: the context in which it was made, the options considered, the final decision, and its consequences.
 
-Gli ADR sono stati introdotti da Michael Nygard nel 2011 e sono oggi uno standard de-facto nell'industria (usati da Amazon, Google, Netflix, e dalla maggior parte delle organizzazioni tech mature).
+ADRs were introduced by Michael Nygard in 2011 and are today a de-facto industry standard (used by Amazon, Google, Netflix, and most mature tech organizations).
 
-### Perché gli ADR Proteggono
+### Why ADRs Protect
 
-1. **Memoria istituzionale:** quando un team member lascia, le motivazioni delle decisioni non vanno con lui.
-2. **Protezione retroattiva:** "Perché avete scelto PostgreSQL?" → "Vedi ADR-007, deciso in accordo con l'infrastruttura il 15 marzo."
-3. **Prevenzione delle "zombie decisions":** decisioni già discusse e risolte non vengono rimesse in discussione inutilmente.
-4. **Onboarding accelerato:** i nuovi arrivati capiscono il *perché* del codice, non solo il *cosa*.
+1. **Institutional memory:** when a team member leaves, the rationale behind decisions doesn't leave with them.
+2. **Retroactive protection:** "Why did you choose PostgreSQL?" → "See ADR-007, decided in agreement with infrastructure on March 15."
+3. **Prevention of "zombie decisions":** decisions already discussed and resolved are not needlessly reopened.
+4. **Accelerated onboarding:** newcomers understand the *why* of the code, not just the *what*.
 
 ---
 
-### Template ADR Completo (Formato MADR)
+### Complete ADR Template (MADR Format)
 
 ```markdown
-# ADR-[NNN]: [Titolo Breve della Decisione]
+# ADR-[NNN]: [Short Decision Title]
 
-**Stato:** Proposta | In Revisione | Accettata | Deprecata | Sostituita da ADR-[NNN]
+**Status:** Proposed | Under Review | Accepted | Deprecated | Superseded by ADR-[NNN]
 
-**Data:** [YYYY-MM-DD]
+**Date:** [YYYY-MM-DD]
 
-**Deciso da:** [nome/i], [ruolo/i]
+**Decided by:** [name/s], [role/s]
 
-**Approvato da:** [stakeholder tecnico/business che ha firmato]
+**Approved by:** [technical/business stakeholder who signed off]
 
 ---
 
-## Contesto e Problema
+## Context and Problem
 
-[Descrivi la situazione che richiede una decisione. Sii concreto: quali
- forze sono in gioco? Quali vincoli esistono? Qual è il problema che
- stiamo cercando di risolvere?]
+[Describe the situation that requires a decision. Be concrete: what
+ forces are at play? What constraints exist? What problem are we
+ trying to solve?]
 
-## Fattori Decisionali
+## Decision Factors
 
-- [Fattore 1: es. performance richiesta]
-- [Fattore 2: es. competenze del team]
-- [Fattore 3: es. vincoli di budget]
-- [Fattore 4: es. requisiti di sicurezza]
+- [Factor 1: e.g. required performance]
+- [Factor 2: e.g. team skills]
+- [Factor 3: e.g. budget constraints]
+- [Factor 4: e.g. security requirements]
 
-## Opzioni Considerate
+## Options Considered
 
-### Opzione 1: [Nome]
-[Descrizione]
-- Pro: [lista]
-- Contro: [lista]
-- Costo di implementazione: [stima]
+### Option 1: [Name]
+[Description]
+- Pros: [list]
+- Cons: [list]
+- Implementation cost: [estimate]
 
-### Opzione 2: [Nome]
-[Descrizione]
-- Pro: [lista]
-- Contro: [lista]
-- Costo di implementazione: [stima]
+### Option 2: [Name]
+[Description]
+- Pros: [list]
+- Cons: [list]
+- Implementation cost: [estimate]
 
-### Opzione 3: [Nome] (se applicabile)
+### Option 3: [Name] (if applicable)
 ...
 
-## Decisione
+## Decision
 
-**Scelta: Opzione [N] — [Nome]**
+**Choice: Option [N] — [Name]**
 
-[Motivazione in 3-5 frasi: perché questa opzione rispetto alle altre,
- dati i fattori decisionali sopra elencati.]
+[Rationale in 3-5 sentences: why this option over the others,
+ given the decision factors listed above.]
 
-## Conseguenze
+## Consequences
 
 ### Positive
-- [Beneficio 1]
-- [Beneficio 2]
+- [Benefit 1]
+- [Benefit 2]
 
-### Negative (trade-off accettati)
-- [Svantaggio 1]
-- [Svantaggio 2]
+### Negative (accepted trade-offs)
+- [Drawback 1]
+- [Drawback 2]
 
-### Rischi Residui
-- [Rischio 1] → Mitigazione: [come lo gestiamo]
+### Residual Risks
+- [Risk 1] → Mitigation: [how we manage it]
 
-## Note di Implementazione
-[Eventuali dettagli implementativi, link a documentazione tecnica,
- esempi di codice, pattern da seguire]
+## Implementation Notes
+[Any implementation details, links to technical documentation,
+ code examples, patterns to follow]
 
-## ADR Correlati
-- ADR-[NNN]: [relazione]
-- ADR-[NNN]: [relazione]
+## Related ADRs
+- ADR-[NNN]: [relationship]
+- ADR-[NNN]: [relationship]
 
-## Log delle Revisioni
-| Data | Modificato da | Motivo |
-|------|---------------|--------|
-| [data] | [nome] | Prima stesura |
-| [data] | [nome] | Approvazione |
+## Revision Log
+| Date | Modified by | Reason |
+|------|-------------|--------|
+| [date] | [name] | First draft |
+| [date] | [name] | Approval |
 ```
 
 ---
 
-### Esempi di ADR Reali
+### Real ADR Examples
 
-#### ADR-001: Scelta del Database Relazionale
+#### ADR-001: Relational Database Choice
 
 ```markdown
-# ADR-001: PostgreSQL come database principale
+# ADR-001: PostgreSQL as main database
 
-**Stato:** Accettata
-**Data:** 2024-03-15
-**Deciso da:** Marco Rossi (Lead Dev), Sara Bianchi (Architect)
-**Approvato da:** Giovanni Ferri (CTO)
+**Status:** Accepted
+**Date:** 2024-03-15
+**Decided by:** Marco Rossi (Lead Dev), Sara Bianchi (Architect)
+**Approved by:** Giovanni Ferri (CTO)
 
-## Contesto e Problema
+## Context and Problem
 
-Il sistema richiede un database per la persistenza dei dati transazionali.
-Dobbiamo scegliere tra diverse opzioni SQL e NoSQL. Il team ha esperienza
-prevalente su database relazionali. I dati hanno una struttura fortemente
-relazionale (ordini, clienti, prodotti, fatture).
+The system requires a database for transactional data persistence.
+We must choose between various SQL and NoSQL options. The team has
+predominantly relational database experience. The data has a strongly
+relational structure (orders, customers, products, invoices).
 
-## Fattori Decisionali
-- ACID compliance richiesta per le transazioni finanziarie
-- Competenze del team (SQL, non MongoDB/DynamoDB)
-- Costo operativo (managed service disponibile)
-- Supporto JSONB per dati semi-strutturati futuri
-- Licenza open-source (no vendor lock-in con Oracle/MSSQL)
+## Decision Factors
+- ACID compliance required for financial transactions
+- Team skills (SQL, not MongoDB/DynamoDB)
+- Operational cost (managed service available)
+- JSONB support for future semi-structured data
+- Open-source license (no vendor lock-in with Oracle/MSSQL)
 
-## Opzioni Considerate
-### Opzione 1: PostgreSQL
-- Pro: ACID, JSONB, estensioni, community enorme, managed su AWS (RDS)/GCP/Azure
-- Contro: non orizzontalmente scalabile nativamente per write
+## Options Considered
+### Option 1: PostgreSQL
+- Pros: ACID, JSONB, extensions, large community, managed on AWS (RDS)/GCP/Azure
+- Cons: not natively horizontally scalable for writes
 
-### Opzione 2: MySQL/MariaDB
-- Pro: performance in lettura, molto diffuso
-- Contro: JSONB limitato, funzionalità avanzate meno potenti di PG
+### Option 2: MySQL/MariaDB
+- Pros: read performance, very widespread
+- Cons: limited JSONB, less powerful advanced features than PG
 
-### Opzione 3: MongoDB
-- Pro: schema flessibile, scaling orizzontale
-- Contro: no ACID multi-document pre-4.0, team non esperto, non ideale per dati relazionali
+### Option 3: MongoDB
+- Pros: flexible schema, horizontal scaling
+- Cons: no multi-document ACID pre-4.0, team not experienced, not ideal for relational data
 
-## Decisione
-**Scelta: Opzione 1 — PostgreSQL**
+## Decision
+**Choice: Option 1 — PostgreSQL**
 
-PostgreSQL offre il miglior equilibrio tra ACID compliance (necessaria per
-le transazioni finanziarie), flessibilità (JSONB), e competenze del team.
-Il rischio di scaling orizzontale in write è accettabile per la dimensione
-attuale del sistema e può essere affrontato in futuro con read replica.
+PostgreSQL offers the best balance between ACID compliance (necessary for
+financial transactions), flexibility (JSONB), and team skills.
+The risk of horizontal write scaling is acceptable for the current system
+size and can be addressed in the future with read replicas.
 
-## Conseguenze
+## Consequences
 ### Positive
-- Zero rischio per transazioni finanziarie (ACID)
-- Velocità di sviluppo (team già esperto)
-- Flessibilità con JSONB per dati semi-strutturati
+- Zero risk for financial transactions (ACID)
+- Development speed (team already experienced)
+- Flexibility with JSONB for semi-structured data
 
 ### Negative
-- Scaling verticale limitato (affrontabile con sharding in futuro)
-- Costo leggermente superiore a MySQL su managed services
+- Limited vertical scaling (addressable with sharding in the future)
+- Slightly higher cost than MySQL on managed services
 
-## ADR Correlati
+## Related ADRs
 - ADR-005: Schema migration strategy (Alembic/Flyway)
-- ADR-012: Read replica per reporting
+- ADR-012: Read replica for reporting
 ```
 
 ---
 
-### Dove Tenere gli ADR
+### Where to Keep ADRs
 
-**Opzione standard:** nella repository del codice, in una cartella `docs/decisions/` o `adr/`.
+**Standard option:** in the code repository, in a `docs/decisions/` or `adr/` folder.
 
 ```
-progetto/
+project/
 ├── src/
 ├── tests/
 └── docs/
@@ -182,217 +182,217 @@ progetto/
         ├── 0001-postgresql-database.md
         ├── 0002-hexagonal-architecture.md
         ├── 0003-jwt-authentication.md
-        └── README.md  (indice degli ADR)
+        └── README.md  (ADR index)
 ```
 
-**Vantaggi di tenerli nella repo:**
-- Versionate con il codice (git blame, git log)
-- Linkabili nei code review
-- Parte del PR process
-- Sempre aggiornati con il codice
+**Advantages of keeping them in the repo:**
+- Versioned with the code (git blame, git log)
+- Linkable in code reviews
+- Part of the PR process
+- Always up-to-date with the code
 
-**Strumenti per gli ADR:**
-- `adr-tools` (CLI di Nygard): crea template e gestisce ADR da terminale
-- Architectural Haiku (formato minimalista)
-- Log4Brains (web UI per navigare gli ADR)
-- Backstage.io (Spotify): portale developer con supporto ADR
+**Tools for ADRs:**
+- `adr-tools` (Nygard's CLI): creates templates and manages ADRs from the terminal
+- Architectural Haiku (minimalist format)
+- Log4Brains (web UI for navigating ADRs)
+- Backstage.io (Spotify): developer portal with ADR support
 
 ---
 
 ## Decision Log
 
-Più leggero degli ADR, il Decision Log cattura tutte le decisioni (non solo quelle architetturali) in formato tabellare:
+Lighter than ADRs, the Decision Log captures all decisions (not just architectural ones) in tabular format:
 
 ```markdown
-# Decision Log — Progetto [Nome]
+# Decision Log — [Project Name]
 
-| ID | Data | Decisione | Contesto | Opzioni Valutate | Deciso da | Revisione |
-|----|------|-----------|----------|------------------|-----------|-----------|
-| DL-001 | 2024-03-01 | Usare TypeScript invece di JavaScript | Necessità di type safety e refactoring più sicuro | JS, TS, Flow | Team + PO | 2025-03 |
-| DL-002 | 2024-03-15 | Utilizzare Kubernetes per orchestrazione | Requisiti di scaling auto | K8s, ECS, Nomad | Architect + CTO | 2025-03 |
-| DL-003 | 2024-04-01 | Adottare GitFlow come branching strategy | Gestione di multiple release | GitFlow, Trunk-based, Feature Flags | Lead Dev | 2024-10 |
+| ID | Date | Decision | Context | Options Evaluated | Decided by | Review |
+|----|------|----------|---------|-------------------|-----------|--------|
+| DL-001 | 2024-03-01 | Use TypeScript instead of JavaScript | Need for type safety and safer refactoring | JS, TS, Flow | Team + PO | 2025-03 |
+| DL-002 | 2024-03-15 | Use Kubernetes for orchestration | Auto-scaling requirements | K8s, ECS, Nomad | Architect + CTO | 2025-03 |
+| DL-003 | 2024-04-01 | Adopt GitFlow as branching strategy | Managing multiple releases | GitFlow, Trunk-based, Feature Flags | Lead Dev | 2024-10 |
 ```
 
 ---
 
-## Meeting Minutes (Verbali di Riunione)
+## Meeting Minutes
 
-Ogni meeting significativo deve produrre un verbale. Questo non è burocrazia: è protezione.
+Every significant meeting must produce minutes. This is not bureaucracy: it is protection.
 
-### Template Verbale Standard
+### Standard Minutes Template
 
 ```markdown
-# Verbale — [Tipo Meeting] — [Data]
+# Minutes — [Meeting Type] — [Date]
 
-**Progetto:** [nome]
-**Data/Ora:** [data e ora]
-**Luogo/Link:** [sala riunioni o link Meet/Zoom]
-**Facilitatore:** [nome]
-**Note-taker:** [nome]
+**Project:** [name]
+**Date/Time:** [date and time]
+**Location/Link:** [meeting room or Meet/Zoom link]
+**Facilitator:** [name]
+**Note-taker:** [name]
 
-## Partecipanti
-| Nome | Ruolo | Presenza |
-|------|-------|----------|
-| [nome] | [ruolo] | Presente / Assente con delega a [nome] |
+## Participants
+| Name | Role | Attendance |
+|------|------|-----------|
+| [name] | [role] | Present / Absent with proxy to [name] |
 
-## Ordine del Giorno
-1. [Punto 1]
-2. [Punto 2]
-3. [Punto 3]
+## Agenda
+1. [Item 1]
+2. [Item 2]
+3. [Item 3]
 
-## Discussione
+## Discussion
 
-### [Punto 1]: [Titolo]
-[Riassunto della discussione]
-**Decisione presa:** [descrizione chiara]
-**Motivazione:** [perché]
+### [Item 1]: [Title]
+[Summary of discussion]
+**Decision made:** [clear description]
+**Rationale:** [why]
 
-### [Punto 2]: [Titolo]
-[Riassunto]
-**Decisione presa:** ...
+### [Item 2]: [Title]
+[Summary]
+**Decision made:** ...
 
-## Azioni (Action Items)
+## Actions (Action Items)
 
-| # | Azione | Owner | Scadenza | Status |
+| # | Action | Owner | Deadline | Status |
 |---|--------|-------|----------|--------|
-| 1 | [descrizione azione] | [nome] | [data] | ⏳ Aperto |
-| 2 | [descrizione azione] | [nome] | [data] | ⏳ Aperto |
+| 1 | [action description] | [name] | [date] | ⏳ Open |
+| 2 | [action description] | [name] | [date] | ⏳ Open |
 
-## Prossimo Meeting
-**Data:** [data]
-**Agenda preliminare:** [lista]
+## Next Meeting
+**Date:** [date]
+**Preliminary agenda:** [list]
 
 ---
-*Questo verbale verrà considerato approvato se non vengono segnalate
-correzioni entro 48 ore dalla distribuzione.*
+*These minutes will be considered approved if no corrections are reported
+within 48 hours of distribution.*
 
-**Distribuito a:** [lista email]
-**Data distribuzione:** [data]
+**Distributed to:** [email list]
+**Distribution date:** [date]
 ```
 
 ---
 
-## Spike Tecnici — Documentazione
+## Technical Spikes — Documentation
 
-Uno spike è un'attività di ricerca e prototipazione per ridurre l'incertezza tecnica. Va documentato formalmente:
+A spike is a research and prototyping activity to reduce technical uncertainty. It should be formally documented:
 
 ```markdown
-# Spike — [ID]: [Titolo]
+# Spike — [ID]: [Title]
 
-**Data:** [data]
-**Condotto da:** [nome]
-**Durata:** [ore/giorni]
+**Date:** [date]
+**Conducted by:** [name]
+**Duration:** [hours/days]
 
-## Domanda da Rispondere
-[Quale incertezza vogliamo eliminare?]
+## Question to Answer
+[What uncertainty are we trying to eliminate?]
 
-## Metodo
-[Come abbiamo investigato?]
+## Method
+[How did we investigate?]
 
-## Risultati
-[Cosa abbiamo scoperto?]
+## Results
+[What did we find?]
 
-## Raccomandazione
-[Cosa facciamo adesso?]
+## Recommendation
+[What do we do now?]
 
-## Prossimi Passi
-- [Azione 1]
-- [Azione 2]
+## Next Steps
+- [Action 1]
+- [Action 2]
 
-## Riferimenti
-- [Link a PoC, benchmark, documentazione]
+## References
+- [Links to PoC, benchmarks, documentation]
 ```
 
 ---
 
 ## RFC — Request for Comments
 
-Processo formale per proporre e discutere cambiamenti significativi al sistema, usato da molte big tech (Rust lang, React, TypeScript, etc.):
+Formal process for proposing and discussing significant system changes, used by many big tech companies (Rust lang, React, TypeScript, etc.):
 
-### Processo RFC
+### RFC Process
 
 ```
 1. DRAFT
-   Il developer scrive una proposta in formato RFC
-   e la condivide nel repository docs/rfcs/
+   The developer writes a proposal in RFC format
+   and shares it in the repository docs/rfcs/
 
-2. REVIEW (7-14 giorni)
-   Il team commenta, suggerisce, critica.
-   I commenti vengono gestiti come thread nel PR.
+2. REVIEW (7-14 days)
+   The team comments, suggests, criticizes.
+   Comments are managed as threads in the PR.
 
 3. FINAL COMMENT PERIOD (FCP)
-   Annuncio che la decisione è imminente.
-   Ultimi commenti raccolti.
+   Announcement that the decision is imminent.
+   Final comments collected.
 
-4. DECISIONE
-   - Accepted: il cambio procede
-   - Rejected: motivazione documentata
-   - Postponed: rimandato con motivazione
+4. DECISION
+   - Accepted: the change proceeds
+   - Rejected: motivation documented
+   - Postponed: deferred with rationale
 
 5. IMPLEMENTATION
-   L'RFC accettato diventa un ADR + issue/epic nel tracker.
+   The accepted RFC becomes an ADR + issue/epic in the tracker.
 ```
 
-### Template RFC
+### RFC Template
 
 ```markdown
-# RFC-[NNN]: [Titolo]
+# RFC-[NNN]: [Title]
 
-**Autore:** [nome]
-**Stato:** Draft | In Review | FCP | Accepted | Rejected
-**Data proposta:** [data]
-**Data decisione:** [data]
+**Author:** [name]
+**Status:** Draft | In Review | FCP | Accepted | Rejected
+**Proposed date:** [date]
+**Decision date:** [date]
 
-## Summary (3-5 righe)
-[Cosa stai proponendo e perché in breve]
+## Summary (3-5 lines)
+[What you are proposing and why, briefly]
 
-## Motivazione
-[Perché è necessario questo cambiamento? Quale problema risolve?
- Quali casi d'uso abilita?]
+## Motivation
+[Why is this change necessary? What problem does it solve?
+ What use cases does it enable?]
 
-## Proposta Dettagliata
-[Come funzionerà esattamente? Design, API, struttura.]
+## Detailed Proposal
+[How will it work exactly? Design, API, structure.]
 
-## Trade-off e Svantaggi
-[Cosa sacrifichiamo con questa scelta?]
+## Trade-offs and Drawbacks
+[What are we sacrificing with this choice?]
 
-## Alternative Considerate
-[Cosa hai valutato prima di proporre questo?]
+## Alternatives Considered
+[What did you evaluate before proposing this?]
 
-## Domande Aperte
-[Cosa non hai ancora risolto? Dove hai bisogno di input?]
+## Open Questions
+[What haven't you resolved yet? Where do you need input?]
 
-## Riferimenti
-[Link, paper, implementazioni simili in altri progetti]
+## References
+[Links, papers, similar implementations in other projects]
 ```
 
 ---
 
-## Traceability: Chiudere il Cerchio
+## Traceability: Closing the Loop
 
-La documentazione delle decisioni ha pieno valore solo se è **navigabile e interconnessa**:
+Decision documentation has full value only if it is **navigable and interconnected**:
 
 ```
-REQUISITO (RTM)
-    │ implementato da
+REQUIREMENT (RTM)
+    │ implemented by
     ▼
 USER STORY (backlog)
-    │ derivata da
+    │ derived from
     ▼
 TASK / COMMIT (git)
-    │ giustificato da
+    │ justified by
     ▼
 ADR / RFC (docs/decisions)
-    │ validato da
+    │ validated by
     ▼
-TEST di ACCETTAZIONE (CI/CD)
-    │ verificato da
+ACCEPTANCE TEST (CI/CD)
+    │ verified by
     ▼
 PRODUCTION METRICS (monitoring)
 ```
 
-Questa catena di tracciabilità permette di rispondere a qualsiasi domanda del tipo "perché il sistema fa X?" navigando dal comportamento osservato fino al requisito originale che lo ha motivato.
+This traceability chain allows answering any question of the type "why does the system do X?" by navigating from the observed behavior back to the original requirement that motivated it.
 
 ---
 
-*Precedente: [05 — Defensive Architecture](./05-defensive-architecture.md) | Prossimo: [07 — Agile come Scudo](./07-agile-protection.md)*
+*Previous: [05 — Defensive Architecture](./05-defensive-architecture.md) | Next: [07 — Agile as a Shield](./07-agile-protection.md)*

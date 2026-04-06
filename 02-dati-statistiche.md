@@ -1,60 +1,60 @@
-# 02 — Dati e Statistiche sui Fallimenti Software
+# 02 — Data and Statistics on Software Failures
 
-> *"Non stai affrontando un problema eccezionale. Stai affrontando la norma statistica."*
+> *"You are not facing an exceptional problem. You are facing the statistical norm."*
 
-Uno degli argomenti più potenti a favore delle pratiche SDSD è l'evidenza empirica: i progetti software falliscono sistematicamente, e le cause principali non sono tecniche. Conoscere questi dati ti permetterà di difendere le pratiche preventive anche di fronte a stakeholder scettici.
+One of the most powerful arguments in favor of SDSD practices is the empirical evidence: software projects fail systematically, and the primary causes are not technical. Knowing this data will allow you to defend preventive practices even in the face of skeptical stakeholders.
 
 ---
 
-## Il Chaos Report — Standish Group
+## The Chaos Report — Standish Group
 
-Il **Chaos Report** è la più longeva e citata ricerca sui fallimenti dei progetti IT, pubblicata dal Standish Group dal 1994. Analizza decine di migliaia di progetti ogni anno.
+The **Chaos Report** is the longest-running and most widely cited research on IT project failures, published by the Standish Group since 1994. It analyzes tens of thousands of projects every year.
 
-### Risultati Principali (2020)
+### Key Results (2020)
 
-| Categoria | Percentuale |
-|-----------|-------------|
-| **Successful** (nei tempi, nel budget, con le funzionalità previste) | 31% |
-| **Challenged** (ritardi, sforamenti di budget, funzionalità ridotte) | 52% |
-| **Failed** (cancellati o mai utilizzati) | 17% |
+| Category | Percentage |
+|----------|------------|
+| **Successful** (on time, on budget, with planned features) | 31% |
+| **Challenged** (delays, budget overruns, reduced features) | 52% |
+| **Failed** (cancelled or never used) | 17% |
 
-**Conclusione:** il 69% dei progetti software ha problemi significativi. Questo non è un'anomalia: è la condizione di base.
+**Conclusion:** 69% of software projects have significant problems. This is not an anomaly: it is the baseline condition.
 
-### Fattori di Successo (in ordine di importanza)
+### Success Factors (in order of importance)
 
-Secondo il Chaos Report, i tre fattori che più correlano con il successo sono:
+According to the Chaos Report, the three factors most correlated with success are:
 
-1. **User involvement** (coinvolgimento degli utenti)
-2. **Executive management support** (supporto del management)
-3. **Clear statement of requirements** (requisiti chiari)
+1. **User involvement**
+2. **Executive management support**
+3. **Clear statement of requirements**
 
-> 💡 **Implicazione SDSD:** due dei tre fattori di successo riguardano la gestione dei requisiti e il coinvolgimento umano. Non la tecnologia. Non il framework. Le persone e i requisiti.
+> 💡 **SDSD Implication:** two of the three success factors relate to requirements management and human involvement. Not technology. Not the framework. People and requirements.
 
-### Cause Principali di Fallimento
+### Primary Causes of Failure
 
-| Causa | % Progetti Impattati |
+| Cause | % Projects Impacted |
 |-------|---------------------|
-| Requisiti poveri o incompleti | 39% |
-| Mancanza di coinvolgimento degli utenti | 33% |
-| Mancanza di risorse | 29% |
-| Aspettative non realistiche | 29% |
-| Mancanza di supporto esecutivo | 29% |
-| Cambio di requisiti e specifiche | 24% |
-| Mancanza di pianificazione | 23% |
-| Progetto non più necessario | 9% |
+| Poor or incomplete requirements | 39% |
+| Lack of user involvement | 33% |
+| Lack of resources | 29% |
+| Unrealistic expectations | 29% |
+| Lack of executive support | 29% |
+| Changing requirements and specifications | 24% |
+| Lack of planning | 23% |
+| Project no longer needed | 9% |
 
-> 💡 **Implicazione SDSD:** le prime due cause (requisiti e coinvolgimento) rappresentano da sole quasi il 75% dei fallimenti. Il problema dei "requisiti stupid" non è un'eccezione: è la principale causa di fallimento dell'industria.
+> 💡 **SDSD Implication:** the first two causes (requirements and involvement) alone account for nearly 75% of failures. The "unclear requirements" problem is not an exception: it is the primary cause of failure in the industry.
 
 ---
 
-## Dati sull'Impatto Economico
+## Data on Economic Impact
 
-### Costo dei Difetti per Fase
+### Cost of Defects by Phase
 
-Un principio consolidato dell'ingegneria del software (derivato dagli studi di Barry Boehm negli anni '70 e confermato da ricerche successive) è che il **costo di correzione di un difetto cresce esponenzialmente con il ritardo nella sua rilevazione**:
+A well-established principle of software engineering (derived from Barry Boehm's studies in the 1970s and confirmed by subsequent research) is that the **cost of fixing a defect grows exponentially with the delay in its detection**:
 
 ```
-Fase di rilevazione        Costo relativo
+Detection phase            Relative cost
 ─────────────────────────────────────────
 Requirements                    1x
 Design                         5x
@@ -63,126 +63,126 @@ Testing                       20x
 Production                   100x
 ```
 
-> 💡 **Implicazione SDSD:** un requisito sbagliato identificato durante il requirements engineering costa 100 volte meno dello stesso requisito sbagliato identificato in produzione. Investire in pratiche rigorose di elicitazione dei requisiti non è overhead: è risparmio economico.
+> 💡 **SDSD Implication:** a wrong requirement identified during requirements engineering costs 100 times less than the same wrong requirement identified in production. Investing in rigorous requirements elicitation practices is not overhead: it is economic savings.
 
-### Costo della Volatilità dei Requisiti
+### Cost of Requirements Volatility
 
-Uno studio di IBM Systems Sciences Institute ha quantificato che:
-- Il 45% delle funzionalità sviluppate non vengono mai usate
-- Il 19% viene usato raramente
-- Solo il 36% viene effettivamente utilizzato
+An IBM Systems Sciences Institute study quantified that:
+- 45% of developed features are never used
+- 19% are rarely used
+- Only 36% are actually used
 
-Questo significa che **quasi 2/3 dello sviluppo software è spreco**, originato direttamente da requisiti mal definiti o non validati con gli utenti reali.
+This means that **almost 2/3 of software development is waste**, originating directly from poorly defined or unvalidated requirements.
 
 ---
 
-## Studi Accademici Rilevanti
+## Relevant Academic Studies
 
 ### "No Silver Bullet" — Fred Brooks (1986)
 
-Fred Brooks, nel suo seminale articolo pubblicato su *IEEE Computer*, identifica le cause fondamentali della difficoltà del software engineering:
+Fred Brooks, in his seminal article published in *IEEE Computer*, identifies the fundamental causes of difficulty in software engineering:
 
-**Complessità Essenziale** (non eliminabile):
-- I sistemi software sono intrinsecamente complessi
-- La complessità cresce non linearmente con la dimensione
-- Non esiste una soluzione tecnologica che la elimini
+**Essential Complexity** (not eliminable):
+- Software systems are intrinsically complex
+- Complexity grows non-linearly with size
+- There is no technological solution that eliminates it
 
-**Complessità Accidentale** (eliminabile):
-- Derivata da strumenti, linguaggi, processi inadeguati
-- Riducibile con buone pratiche
+**Accidental Complexity** (eliminable):
+- Derived from inadequate tools, languages, processes
+- Reducible with good practices
 
-> 💡 **Implicazione SDSD:** la complessità dei requisiti stakeholder è in parte *essenziale* (il dominio è davvero complesso) e in parte *accidentale* (derivata da processi comunicativi inadeguati). SDSD riduce la complessità accidentale.
+> 💡 **SDSD Implication:** the complexity of stakeholder requirements is partly *essential* (the domain is truly complex) and partly *accidental* (derived from inadequate communication processes). SDSD reduces accidental complexity.
 
 ### "The Mythical Man-Month" — Fred Brooks (1975)
 
-Introduce **Brooks's Law**: *"Aggiungere personale a un progetto in ritardo lo fa ritardare ulteriormente."*
+Introduces **Brooks's Law**: *"Adding manpower to a late software project makes it later."*
 
-Il meccanismo: ogni nuovo membro del team deve essere formato, e la formazione usa risorse del team esistente. Più persone significano più canali di comunicazione (n*(n-1)/2), più overhead di coordinamento.
+The mechanism: each new team member must be trained, and training uses resources of the existing team. More people means more communication channels (n*(n-1)/2), more coordination overhead.
 
-> 💡 **Implicazione SDSD:** la soluzione ai problemi di progetto non è aggiungere persone. È rimuovere ambiguità e migliorare i processi — esattamente ciò che SDSD propone.
+> 💡 **SDSD Implication:** the solution to project problems is not adding people. It is removing ambiguity and improving processes — exactly what SDSD proposes.
 
 ### Conway's Law — Melvin Conway (1968)
 
 > *"Any organization that designs a system will produce a design whose structure is a copy of the organization's communication structure."*
 
-Le architetture software rispecchiano le strutture organizzative che le producono. Se l'organizzazione è frammentata, incoerente, con silos di potere, anche il software lo sarà.
+Software architectures mirror the organizational structures that produce them. If the organization is fragmented, inconsistent, with power silos, so will the software be.
 
-> 💡 **Implicazione SDSD:** capire la struttura organizzativa dello stakeholder ti aiuta a prevedere dove nasceranno i problemi di requisiti e dove saranno le zone di conflitto.
+> 💡 **SDSD Implication:** understanding the stakeholder's organizational structure helps you predict where requirements problems will arise and where zones of conflict will be.
 
-### Studi sulla Root Cause Analysis
+### Root Cause Analysis Studies
 
-Una meta-analisi condotta da NIST nel 2002 stima che i bug software costano all'economia americana $59,5 miliardi l'anno, e che **più della metà potrebbe essere eliminata con migliori pratiche di testing e requirements**.
-
----
-
-## Il Paradosso della Visibilità
-
-Un fenomeno documentato in letteratura è il **paradosso della visibilità del software**: il software, essendo invisibile, è incomprensibile per i non tecnici. Questa invisibilità porta a:
-
-- Sottostima dell'effort richiesto
-- Incomprensione della complessità
-- Aspettative irrazionali sui tempi di sviluppo
-- Incapacità di valutare la qualità del lavoro svolto
-
-Brooks stesso identifica questa invisibilità come una delle quattro proprietà essenziali del software (assieme a complessità, conformità e mutabilità) che la rendono fondamentalmente diversa da qualsiasi altra disciplina ingegneristica.
-
-> 💡 **Implicazione SDSD:** il problema non è la malafede degli stakeholder. È che il software è strutturalmente invisibile e quindi incomprensibile per chi non lo costruisce. Le pratiche SDSD (demo, visualizzazioni, prototipi, test) sono strumenti per rendere il software *visibile*.
+A meta-analysis conducted by NIST in 2002 estimates that software bugs cost the American economy $59.5 billion per year, and that **more than half could be eliminated with better testing and requirements practices**.
 
 ---
 
-## Dati sull'Impatto dell'Agile
+## The Visibility Paradox
 
-La proliferazione delle metodologie Agile ha migliorato la situazione, ma non l'ha risolta:
+A phenomenon documented in literature is the **software visibility paradox**: software, being invisible, is incomprehensible to non-technical people. This invisibility leads to:
 
-| Metrica | Waterfall | Agile |
-|---------|-----------|-------|
-| % progetti di successo | 14% | 42% |
-| % progetti falliti | 29% | 9% |
-| % progetti challenged | 57% | 49% |
+- Underestimation of required effort
+- Misunderstanding of complexity
+- Irrational expectations about development timelines
+- Inability to assess the quality of work done
 
-Fonte: Standish Group Chaos Report 2020
+Brooks himself identifies this invisibility as one of the four essential properties of software (along with complexity, conformity, and changeability) that make it fundamentally different from any other engineering discipline.
 
-**Agile migliora significativamente i risultati, ma non è la panacea.** La ragione per cui Agile funziona meglio è esattamente il motivo per cui SDSD funziona: **iterazioni brevi, feedback frequente, adattamento continuo** — tutti meccanismi che riducono il danno causato da requisiti incomprensibili o mutevoli.
-
----
-
-## Il Costo dell'Incomprensione
-
-Uno studio del PMI (Project Management Institute) del 2017 rivela che **ogni miliardo di dollari investito in progetti vede $97 milioni sprecati a causa di scarse performance**, e che la causa principale è la **mancanza di chiari requisiti di progetto**.
-
-Lo stesso studio indica che le organizzazioni con alta maturità nel project management completano il 92% dei progetti con successo, contro il 33% delle organizzazioni a bassa maturità.
-
-> 💡 **Implicazione SDSD:** la maturità nei processi — esattamente ciò che SDSD promuove — è il fattore più predittivo del successo di un progetto, più della tecnologia usata, del team, o del budget.
+> 💡 **SDSD Implication:** the problem is not the bad faith of stakeholders. It is that software is structurally invisible and therefore incomprehensible to those who don't build it. SDSD practices (demos, visualizations, prototypes, tests) are tools to make software *visible*.
 
 ---
 
-## Riepilogo Visivo
+## Data on the Impact of Agile
+
+The proliferation of Agile methodologies has improved the situation, but not resolved it:
+
+| Metric | Waterfall | Agile |
+|--------|-----------|-------|
+| % successful projects | 14% | 42% |
+| % failed projects | 29% | 9% |
+| % challenged projects | 57% | 49% |
+
+Source: Standish Group Chaos Report 2020
+
+**Agile significantly improves results, but it is not a panacea.** The reason Agile works better is exactly the reason SDSD works: **short iterations, frequent feedback, continuous adaptation** — all mechanisms that reduce the damage caused by incomprehensible or changing requirements.
+
+---
+
+## The Cost of Misunderstanding
+
+A 2017 PMI (Project Management Institute) study reveals that **every billion dollars invested in projects sees $97 million wasted due to poor performance**, and that the primary cause is the **lack of clear project requirements**.
+
+The same study indicates that organizations with high project management maturity complete 92% of projects successfully, compared to 33% of low-maturity organizations.
+
+> 💡 **SDSD Implication:** process maturity — exactly what SDSD promotes — is the most predictive factor of project success, more so than the technology used, the team, or the budget.
+
+---
+
+## Visual Summary
 
 ```
-CAUSE DI FALLIMENTO SOFTWARE
-(fonte: Standish Group Chaos Report aggregato)
+CAUSES OF SOFTWARE FAILURE
+(source: Standish Group Chaos Report aggregated)
 
-Requisiti poveri/incompleti  ████████████████████████████ 39%
-Mancanza user involvement    ██████████████████████ 33%
-Mancanza risorse             ████████████████████ 29%
-Aspettative irrazionali      ████████████████████ 29%
-Mancanza supporto esecutivo  ████████████████████ 29%
-Cambio requisiti in corsa    ████████████████ 24%
-Mancanza pianificazione      ███████████████ 23%
-Progetto non più necessario  ██████ 9%
+Poor/incomplete requirements     ████████████████████████████ 39%
+Lack of user involvement         ██████████████████████ 33%
+Lack of resources                ████████████████████ 29%
+Unrealistic expectations         ████████████████████ 29%
+Lack of executive support        ████████████████████ 29%
+Requirements changed mid-project ████████████████ 24%
+Lack of planning                 ███████████████ 23%
+Project no longer needed         ██████ 9%
 
-I problemi di requisiti e comunicazione → 87% dei casi
-I problemi tecnici puri → < 15% dei casi
+Requirements and communication problems → 87% of cases
+Pure technical problems → < 15% of cases
 ```
 
 ---
 
-## Cosa Fare con Questi Dati
+## What to Do with This Data
 
-Questi dati sono uno **strumento di persuasione e legittimazione**. Quando uno stakeholder ti chiede perché stai "perdendo tempo" a documentare i requisiti o a fare una Change Request formale, la risposta è:
+This data is a **tool for persuasion and legitimization**. When a stakeholder asks why you are "wasting time" documenting requirements or creating a formal Change Request, the answer is:
 
-> *"Perché l'industria ci dice che il 39% dei progetti fallisce proprio per requisiti poveri, e non voglio che questo progetto sia parte di quella statistica."*
+> *"Because the industry tells us that 39% of projects fail precisely due to poor requirements, and I don't want this project to be part of that statistic."*
 
 ---
 
-*Precedente: [01 — Manifesto](./01-manifesto.md) | Prossimo: [03 — Requirements Engineering](./03-requirements-engineering.md)*
+*Previous: [01 — Manifesto](./01-manifesto.md) | Next: [03 — Requirements Engineering](./03-requirements-engineering.md)*

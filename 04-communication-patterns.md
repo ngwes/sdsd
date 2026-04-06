@@ -1,306 +1,306 @@
 # 04 — Communication Patterns
 
-> *"Il codice è semplice. Le persone sono complesse. Impara entrambi."*
+> *"Code is simple. People are complex. Learn both."*
 
-La comunicazione è il vettore principale attraverso cui i problemi entrano in un progetto software. Un developer che sa comunicare bene è un developer che si trova raramente in situazioni di "ma io non lo sapevo" o "pensavo si capisse da sé".
-
----
-
-## Il Principio Fondamentale: Asimmetria Cognitiva
-
-Gli stakeholder e i developer vivono in mondi cognitivi diversi:
-
-| Dominio | Stakeholder | Developer |
-|---------|-------------|-----------|
-| **Linguaggio** | Business, processo, KPI | Tecnico, astratto, preciso |
-| **Orizzonte temporale** | Trimestrale/annuale | Sprint/ticket |
-| **Metrica di successo** | Revenue, NPS, efficienza | Performance, qualità, copertura test |
-| **Modello mentale del software** | Scatola nera magica | Sistema complesso con vincoli |
-| **Attitudine al rischio** | Spesso high-risk/high-reward | Preferibilmente low-risk/incremental |
-
-**Non è stupidità: è specializzazione.** Comprendere questa asimmetria è il primo passo per comunicare efficacemente.
+Communication is the primary vector through which problems enter a software project. A developer who communicates well is a developer who rarely finds themselves in situations of "but I didn't know" or "I thought it was obvious."
 
 ---
 
-## Pattern di Comunicazione SDSD
+## The Fundamental Principle: Cognitive Asymmetry
 
-### Pattern 1: La Conferma Scritta (CYA — Cover Your Ass)
+Stakeholders and developers live in different cognitive worlds:
 
-**Problema:** accordi verbali che scompaiono.
+| Domain | Stakeholder | Developer |
+|--------|-------------|-----------|
+| **Language** | Business, process, KPI | Technical, abstract, precise |
+| **Time horizon** | Quarterly/annual | Sprint/ticket |
+| **Success metric** | Revenue, NPS, efficiency | Performance, quality, test coverage |
+| **Mental model of software** | Magic black box | Complex system with constraints |
+| **Risk attitude** | Often high-risk/high-reward | Preferably low-risk/incremental |
 
-**Soluzione:** dopo ogni meeting o conversazione significativa, invia un'email di riepilogo:
+**It's not stupidity: it's specialization.** Understanding this asymmetry is the first step toward communicating effectively.
+
+---
+
+## SDSD Communication Patterns
+
+### Pattern 1: Written Confirmation (CYA — Cover Your Ass)
+
+**Problem:** verbal agreements that disappear.
+
+**Solution:** after every significant meeting or conversation, send a summary email:
 
 ```
-Oggetto: Riepilogo decisioni — [nome progetto] — [data meeting]
+Subject: Decision Summary — [project name] — [meeting date]
 
-Ciao [nome],
+Hi [name],
 
-Come concordato nella call di oggi, riepilogo le decisioni prese:
+As agreed in today's call, I am summarizing the decisions made:
 
-1. [Decisione 1] → Owner: [nome] → Entro: [data]
-2. [Decisione 2] → Owner: [nome] → Entro: [data]
-3. [Requisito approvato/modificato] → Impatto: [descrizione]
+1. [Decision 1] → Owner: [name] → By: [date]
+2. [Decision 2] → Owner: [name] → By: [date]
+3. [Approved/modified requirement] → Impact: [description]
 
-Prossimi step:
-- [Azione 1] → [Chi] → [Quando]
-- [Azione 2] → [Chi] → [Quando]
+Next steps:
+- [Action 1] → [Who] → [When]
+- [Action 2] → [Who] → [When]
 
-Se non ricevo correzioni entro [24/48 ore], considero questo riepilogo
-come conferma delle decisioni prese.
+If I don't receive corrections by [24/48 hours], I consider this summary
+as confirmation of the decisions made.
 
-Grazie,
-[firma]
+Thank you,
+[signature]
 ```
 
-> 💡 **L'ultimo paragrafo è cruciale.** Il silenzio diventa consenso implicito, documentato.
+> 💡 **The last paragraph is crucial.** Silence becomes implicit consent, documented.
 
 ---
 
 ### Pattern 2: Speak Business, Not Tech
 
-Quando comunichi con stakeholder non tecnici, **traduci sempre in termini di impatto sul business**:
+When communicating with non-technical stakeholders, **always translate into business impact terms**:
 
-| Invece di... | Di'... |
+| Instead of... | Say... |
 |-------------|--------|
-| "Dobbiamo fare refactoring del modulo di autenticazione" | "Dobbiamo ridurre il rischio di violazioni di sicurezza e ridurre i tempi di sviluppo di nuove funzionalità del 30%" |
-| "C'è un memory leak nel processo di esportazione" | "Il sistema di esportazione diventa lento e instabile dopo ore di utilizzo. Dobbiamo correggere questo bug o gli utenti perderanno fiducia nel sistema" |
-| "Non possiamo fare TDD su questa codebase legacy" | "Aggiungere nuove funzionalità in questo sistema richiede il doppio del tempo e aumenta significativamente il rischio di regressioni. Vi presento un piano di modernizzazione graduale" |
-| "L'architettura è un monolite accoppiato" | "Il sistema è strutturato in modo che ogni modifica richieda di testare tutto il sistema, rallentando i rilasci. Con una ristrutturazione, potremmo rilasciare indipendentemente ogni area" |
+| "We need to refactor the authentication module" | "We need to reduce the risk of security breaches and reduce development time for new features by 30%" |
+| "There's a memory leak in the export process" | "The export system becomes slow and unstable after hours of use. We need to fix this bug or users will lose confidence in the system" |
+| "We can't do TDD on this legacy codebase" | "Adding new features to this system takes twice as long and significantly increases regression risk. Let me present a gradual modernization plan" |
+| "The architecture is a coupled monolith" | "The system is structured so that every change requires testing the entire system, slowing releases. With restructuring, we could release each area independently" |
 
 ---
 
-### Pattern 3: La Comunicazione Proattiva del Rischio
+### Pattern 3: Proactive Risk Communication
 
-**Regola d'oro:** comunica i problemi prima che diventino crisi.
+**Golden rule:** communicate problems before they become crises.
 
-Il meccanismo del "semaforo" (RAID log):
+The "traffic light" mechanism (RAID log):
 
-| Sigla | Significato | Azione |
-|-------|-------------|--------|
-| **R**isks | Cosa potrebbe andare storto | Mitigazione preventiva |
-| **A**ssumptions | Cosa stiamo assumendo | Validazione |
-| **I**ssues | Problemi già manifesti | Risoluzione |
-| **D**ependencies | Da cosa dipende il progetto | Tracking |
+| Acronym | Meaning | Action |
+|---------|---------|--------|
+| **R**isks | What could go wrong | Preventive mitigation |
+| **A**ssumptions | What we are assuming | Validation |
+| **I**ssues | Already-manifested problems | Resolution |
+| **D**ependencies | What the project depends on | Tracking |
 
-Il RAID log va aggiornato ad ogni sprint e condiviso con gli stakeholder. **Chi è stato avvisato di un rischio non può attribuire la responsabilità del problema al team.**
-
----
-
-### Pattern 4: Il Demo Strutturato
-
-I demo non sono spettacoli. Sono **cerimonie di validazione** con una struttura precisa:
-
-```
-STRUTTURA DEL DEMO SDSD
-
-1. CONTESTO (2 min)
-   "Nello sprint X, ci eravamo impegnati a sviluppare Y e Z."
-
-2. DIMOSTRAZIONE (10-15 min)
-   Mostra le funzionalità in un flusso utente reale.
-   Non mostrare il codice. Mostra il comportamento.
-
-3. VERIFICA DEGLI ACCEPTANCE CRITERIA (5 min)
-   "Come concordato, i criteri erano [A], [B], [C].
-    Verifichiamo insieme che siano soddisfatti."
-
-4. RACCOLTA FEEDBACK (10 min)
-   Struttura il feedback:
-   - "Cosa funziona come atteso?"
-   - "Cosa vorreste modificare?"
-   - "C'è qualcosa di mancante?" (→ Change Request!)
-
-5. AZIONI (5 min)
-   Documento scritto del feedback con:
-   - Feature approvate → chiuse nel tracker
-   - Modifiche richieste → Change Request formale
-   - Nuove richieste → Backlog, non sprint corrente
-```
-
-> ⚠️ **Anti-pattern:** il demo diventa una sessione di "mi è venuta un'idea". Ogni nuova richiesta durante un demo è una Change Request, non una modifica immediata.
+The RAID log should be updated every sprint and shared with stakeholders. **Anyone who has been warned of a risk cannot attribute the responsibility for the problem to the team.**
 
 ---
 
-### Pattern 5: La Stakeholder Matrix
+### Pattern 4: The Structured Demo
 
-Prima di comunicare, capisce *con chi* stai comunicando:
-
-| Stakeholder | Interesse | Potere | Strategia |
-|-------------|-----------|--------|-----------|
-| CEO | ROI, visione strategica | Alto | Aggiorna raramente, su big picture |
-| CFO | Budget, costi | Alto | Report di costi/benefici chiari |
-| Product Owner | Funzionalità, priorità | Medio | Collaborazione continua |
-| Team di Vendita | Feature per i clienti | Medio | Demo, roadmap |
-| Utenti finali | Usabilità, efficienza | Basso-medio | Interviste, test di usabilità |
-| IT/Ops | Infrastruttura, sicurezza | Medio | Requisiti tecnici condivisi |
-
-La matrice **Interesse/Potere** divide gli stakeholder in 4 quadranti:
+Demos are not shows. They are **validation ceremonies** with a precise structure:
 
 ```
-          ALTO POTERE
+SDSD DEMO STRUCTURE
+
+1. CONTEXT (2 min)
+   "In sprint X, we committed to developing Y and Z."
+
+2. DEMONSTRATION (10-15 min)
+   Show the features in a real user flow.
+   Do not show code. Show behavior.
+
+3. ACCEPTANCE CRITERIA VERIFICATION (5 min)
+   "As agreed, the criteria were [A], [B], [C].
+    Let's verify together that they are satisfied."
+
+4. FEEDBACK COLLECTION (10 min)
+   Structure the feedback:
+   - "What works as expected?"
+   - "What would you like changed?"
+   - "Is anything missing?" (→ Change Request!)
+
+5. ACTIONS (5 min)
+   Written document of feedback with:
+   - Approved features → closed in tracker
+   - Requested changes → formal Change Request
+   - New requests → Backlog, not current sprint
+```
+
+> ⚠️ **Anti-pattern:** the demo becomes a "I just had an idea" session. Every new request during a demo is a Change Request, not an immediate change.
+
+---
+
+### Pattern 5: The Stakeholder Matrix
+
+Before communicating, understand *who* you are communicating with:
+
+| Stakeholder | Interest | Power | Strategy |
+|-------------|----------|-------|----------|
+| CEO | ROI, strategic vision | High | Update rarely, on big picture |
+| CFO | Budget, costs | High | Clear cost/benefit reports |
+| Product Owner | Features, priorities | Medium | Continuous collaboration |
+| Sales Team | Customer features | Medium | Demo, roadmap |
+| End Users | Usability, efficiency | Low-medium | Interviews, usability testing |
+| IT/Ops | Infrastructure, security | Medium | Shared technical requirements |
+
+The **Interest/Power** matrix divides stakeholders into 4 quadrants:
+
+```
+          HIGH POWER
                │
-  Gestisci     │   Tieni Informato
-  Attivamente  │   e Coinvolto
+  Actively     │   Keep Informed
+  Manage       │   and Engaged
                │
-BASSO ─────────┼─────────── ALTO
-INTERESSE      │             INTERESSE
+LOW ───────────┼─────────── HIGH
+INTEREST       │             INTEREST
                │
-  Monitora     │   Tieni
-  Minimalmente │   Soddisfatto
+  Monitor      │   Keep
+  Minimally    │   Satisfied
                │
-          BASSO POTERE
+          LOW POWER
 ```
 
 ---
 
-### Pattern 6: Escalation Strutturata
+### Pattern 6: Structured Escalation
 
-Quando un problema non si risolve al livello corrente, l'escalation deve essere strutturata, non emotiva:
+When a problem is not resolved at the current level, escalation must be structured, not emotional:
 
 ```
-Livello 1: Risoluzione diretta con lo stakeholder
-           (documentata via email/ticket)
-    ↓ se non risolto in [X giorni]
-Livello 2: Risoluzione con il PM / Product Owner
-           (meeting formale, decisione documentata)
-    ↓ se non risolto in [X giorni]
-Livello 3: Risoluzione con il management (Sponsor)
-           (presentazione formale dell'impasse, opzioni, raccomandazione)
-    ↓ decisione presa al livello più alto necessario
+Level 1: Direct resolution with stakeholder
+           (documented via email/ticket)
+    ↓ if unresolved in [X days]
+Level 2: Resolution with PM / Product Owner
+           (formal meeting, documented decision)
+    ↓ if unresolved in [X days]
+Level 3: Resolution with management (Sponsor)
+           (formal presentation of impasse, options, recommendation)
+    ↓ decision made at the highest necessary level
 ```
 
-> 💡 **Regola SDSD:** ogni step di escalation va documentato. Chi decide, firma la decisione. L'escalation non è sconfitta: è professionalità.
+> 💡 **SDSD Rule:** every escalation step must be documented. Whoever decides, signs the decision. Escalation is not defeat: it is professionalism.
 
 ---
 
-### Pattern 7: Il Linguaggio dell'Impatto
+### Pattern 7: The Language of Impact
 
-Quando devi dire "no" o "non è possibile", usa il **linguaggio dell'impatto** invece del rifiuto diretto:
+When you need to say "no" or "it's not possible," use **impact language** instead of direct refusal:
 
-| ❌ Invece di... | ✅ Di'... |
+| ❌ Instead of... | ✅ Say... |
 |----------------|----------|
-| "Non si può fare" | "Se facciamo X, possiamo farlo in [tempo/costo]. Altrimenti l'alternativa Y richiede [meno/più]" |
-| "È troppo complicato" | "Questa funzionalità richiede una stima di 3 settimane e impatta il modulo Z. Volete procedere spostando [altra feature]?" |
-| "Me lo dicono all'ultimo" | "Questa richiesta arriva a 2 giorni dalla release. L'impatto è [descrizione]. Propongo di includere nel prossimo sprint e fare una release ad hoc" |
-| "Il business non capisce" | "Credo che ci sia un'incomprensione sul funzionamento di questo componente. Posso preparare una demo per chiarire?" |
+| "It can't be done" | "If we do X, we can do it in [time/cost]. Otherwise alternative Y requires [less/more]" |
+| "It's too complicated" | "This feature requires an estimate of 3 weeks and impacts module Z. Do you want to proceed by shifting [other feature]?" |
+| "They're telling me at the last minute" | "This request comes 2 days before the release. The impact is [description]. I propose including it in the next sprint and doing an ad-hoc release" |
+| "The business doesn't understand" | "I think there's a misunderstanding about how this component works. Can I prepare a demo to clarify?" |
 
 ---
 
-### Pattern 8: Meeting Efficaci
+### Pattern 8: Effective Meetings
 
-Ogni meeting senza agenda è tempo sprecato. Ogni meeting senza azioni documentate è un'opportunità mancata di protezione.
+Every meeting without an agenda is wasted time. Every meeting without documented actions is a missed protection opportunity.
 
-**Checklist per ogni meeting:**
+**Checklist for every meeting:**
 
-**Prima:**
-- [ ] Agenda inviata almeno 24h prima
-- [ ] Obiettivo chiaro: decisione, brainstorming, o aggiornamento?
-- [ ] Materiali preparati
+**Before:**
+- [ ] Agenda sent at least 24h in advance
+- [ ] Clear objective: decision, brainstorming, or update?
+- [ ] Materials prepared
 
-**Durante:**
-- [ ] Un facilitatore
-- [ ] Un note-taker
-- [ ] Azioni identificate con owner e scadenza
+**During:**
+- [ ] One facilitator
+- [ ] One note-taker
+- [ ] Actions identified with owner and deadline
 
-**Dopo:**
-- [ ] Verbale inviato entro 24h
-- [ ] Azioni trackate nel sistema di project management
-- [ ] "Se non ricevo correzioni entro [data], il verbale è confermato"
-
----
-
-### Pattern 9: Il "Pre-Mortem"
-
-Invece di aspettare il post-mortem (analisi dei fallimenti a posteriori), fai un **pre-mortem** all'inizio del progetto:
-
-> "Immaginiamo che sia passato un anno e che il progetto sia fallito. Cosa è andato storto?"
-
-Questo esercizio, proposto da Gary Klein e reso popolare da Daniel Kahneman, ha due effetti:
-1. Identifica rischi che sarebbero stati ignorati per ottimismo
-2. Crea un documento di rischi condiviso e concordato (nessuno può dire "non lo sapevo")
+**After:**
+- [ ] Minutes sent within 24h
+- [ ] Actions tracked in the project management system
+- [ ] "If I don't receive corrections by [date], the minutes are confirmed"
 
 ---
 
-### Pattern 10: La Comunicazione dei Trade-Off
+### Pattern 9: The "Pre-Mortem"
 
-Ogni decisione tecnica implica dei trade-off. Renderli espliciti protegge il developer:
+Instead of waiting for the post-mortem (retrospective failure analysis), do a **pre-mortem** at the beginning of the project:
 
-```
-FRAMEWORK DI COMUNICAZIONE DEI TRADE-OFF
+> "Let's imagine that a year has passed and the project has failed. What went wrong?"
 
-Opzione A: [descrizione]
-  PRO: [lista]
-  CONTRO: [lista]
-  Costo: [stima]
-  Rischio: [livello]
-
-Opzione B: [descrizione]
-  PRO: [lista]
-  CONTRO: [lista]
-  Costo: [stima]
-  Rischio: [livello]
-
-Raccomandazione del team tecnico: Opzione [X]
-Motivazione: [spiegazione in linguaggio business]
-
-Decisione finale: ________________________________
-Firmato da: _________________ Data: ______________
-```
-
-Quando il business sceglie l'opzione che il team tecnico sconsigliava, è documentato. Se va male, la responsabilità è chiaramente attribuita.
+This exercise, proposed by Gary Klein and popularized by Daniel Kahneman, has two effects:
+1. Identifies risks that would have been ignored due to optimism
+2. Creates a shared and agreed risk document (no one can say "I didn't know")
 
 ---
 
-## Comunicazione in Situazioni di Crisi
+### Pattern 10: Trade-Off Communication
 
-### Quando il Sistema Va in Down in Produzione
-
-```
-TEMPLATE COMUNICAZIONE INCIDENTE (Minuto 0-15)
-
-Oggetto: [SEV-1] Incidente in produzione — [Sistema] — in gestione
-
-Sistema impattato: [nome]
-Impatto utenti: [descrizione]
-Severità: SEV-1 / SEV-2 / SEV-3
-Orario rilevamento: [ora]
-Team in gestione: [nomi]
-
-Stato attuale: Indagine in corso / Workaround attivo / Fix in deploy
-
-Prossimo aggiornamento: tra 30 minuti
-
-— Team Engineering
-```
+Every technical decision involves trade-offs. Making them explicit protects the developer:
 
 ```
-TEMPLATE AGGIORNAMENTO (ogni 30 min)
+TRADE-OFF COMMUNICATION FRAMEWORK
 
-Aggiornamento #[N] — [ora]
+Option A: [description]
+  PROS: [list]
+  CONS: [list]
+  Cost: [estimate]
+  Risk: [level]
 
-Causa identificata: [sì/no — descrizione]
-Workaround disponibile: [sì/no — descrizione]
-ETA risoluzione: [stima]
-Azioni in corso: [lista]
+Option B: [description]
+  PROS: [list]
+  CONS: [list]
+  Cost: [estimate]
+  Risk: [level]
 
-Prossimo aggiornamento: [ora]
+Technical team recommendation: Option [X]
+Rationale: [explanation in business language]
+
+Final decision: ________________________________
+Signed by: _________________ Date: ______________
+```
+
+When the business chooses the option the technical team advised against, it is documented. If it goes wrong, the responsibility is clearly attributed.
+
+---
+
+## Communication in Crisis Situations
+
+### When the System Goes Down in Production
+
+```
+INCIDENT COMMUNICATION TEMPLATE (Minute 0-15)
+
+Subject: [SEV-1] Production incident — [System] — being managed
+
+Impacted system: [name]
+User impact: [description]
+Severity: SEV-1 / SEV-2 / SEV-3
+Detection time: [time]
+Team managing: [names]
+
+Current status: Investigation in progress / Workaround active / Fix being deployed
+
+Next update: in 30 minutes
+
+— Engineering Team
 ```
 
 ```
-TEMPLATE POST-INCIDENT REPORT (entro 48h)
+UPDATE TEMPLATE (every 30 min)
 
-Oggetto: Post-Incident Report — [Sistema] — [data]
+Update #[N] — [time]
 
-Executive Summary: [2-3 righe]
-Timeline: [cronologia dettagliata]
-Root Cause: [analisi tecnica]
-Impatto: [durata, utenti, dati]
-Mitigazione applicata: [descrizione]
-Correzione permanente: [piano con date]
-Azioni preventive: [lista con owner e date]
-Lezioni apprese: [lista]
+Cause identified: [yes/no — description]
+Workaround available: [yes/no — description]
+ETA resolution: [estimate]
+Actions in progress: [list]
+
+Next update: [time]
+```
+
+```
+POST-INCIDENT REPORT TEMPLATE (within 48h)
+
+Subject: Post-Incident Report — [System] — [date]
+
+Executive Summary: [2-3 lines]
+Timeline: [detailed chronology]
+Root Cause: [technical analysis]
+Impact: [duration, users, data]
+Applied mitigation: [description]
+Permanent fix: [plan with dates]
+Preventive actions: [list with owner and dates]
+Lessons learned: [list]
 ```
 
 ---
 
-*Precedente: [03 — Requirements Engineering](./03-requirements-engineering.md) | Prossimo: [05 — Defensive Architecture](./05-defensive-architecture.md)*
+*Previous: [03 — Requirements Engineering](./03-requirements-engineering.md) | Next: [05 — Defensive Architecture](./05-defensive-architecture.md)*
