@@ -1,248 +1,248 @@
-# 07 — Agile come Scudo
+# 07 — Agile as a Shield
 
-> *"L'Agile non è assenza di processo. È processo adattivo — e il processo protegge."*
+> *"Agile is not the absence of process. It is adaptive process — and process protects."*
 
-L'Agile è spesso frainteso dagli stakeholder come "possiamo cambiare tutto in qualsiasi momento". In realtà, usato correttamente, l'Agile è uno degli strumenti più potenti di SDSD: fornisce cerimonie formali, artefatti e criteri che creano confini chiari e proteggono il team da interferenze non strutturate.
+Agile is often misunderstood by stakeholders as "we can change everything at any time." In reality, used correctly, Agile is one of SDSD's most powerful tools: it provides formal ceremonies, artifacts, and criteria that create clear boundaries and protect the team from unstructured interference.
 
 ---
 
-## I Tre Artefatti di Protezione Agile
+## The Three Agile Protection Artifacts
 
 ### 1. Definition of Done (DoD)
 
-La DoD è l'accordo formale su cosa significa "completato". Non è la lista degli acceptance criteria di una singola storia: è il set di condizioni *sempre* applicabili a qualsiasi lavoro.
+The DoD is the formal agreement on what "completed" means. It is not the list of acceptance criteria for a single story: it is the set of conditions *always* applicable to any work.
 
-**Funzione difensiva:** quando il business dice "ma non è finita, manca X", puoi rispondere con il DoD concordato. Se X non era nel DoD, non era parte dell'accordo.
+**Defensive function:** when the business says "but it's not done, X is missing," you can respond with the agreed DoD. If X was not in the DoD, it was not part of the agreement.
 
-#### Template DoD — Livelli
+#### DoD Template — Levels
 
 ```markdown
-# Definition of Done — [Progetto]
-*Approvata da: [Product Owner] il [data]*
-*Versione: [N]*
+# Definition of Done — [Project]
+*Approved by: [Product Owner] on [date]*
+*Version: [N]*
 
-## Livello Story
-Una User Story è DONE quando:
-- [ ] Il codice implementa tutti gli acceptance criteria
-- [ ] Il codice è stato revisionato (code review approvata)
-- [ ] Unit test scritti e passanti (copertura ≥ 80%)
-- [ ] Integration test aggiornati se necessario
-- [ ] Nessun linting error / nessun warning bloccante
-- [ ] Documentazione tecnica aggiornata (se API modificata)
-- [ ] La storia è stata dimostrata al Product Owner
-- [ ] Il Product Owner ha accettato la storia
+## Story Level
+A User Story is DONE when:
+- [ ] The code implements all acceptance criteria
+- [ ] The code has been reviewed (code review approved)
+- [ ] Unit tests written and passing (coverage ≥ 80%)
+- [ ] Integration tests updated if necessary
+- [ ] No linting errors / no blocking warnings
+- [ ] Technical documentation updated (if API modified)
+- [ ] The story has been demonstrated to the Product Owner
+- [ ] The Product Owner has accepted the story
 
-## Livello Sprint
-Lo Sprint è DONE quando:
-- [ ] Tutte le storie impegnate nello sprint sono DONE
-- [ ] La pipeline CI/CD è verde
-- [ ] Il branch è mergiato in develop/main
-- [ ] Il sistema è deployabile in staging
-- [ ] Il regression test suite è verde
+## Sprint Level
+The Sprint is DONE when:
+- [ ] All stories committed in the sprint are DONE
+- [ ] The CI/CD pipeline is green
+- [ ] The branch is merged into develop/main
+- [ ] The system is deployable to staging
+- [ ] The regression test suite is green
 
-## Livello Release
-Una Release è DONE quando:
-- [ ] Tutte le feature pianificate sono DONE
-- [ ] Performance test superato (conformità SLA)
-- [ ] Security review completata
-- [ ] Documentazione utente aggiornata
-- [ ] Release notes scritte
-- [ ] Deployment procedure testata
-- [ ] Go/No-Go firmato da [Product Owner] e [Tech Lead]
+## Release Level
+A Release is DONE when:
+- [ ] All planned features are DONE
+- [ ] Performance test passed (SLA compliance)
+- [ ] Security review completed
+- [ ] User documentation updated
+- [ ] Release notes written
+- [ ] Deployment procedure tested
+- [ ] Go/No-Go signed by [Product Owner] and [Tech Lead]
 ```
 
 ---
 
 ### 2. Definition of Ready (DoR)
 
-La DoR è il contratto sul *pre-requisito* per iniziare a lavorare su una storia. Una storia non ready non entra nello sprint.
+The DoR is the contract on the *prerequisite* for starting work on a story. A story that is not ready does not enter the sprint.
 
-**Funzione difensiva:** impedisce che il team si trovi a metà sprint senza informazioni, decisioni, o risorse necessarie. Quando succede un ritardo per una storia non-ready, la responsabilità è documentata: la storia non rispettava il DoR.
+**Defensive function:** prevents the team from finding itself mid-sprint without needed information, decisions, or resources. When a delay occurs due to a non-ready story, the responsibility is documented: the story did not meet the DoR.
 
-#### Template DoR
+#### DoR Template
 
 ```markdown
-# Definition of Ready — [Progetto]
-*Approvata da: [Product Owner] il [data]*
+# Definition of Ready — [Project]
+*Approved by: [Product Owner] on [date]*
 
-Una User Story è READY per entrare nello sprint quando:
-- [ ] È scritta nel formato standard (As/Want/So that)
-- [ ] Gli acceptance criteria sono scritti e concordati
-- [ ] Ha una stima in story point approvata dal team
-- [ ] Non ha dipendenze bloccanti non risolte
-- [ ] I mockup/wireframe necessari sono disponibili
-- [ ] Le API esterne necessarie sono documentate (o accessibili)
-- [ ] I dati di test necessari sono disponibili
-- [ ] Il Product Owner è disponibile per chiarimenti durante lo sprint
-- [ ] È classificata con priorità MoSCoW
+A User Story is READY to enter the sprint when:
+- [ ] Written in standard format (As/Want/So that)
+- [ ] Acceptance criteria written and agreed
+- [ ] Has a story point estimate approved by the team
+- [ ] Has no unresolved blocking dependencies
+- [ ] Necessary mockups/wireframes are available
+- [ ] Necessary external APIs are documented (or accessible)
+- [ ] Necessary test data is available
+- [ ] The Product Owner is available for clarifications during the sprint
+- [ ] Classified with MoSCoW priority
 ```
 
 ---
 
 ### 3. Acceptance Criteria
 
-Gli acceptance criteria trasformano il requisito da descrizione vaga a contratto verificabile.
+Acceptance criteria transform the requirement from a vague description to a verifiable contract.
 
-**Funzione difensiva:** se il software rispetta tutti gli acceptance criteria, il software è corretto per definizione. Se il business dice "non funziona", puoi rispondere "verifichiamo insieme gli acceptance criteria concordati".
+**Defensive function:** if the software meets all acceptance criteria, the software is correct by definition. If the business says "it doesn't work," you can respond "let's verify together the agreed acceptance criteria."
 
-#### Formato Gherkin (BDD)
+#### Gherkin Format (BDD)
 
-Il formato Gherkin (usato con Cucumber, Behave, SpecFlow) è lo standard de-facto per gli acceptance criteria verificabili:
+The Gherkin format (used with Cucumber, Behave, SpecFlow) is the de-facto standard for verifiable acceptance criteria:
 
 ```gherkin
-Feature: Login utente
+Feature: User login
 
   Background:
-    Given il sistema è online
-    And il database contiene l'utente "mario.rossi@email.com" con password "SecurePass123"
+    Given the system is online
+    And the database contains the user "mario.rossi@email.com" with password "SecurePass123"
 
-  Scenario: Login con credenziali corrette
-    Given l'utente è sulla pagina di login
-    When inserisce email "mario.rossi@email.com"
-    And inserisce password "SecurePass123"
-    And clicca "Accedi"
-    Then viene reindirizzato alla dashboard
-    And vede il messaggio "Benvenuto, Mario"
-    And il token di sessione è impostato
+  Scenario: Login with correct credentials
+    Given the user is on the login page
+    When they enter email "mario.rossi@email.com"
+    And they enter password "SecurePass123"
+    And they click "Sign In"
+    Then they are redirected to the dashboard
+    And they see the message "Welcome, Mario"
+    And the session token is set
 
-  Scenario: Login con password sbagliata
-    Given l'utente è sulla pagina di login
-    When inserisce email "mario.rossi@email.com"
-    And inserisce password "WrongPass"
-    And clicca "Accedi"
-    Then rimane sulla pagina di login
-    And vede il messaggio di errore "Email o password non corretti"
-    And non viene impostato alcun token di sessione
-    And l'evento di sicurezza "failed_login" viene registrato nel log
+  Scenario: Login with wrong password
+    Given the user is on the login page
+    When they enter email "mario.rossi@email.com"
+    And they enter password "WrongPass"
+    And they click "Sign In"
+    Then they remain on the login page
+    And they see the error message "Email or password incorrect"
+    And no session token is set
+    And the security event "failed_login" is recorded in the log
 
-  Scenario: Blocco dopo 5 tentativi falliti
-    Given l'utente ha già effettuato 4 tentativi di login falliti
-    When inserisce credenziali errate per la quinta volta
-    Then l'account viene bloccato per 30 minuti
-    And l'utente riceve un'email di notifica all'indirizzo registrato
+  Scenario: Lockout after 5 failed attempts
+    Given the user has already made 4 failed login attempts
+    When they enter wrong credentials for the fifth time
+    Then the account is locked for 30 minutes
+    And the user receives a notification email at the registered address
 ```
 
-Questi scenario Gherkin diventano **test eseguibili** — prove automatizzate che il sistema si comporta come concordato.
+These Gherkin scenarios become **executable tests** — automated proof that the system behaves as agreed.
 
 ---
 
-## Le Cerimonie Agile come Meccanismi di Protezione
+## Agile Ceremonies as Protection Mechanisms
 
-### Sprint Planning — Il Contratto dello Sprint
+### Sprint Planning — The Sprint Contract
 
-Lo sprint planning non è solo "cosa facciamo questa settimana". È la negoziazione di un **contratto formale** tra il team e il Product Owner.
+Sprint planning is not just "what do we do this week." It is the negotiation of a **formal contract** between the team and the Product Owner.
 
-**Protezioni chiave:**
-1. **Il team decide quanto entra nello sprint**, non il business. La velocity è un dato tecnico.
-2. **Solo storie READY entrano nello sprint.** La DoR è il filtro.
-3. **Il commitment è registrato** — cosa ci siamo impegnati a fare in questo sprint.
-4. **Le storie accettate in corso di sprint devono compensare** — se entra qualcosa di nuovo, esce qualcosa di equivalente.
+**Key protections:**
+1. **The team decides what goes into the sprint**, not the business. Velocity is a technical datum.
+2. **Only READY stories enter the sprint.** The DoR is the filter.
+3. **The commitment is recorded** — what we committed to doing in this sprint.
+4. **Stories accepted mid-sprint must compensate** — if something new comes in, something equivalent goes out.
 
-**Output documentale:**
+**Documentary output:**
 ```
 SPRINT [N] — COMMITMENT
-Data: [data]
-Durata: [data inizio] → [data fine]
-Team: [lista]
-Velocity stimata: [N] punti
+Date: [date]
+Duration: [start date] → [end date]
+Team: [list]
+Estimated velocity: [N] points
 
-Storie committate:
-- US-042: [titolo] — [N] punti
-- US-043: [titolo] — [N] punti
-- BUG-017: [titolo] — [N] punti
+Committed stories:
+- US-042: [title] — [N] points
+- US-043: [title] — [N] points
+- BUG-017: [title] — [N] points
 
-Totale: [N] punti
+Total: [N] points
 
-Storie escluse (next sprint):
-- US-044: non-ready (mancano mockup)
-- US-045: priorità ridotta dal PO
+Excluded stories (next sprint):
+- US-044: not-ready (missing mockups)
+- US-045: priority reduced by PO
 
-Firmato: [Product Owner] _________________ Data: _______
+Signed: [Product Owner] _________________ Date: _______
 ```
 
 ---
 
-### Daily Standup — Il Report Quotidiano
+### Daily Standup — The Daily Report
 
-Tre domande, risposta breve:
-1. Cosa ho fatto ieri?
-2. Cosa faccio oggi?
-3. Ci sono blocchi/impedimenti?
+Three questions, brief answers:
+1. What did I do yesterday?
+2. What am I doing today?
+3. Are there any blockers/impediments?
 
-**Funzione difensiva:** i blocchi vengono comunicati quotidianamente. Non si può dire "il team non ha comunicato il problema" se è documentato nel blocco del daily del [data].
+**Defensive function:** blockers are communicated daily. No one can say "the team didn't communicate the problem" if it is documented in the daily blocker of [date].
 
-**Pro tip:** i blocchi vanno comunicati appena identificati, non aspettare il daily. Il daily è il meccanismo di back-stop, non il canale primario.
+**Pro tip:** blockers should be communicated as soon as identified, not waiting for the daily. The daily is the back-stop mechanism, not the primary channel.
 
 ---
 
-### Sprint Review — La Validazione Formale
+### Sprint Review — Formal Validation
 
-La Sprint Review è diversa da un semplice demo. È la cerimonia in cui il Product Owner (e gli stakeholder) **formalmente accettano o rifiutano** le storie completate.
+The Sprint Review is different from a simple demo. It is the ceremony in which the Product Owner (and stakeholders) **formally accept or reject** completed stories.
 
-**Struttura:**
-1. Presentazione di ogni storia completata
-2. Verifica degli acceptance criteria (non "sembra che funzioni", ma "acceptance criterion N è soddisfatto")
-3. Accettazione formale da parte del PO
-4. Feedback strutturato (→ nuove storie se necessario)
-5. Aggiornamento della velocity
+**Structure:**
+1. Presentation of each completed story
+2. Verification of acceptance criteria (not "it seems to work," but "acceptance criterion N is satisfied")
+3. Formal acceptance by the PO
+4. Structured feedback (→ new stories if necessary)
+5. Velocity update
 
-**Output documentale:**
+**Documentary output:**
 ```
 SPRINT REVIEW — Sprint [N]
-Data: [data]
+Date: [date]
 
-Storie Accettate:
-✅ US-042 — [titolo] — Accettata da [PO] il [data]
-✅ US-043 — [titolo] — Accettata da [PO] il [data]
+Accepted Stories:
+✅ US-042 — [title] — Accepted by [PO] on [date]
+✅ US-043 — [title] — Accepted by [PO] on [date]
 
-Storie Non Accettate:
-❌ BUG-017 — [titolo] — Motivo: [descrizione]
-   Azione: revisione AC e nuovo tentativo Sprint [N+1]
+Rejected Stories:
+❌ BUG-017 — [title] — Reason: [description]
+   Action: AC review and retry Sprint [N+1]
 
-Feedback Ricevuto:
-- [Feedback 1] → nuovo backlog item: US-[NNN]
-- [Feedback 2] → Change Request formale: CR-[NNN]
-- [Feedback 3] → nota per informazione
+Feedback Received:
+- [Feedback 1] → new backlog item: US-[NNN]
+- [Feedback 2] → formal Change Request: CR-[NNN]
+- [Feedback 3] → informational note
 
-Velocity Realizzata: [N] punti
-Velocity Media (ultimi 3 sprint): [N] punti
+Achieved Velocity: [N] points
+Average Velocity (last 3 sprints): [N] points
 ```
 
 ---
 
-### Sprint Retrospective — L'Auto-Miglioramento Difensivo
+### Sprint Retrospective — Defensive Self-Improvement
 
-La retrospettiva non è solo miglioramento del processo. È anche un'opportunità per documentare i problemi ricorrenti e le loro cause, specialmente se originati da interferenze esterne:
+The retrospective is not just process improvement. It is also an opportunity to document recurring problems and their causes, especially if originating from external interference:
 
-**Framework "5 Whys" per problemi ricorrenti:**
+**"5 Whys" framework for recurring problems:**
 ```
-Problema: "Abbiamo mancato la velocity per il terzo sprint di fila"
+Problem: "We missed velocity for the third sprint in a row"
 
-Why 1: Perché abbiamo completato meno storie del previsto?
-→ Perché abbiamo avuto molte modifiche in corso di sprint.
+Why 1: Why did we complete fewer stories than expected?
+→ Because we had many changes mid-sprint.
 
-Why 2: Perché ci sono state modifiche in corso di sprint?
-→ Perché il PO ha cambiato le priorità 3 volte durante lo sprint.
+Why 2: Why were there changes mid-sprint?
+→ Because the PO changed priorities 3 times during the sprint.
 
-Why 3: Perché il PO ha cambiato le priorità?
-→ Perché ha ricevuto richieste urgenti dal business senza filtro.
+Why 3: Why did the PO change priorities?
+→ Because they received urgent business requests without a filter.
 
-Why 4: Perché il business bypassa il processo di prioritizzazione?
-→ Perché non esiste un processo formale di Change Request durante lo sprint.
+Why 4: Why does the business bypass the prioritization process?
+→ Because there is no formal Change Request process during the sprint.
 
-Why 5: Perché non esiste un tale processo?
-→ Perché non è mai stato definito e concordato esplicitamente.
+Why 5: Why is there no such process?
+→ Because it was never explicitly defined and agreed upon.
 
-AZIONE: Definire e far firmare una politica di Change Request durante lo sprint.
+ACTION: Define and get a signed Change Request policy during the sprint.
 OWNER: Product Owner + Lead Dev
-ENTRO: Fine settimana
+BY: End of week
 ```
 
 ---
 
 ## Behavior-Driven Development (BDD)
 
-### Il Triangolo BDD
+### The BDD Triangle
 
 ```
          Business / Stakeholder
@@ -262,24 +262,24 @@ ENTRO: Fine settimana
   /──────────────────────────── \
 ```
 
-BDD è il ponte tra il linguaggio del business e il codice. I Gherkin scenario sono scritti insieme, comprensibili da tutti, ed eseguiti automaticamente.
+BDD is the bridge between business language and code. Gherkin scenarios are written together, understandable by everyone, and executed automatically.
 
-### Il Ciclo BDD
+### The BDD Cycle
 
 ```
-1. DISCOVERY (business + developer + QA insieme)
-   "Cosa deve fare il sistema?" → Gherkin scenarios
+1. DISCOVERY (business + developer + QA together)
+   "What should the system do?" → Gherkin scenarios
 
 2. FORMULATION (developer + QA)
-   Traduzione degli scenari in Gherkin formale
+   Translation of scenarios into formal Gherkin
 
 3. AUTOMATION (developer)
-   Implementazione degli step definitions
-   (codice che esegue gli step Gherkin)
+   Implementation of step definitions
+   (code that executes Gherkin steps)
 
-4. VALIDATION (tutti)
-   I test girano in CI/CD
-   I risultati sono leggibili da tutti
+4. VALIDATION (all)
+   Tests run in CI/CD
+   Results readable by everyone
 ```
 
 ### Step Definitions (Python/Behave)
@@ -288,29 +288,29 @@ BDD è il ponte tra il linguaggio del business e il codice. I Gherkin scenario s
 from behave import given, when, then
 from myapp import create_user, login_user
 
-@given('l\'utente è sulla pagina di login')
+@given('the user is on the login page')
 def step_user_on_login_page(context):
     context.browser.get('/login')
     assert context.browser.current_url.endswith('/login')
 
-@when('inserisce email "{email}"')
+@when('they enter email "{email}"')
 def step_insert_email(context, email):
     context.browser.find_element_by_id('email').send_keys(email)
 
-@when('inserisce password "{password}"')
+@when('they enter password "{password}"')
 def step_insert_password(context, password):
     context.browser.find_element_by_id('password').send_keys(password)
 
-@when('clicca "Accedi"')
+@when('they click "Sign In"')
 def step_click_login(context):
     context.browser.find_element_by_id('login-btn').click()
 
-@then('viene reindirizzato alla dashboard')
+@then('they are redirected to the dashboard')
 def step_redirected_to_dashboard(context):
     assert '/dashboard' in context.browser.current_url, \
         f"Expected /dashboard, got {context.browser.current_url}"
 
-@then('vede il messaggio "{message}"')
+@then('they see the message "{message}"')
 def step_sees_message(context, message):
     body = context.browser.find_element_by_tag_name('body').text
     assert message in body, f"Expected '{message}' in page, but got: {body[:200]}"
@@ -320,78 +320,78 @@ def step_sees_message(context, message):
 
 ## Acceptance Test-Driven Development (ATDD)
 
-ATDD porta il BDD a un livello più formale: gli acceptance test vengono scritti **prima** dello sviluppo, come accordo contrattuale:
+ATDD takes BDD to a more formal level: acceptance tests are written **before** development, as a contractual agreement:
 
 ```
-PROCESSO ATDD
+ATDD PROCESS
 
-FASE 1 — Three Amigos Meeting
+PHASE 1 — Three Amigos Meeting
   (Developer + QA + Product Owner)
-  Obiettivo: scrivere gli acceptance test insieme
-  Output: Gherkin scenarios firmati da PO
+  Objective: write acceptance tests together
+  Output: Gherkin scenarios signed by PO
 
-FASE 2 — Test automation
-  Developer scrive step definitions
-  I test sono rossi (fail) — il codice non esiste ancora
+PHASE 2 — Test automation
+  Developer writes step definitions
+  Tests are red (failing) — the code doesn't exist yet
 
-FASE 3 — Implementazione
-  Developer implementa il codice
-  Obiettivo: rendere i test verdi
+PHASE 3 — Implementation
+  Developer implements the code
+  Objective: make the tests green
 
-FASE 4 — Review
-  PO verifica i test verdi
-  Accettazione formale della storia
+PHASE 4 — Review
+  PO verifies green tests
+  Formal story acceptance
 ```
 
-**Il vantaggio difensivo:** gli acceptance test sono scritti e firmati PRIMA dello sviluppo. Se il PO dice "non è quello che volevo", la risposta è: "I test che avete approvato in fase 1 sono verdi. La funzionalità corrisponde a ciò che era stato concordato."
+**The defensive advantage:** acceptance tests are written and signed BEFORE development. If the PO says "that's not what I wanted," the response is: "The tests you approved in phase 1 are green. The feature corresponds to what was agreed."
 
 ---
 
-## Gestione delle "Hot Fix" Urgenti
+## Managing "Hot Fix" Urgencies
 
-Gli stakeholder spesso cercano di bypassare il processo con richieste "urgenti". SDSD ha un processo anche per questo:
+Stakeholders often try to bypass the process with "urgent" requests. SDSD has a process for this too:
 
 ```markdown
-# Politica Hot Fix / Interruzione Sprint
+# Hot Fix / Sprint Interruption Policy
 
-## Definizione di "Urgente"
-Un'urgenza giustifica l'interruzione dello sprint solo se:
-- [ ] Impatta direttamente i ricavi (sistema produzione non funzionante)
-- [ ] È un bug di sicurezza con exploit attivo
-- [ ] Viola un SLA contrattuale con penali
+## Definition of "Urgent"
+An emergency justifies interrupting the sprint only if:
+- [ ] It directly impacts revenue (production system down)
+- [ ] It is a security bug with an active exploit
+- [ ] It violates a contractual SLA with penalties
 
-## Processo Hot Fix
+## Hot Fix Process
 
-1. Il richiedente compila il form "Hot Fix Request" (< 5 minuti)
-2. Il Tech Lead valuta l'urgenza (entro 30 minuti)
-3. Se approvato: stima effort e determina cosa esce dallo sprint
-4. Il PO firma l'approvazione con la lista di cosa viene spostato
-5. Il team lavora sulla hot fix
-6. La hot fix viene deployata, testata, e documentata
+1. The requester fills out the "Hot Fix Request" form (< 5 minutes)
+2. The Tech Lead assesses urgency (within 30 minutes)
+3. If approved: estimates effort and determines what leaves the sprint
+4. The PO signs the approval with the list of what is deferred
+5. The team works on the hot fix
+6. The hot fix is deployed, tested, and documented
 
-## Template Hot Fix Request
-- Richiedente: ___________
-- Sistema impattato: ___________
-- Impatto business stimato per ora di inattività: € ___
-- Urgenza: [Critica / Alta / Media] + motivazione
-- Soluzione proposta: ___________
-- Effort stimato: ___ ore
+## Hot Fix Request Template
+- Requester: ___________
+- Impacted system: ___________
+- Estimated business impact per hour of downtime: $ ___
+- Urgency: [Critical / High / Medium] + justification
+- Proposed solution: ___________
+- Estimated effort: ___ hours
 
-## Consenso richiesto per procedere
-- Tech Lead: _____________ Data/Ora: _______
-- Product Owner: _____________ Data/Ora: _______
+## Consent required to proceed
+- Tech Lead: _____________ Date/Time: _______
+- Product Owner: _____________ Date/Time: _______
 ```
 
 ---
 
-## Il Backlog come Strumento di Difesa
+## The Backlog as a Defense Tool
 
-Il backlog gestito bene è una lista prioritizzata, stimata e visibile di tutto il lavoro da fare. La sua gestione corretta protegge in diversi modi:
+A well-managed backlog is a prioritized, estimated, and visible list of all work to be done. Its proper management protects in several ways:
 
-1. **Tutto è tracciato.** Nessuna richiesta può essere "dimenticata" o "non avete capito che l'avevo chiesto".
-2. **Le priorità sono esplicite.** Se X non è stato fatto, è perché Y, Z, W erano prioritari — e questo è stato concordato.
-3. **Le stime sono documentate.** Se X richiederebbe 3 settimane, questo è documentato prima che venga richiesto "perché ci vuole così tanto?".
+1. **Everything is tracked.** No request can be "forgotten" or "you didn't understand I had asked for that."
+2. **Priorities are explicit.** If X was not done, it's because Y, Z, W were higher priority — and this was agreed upon.
+3. **Estimates are documented.** If X would take 3 weeks, this is documented before being asked "why does it take so long?"
 
 ---
 
-*Precedente: [06 — ADR & Documentazione](./06-adr-documentation.md) | Prossimo: [08 — Scope Management](./08-scope-management.md)*
+*Previous: [06 — ADR & Documentation](./06-adr-documentation.md) | Next: [08 — Scope Management](./08-scope-management.md)*

@@ -1,270 +1,270 @@
-# 09 — Anti-Pattern degli Stakeholder
+# 09 — Stakeholder Anti-Patterns
 
-> *"Non puoi risolvere un problema che non hai nominato."*
+> *"You cannot solve a problem you haven't named."*
 
-Catalogare gli anti-pattern degli stakeholder non è un esercizio di cinismo: è **pattern recognition professionale**. Chi riconosce un anti-pattern può applicare la contromisura corretta invece di reagire emotivamente o casualmente.
-
----
-
-## Catalogo degli Anti-Pattern
+Cataloging stakeholder anti-patterns is not an exercise in cynicism: it is **professional pattern recognition**. Those who recognize an anti-pattern can apply the correct countermeasure instead of reacting emotionally or randomly.
 
 ---
 
-### AP-01: Il Requisito Fantasma
-
-**Descrizione:** Il business richiede qualcosa che non aveva mai menzionato, dicendo "pensavo fosse ovvio" o "l'avevo detto nel meeting di 6 mesi fa".
-
-**Segnali:**
-- "Ma ovviamente il sistema deve anche..."
-- "Non c'è bisogno di dirlo esplicitamente, si capisce"
-- "L'avevo detto, forse non eri presente"
-
-**Danno:** Lavoro non pianificato che emerge in fase di UAT o produzione.
-
-**Contromisura:**
-- Sezione "Assunzioni" esplicita in ogni documento di requisiti
-- Tecnica "5 Whys" durante l'elicitazione per scoprire i requisiti impliciti
-- Domande dirette: "Cosa devo sapere che non mi hai ancora detto?"
-- Review dei requisiti con checklist di scenari standard (login, logout, errori, permessi, edge case)
+## Anti-Pattern Catalog
 
 ---
 
-### AP-02: Il Cambia-Idea Seriale
+### AP-01: The Ghost Requirement
 
-**Descrizione:** Gli stakeholder cambiano i requisiti frequentemente e in modo non coordinato, spesso contraddicendo decisioni prese precedentemente.
+**Description:** The business requests something they never mentioned, saying "I thought it was obvious" or "I said it in the meeting 6 months ago."
 
-**Segnali:**
-- Requirements che cambiano a ogni meeting
-- Decisioni che sembrano risolte tornano in discussione
-- "Non avevo capito bene, in realtà voglio..."
-- Diverse versioni del "voluto" da parte di persone diverse
+**Signals:**
+- "But obviously the system must also..."
+- "There's no need to say it explicitly, it's understood"
+- "I said it, maybe you weren't there"
 
-**Danno:** Regressioni continue, demotivazione del team, costi esplosivi.
+**Damage:** Unplanned work that surfaces in UAT or production.
 
-**Contromisura:**
-- Sign-off formale dei requisiti (se non c'è firma, non c'è accordo)
-- Decision Log visibile e condiviso
-- Change Request process che rende il costo del cambiamento visibile
-- Retrospettiva dei cambiamenti: "Negli ultimi 3 sprint, abbiamo avuto 8 cambiamenti di requisito. Questo ci ha costato X punti extra."
-
----
-
-### AP-03: Il Tunnel della Soluzione
-
-**Descrizione:** Lo stakeholder descrive la soluzione tecnica invece del problema. Viene richiesta un'implementazione specifica senza capire perché.
-
-**Segnali:**
-- "Voglio un pulsante rosso in alto a destra"
-- "Deve funzionare esattamente come Excel"
-- "Aggiungi una colonna qui"
-- Richieste di UI/UX dettagliate da persone non designer
-
-**Danno:** Il developer implementa la soluzione sbagliata al problema giusto. Spesso risulta in UX scadente o architettura contorta.
-
-**Contromisura:**
-- Tecnica "5 Whys" per risalire al problema reale
-- Domanda chiave: "Cosa stai cercando di fare quando hai bisogno di questo?"
-- Tradurre la soluzione in problema, poi proporre soluzioni alternative
-- Coinvolgere UX designer nel processo di elicitazione
+**Countermeasure:**
+- Explicit "Assumptions" section in every requirements document
+- "5 Whys" technique during elicitation to uncover implicit requirements
+- Direct questions: "What do I need to know that you haven't told me yet?"
+- Requirements review with standard scenario checklists (login, logout, errors, permissions, edge cases)
 
 ---
 
-### AP-04: Lo Stakeholder Invisibile
+### AP-02: The Serial Mind-Changer
 
-**Descrizione:** C'è qualcuno (senior manager, legal, compliance, utente finale) che ha requisiti rilevanti ma non partecipa al processo di elicitazione. Emerge tardi, spesso dopo il rilascio.
+**Description:** Stakeholders change requirements frequently and in an uncoordinated way, often contradicting previously made decisions.
 
-**Segnali:**
-- "Bisogna sentire anche il responsabile di [reparto X]"
-- "Legal non sa ancora del progetto"
-- "Ma i commerciali sanno come funzionerà?"
-- Utenti finali che vengono consultati solo durante l'UAT
+**Signals:**
+- Requirements that change at every meeting
+- Decisions that seemed resolved come back up for discussion
+- "I hadn't understood well, actually I want..."
+- Different versions of "what was wanted" from different people
 
-**Danno:** Requisiti scoperti tardi con costi di correzione altissimi.
+**Damage:** Continuous regressions, team demotivation, explosive costs.
 
-**Contromisura:**
-- Stakeholder Analysis formale all'inizio del progetto
-- Checklist: "Chi altro potrebbe avere requisiti su questo sistema?"
-- Riunioni di kick-off allargate per identificare tutti gli stakeholder
-- Sezione "Stakeholder non ancora consultati" nel documento di requisiti
-
----
-
-### AP-05: Il Proxy del Business
-
-**Descrizione:** La persona che fa da tramite tra il business reale e il team di sviluppo non ha l'autorità o la conoscenza per prendere decisioni. Deve sempre "andare a chiedere", con cicli di feedback infiniti.
-
-**Segnali:**
-- Risposte che richiedono sempre l'approvazione di qualcun altro
-- Direzioni contraddittorie perché riportate male
-- "Non so, devo controllare" come risposta prevalente
-- Demo che non possono essere accettate perché "devo mostrarlo al mio manager"
-
-**Danno:** Rallentamenti, incomprensioni, decisioni prese senza autorità reale.
-
-**Contromisura:**
-- Identificare e richiedere accesso diretto al decision-maker reale
-- Documentare chiaramente il RACI (Responsible, Accountable, Consulted, Informed)
-- Includere il decision-maker nelle ceremony di sprint review
-- Escalation proattiva quando il proxy non riesce a sbloccare decisioni
+**Countermeasure:**
+- Formal sign-off of requirements (no signature = no agreement)
+- Visible and shared Decision Log
+- Change Request process that makes the cost of change visible
+- Retrospective of changes: "In the last 3 sprints, we had 8 requirement changes. This cost us X extra points."
 
 ---
 
-### AP-06: Il Pessimista Costruttivo (o: "Sì ma...")
+### AP-03: The Solution Tunnel
 
-**Descrizione:** Ogni proposta viene accettata con un "sì ma" che aggiunge requisiti aggiuntivi, ridefinisce il perimetro, o pone veto su soluzioni già concordate.
+**Description:** The stakeholder describes the technical solution instead of the problem. A specific implementation is requested without understanding why.
 
-**Segnali:**
-- "Sì, ma ci vuole anche..."
-- "Funziona, però manca..."
-- Acceptance criteria che si allargano a ogni demo
-- Demo concluse con più lavoro di quante ne sia stato completato
+**Signals:**
+- "I want a red button in the top right"
+- "It must work exactly like Excel"
+- "Add a column here"
+- Detailed UI/UX requests from non-designers
 
-**Danno:** Demo che non finiscono mai, sprint che non si chiudono, velocity apparente pari a zero.
+**Damage:** The developer implements the wrong solution to the right problem. Often results in poor UX or convoluted architecture.
 
-**Contromisura:**
-- Freeze degli acceptance criteria prima dello sprint (DoR)
-- Distinzione formale: "Questo è un bug?" (va fixato) vs "Questo è una nuova feature?" (nuova CR)
-- Separare fisicamente il momento di accettazione dal momento di raccolta del nuovo feedback
-- "Siamo d'accordo che questa storia è DONE? Le nuove richieste vanno nel backlog?"
-
----
-
-### AP-07: L'Ottimista Cronico
-
-**Descrizione:** Lo stakeholder sottostima sistematicamente la complessità, i tempi e i rischi. "Non è mica difficile" è la risposta a qualsiasi stima.
-
-**Segnali:**
-- "Non ci vorrà così tanto"
-- "Lo abbiamo fatto in un weekend 10 anni fa"
-- Pressione per ridurre le stime senza modificare lo scope
-- "Con i tool di AI moderni questo si fa in un'ora"
-
-**Danno:** Stime irrealistiche, schedule impossibili, team sotto pressione costante.
-
-**Contromisura:**
-- Stime documentate con breakdown dettagliata (non solo il numero finale)
-- Riferimento a dati storici di progetto
-- "Sono felice di discutere come ridurre l'effort. Possiamo ridurre lo scope oppure aumentare la semplicità dell'implementazione. Ma non posso ridurre la stima senza cambiare qualcosa."
-- Three-point estimation (ottimistica, realistica, pessimistica) per rendere visibile l'incertezza
+**Countermeasure:**
+- "5 Whys" technique to trace back to the real problem
+- Key question: "What are you trying to do when you need this?"
+- Translate the solution into a problem, then propose alternative solutions
+- Involve UX designers in the elicitation process
 
 ---
 
-### AP-08: Il HIPPO (Highest Paid Person's Opinion)
+### AP-04: The Invisible Stakeholder
 
-**Descrizione:** Le decisioni vengono prese in base al grado gerarchico, non alla conoscenza del dominio o dei dati. Il senior manager che parla per ultimo "ha ragione" per default.
+**Description:** There is someone (senior manager, legal, compliance, end user) who has relevant requirements but does not participate in the elicitation process. They emerge late, often after release.
 
-**Segnali:**
-- Decisioni che cambiano quando entra il manager senior
-- Dati e analisi ignorati in favore dell'intuizione del "boss"
-- Team che non esprime opinioni contrarie perché "tanto decide lui/lei"
+**Signals:**
+- "We also need to hear from the head of [department X]"
+- "Legal doesn't know about the project yet"
+- "But do the sales team know how it will work?"
+- End users who are only consulted during UAT
 
-**Danno:** Decisioni subottimali prese per ragioni politiche, demotivazione del team tecnico.
+**Damage:** Requirements discovered late with very high correction costs.
 
-**Contromisura:**
-- Pre-caricare le decisioni con dati oggettivi (ADR, benchmark, ricerche)
-- Struttura RFC che richiede motivazione basata su fatti
-- "Chi parla per ultimo ha ragione" è un anti-pattern — promuovere cultura del "show me the data"
-- Coinvolgere il HIPPO presto per influenzarlo con dati invece di combatterlo con opinioni
-
----
-
-### AP-09: Il Deadliner Arbitrario
-
-**Descrizione:** Le scadenze vengono imposte senza relazione con la complessità del lavoro o con vincoli di business reali. La data è "perché voglio che sia pronto per [evento]" senza analisi.
-
-**Segnali:**
-- Date scadute che vengono spostate senza conseguenze (quindi non erano reali)
-- "Deve essere pronto per il Q1" senza motivazione commerciale
-- Stessa urgenza per tutto ("tutto è priorità 1")
-- Conseguenze non definite in caso di mancato rispetto della scadenza
-
-**Danno:** Team sotto pressione costante, technical debt accumulato per rispettare deadline irrealistiche, qualità compromessa.
-
-**Contromisura:**
-- "Qual è la conseguenza commerciale se slittiamo di 2 settimane?" — spesso la risposta rivela che la scadenza era arbitraria
-- Offrire opzioni: "Possiamo rispettare la data riducendo lo scope, oppure rispettare lo scope slittando di [N] settimane. Quale preferite?"
-- Documentare esplicitamente il trade-off scope/quality/time nel change request
-- La "deadline impossibile" va comunicata per iscritto appena identificata, con stima alternativa
+**Countermeasure:**
+- Formal Stakeholder Analysis at the start of the project
+- Checklist: "Who else might have requirements on this system?"
+- Expanded kick-off meetings to identify all stakeholders
+- "Stakeholders not yet consulted" section in requirements documents
 
 ---
 
-### AP-10: Il Blame Shifter
+### AP-05: The Business Proxy
 
-**Descrizione:** Quando qualcosa va storto, la colpa viene attribuita al team tecnico indipendentemente dalle responsabilità reali.
+**Description:** The person acting as intermediary between the actual business and the development team does not have the authority or knowledge to make decisions. They always need to "go ask," with endless feedback cycles.
 
-**Segnali:**
-- "Il sistema non funziona" (senza specificare cosa, quando, come)
-- "Il team non ha capito i requisiti" (ma i requisiti erano ambigui)
-- "Non è quello che avevo chiesto" (ma è esattamente quanto concordato per iscritto)
-- Cambio di versione della storia dei fatti dopo un fallimento
+**Signals:**
+- Responses that always require someone else's approval
+- Contradictory directions because reported inaccurately
+- "I don't know, I need to check" as the prevailing answer
+- Demos that cannot be accepted because "I need to show it to my manager"
 
-**Danno:** Cultura del blame, team demotivato, perdita di professionisti.
+**Damage:** Slowdowns, misunderstandings, decisions made without real authority.
 
-**Contromisura:**
-- CYA (Cover Your Ass) sistematico: ogni decisione, ogni cambiamento, ogni accordo — per iscritto
-- Post-mortem blameless: "Cosa ha causato il problema?" non "Chi ha causato il problema?"
-- Tracciabilità completa: requirements → tasks → code → tests
-- Blameless post-mortem template (vedi sezione 04 — Communication Patterns)
-
----
-
-### AP-11: Il Feature Smuggler
-
-**Descrizione:** Funzionalità non pianificate entrano nel sistema senza passare dal processo formale — direttamente negli sviluppatori, via chat informale, "mentre ci sei".
-
-**Segnali:**
-- "Mentre fai quella cosa, aggiungi anche..."
-- Conversazioni dirette con developer bypassando il Product Owner
-- Funzionalità che appaiono nel sistema senza storia nel backlog
-- "L'ho chiesto a [developer] direttamente"
-
-**Danno:** Scope non tracciato, effort non pianificato, inconsistenza del prodotto.
-
-**Contromisura:**
-- Cultura di team: ogni richiesta funzionale va al Product Owner / backlog, non direttamente al developer
-- Il developer risponde: "Creo una storia nel backlog e la metto in prioritizzazione con il PO"
-- Nessuno sviluppo senza ticket/storia approvata
-- Il PO deve essere il filtro unico per le priorità del team
+**Countermeasure:**
+- Identify and request direct access to the real decision-maker
+- Clearly document the RACI (Responsible, Accountable, Consulted, Informed)
+- Include the decision-maker in sprint review ceremonies
+- Proactive escalation when the proxy cannot unblock decisions
 
 ---
 
-### AP-12: Il Tester a Posteriori
+### AP-06: The Constructive Pessimist (or: "Yes but...")
 
-**Descrizione:** Il business vuole validare il sistema solo quando è "finito", senza coinvolgimento durante lo sviluppo. Poi, durante l'UAT, emergono centinaia di problemi.
+**Description:** Every proposal is accepted with a "yes but" that adds additional requirements, redefines the perimeter, or vetoes already agreed-upon solutions.
 
-**Segnali:**
-- Rifiuto di partecipare ai demo intermedi
-- "Fatevi le vostre cose, poi ci chiamate quando è pronto"
-- UAT lanciata a ridosso della deadline
-- Cambio di requisiti durante l'UAT
+**Signals:**
+- "Yes, but we also need..."
+- "It works, but it's missing..."
+- Acceptance criteria that expand at every demo
+- Demos that end with more work than was completed
 
-**Danno:** Bug discovery tardiva (costosa), cambiamenti dell'ultimo minuto, deadline mancate.
+**Damage:** Demos that never end, sprints that never close, apparent velocity of zero.
 
-**Contromisura:**
-- Demo obbligatorie ogni sprint (non opzionali)
-- UAT pianificata come fase esplicita del progetto con durata fissa
-- Acceptance criteria scritti prima dello sviluppo (BDD/ATDD)
-- "Se non partecipate ai demo intermedi, i rischi di cambio in UAT sono a carico del business"
+**Countermeasure:**
+- Freeze acceptance criteria before the sprint (DoR)
+- Formal distinction: "Is this a bug?" (must be fixed) vs "Is this a new feature?" (new CR)
+- Physically separate the acceptance moment from the new feedback collection moment
+- "Do we agree that this story is DONE? New requests go in the backlog?"
 
 ---
 
-## Matrice Anti-Pattern / Contromisura
+### AP-07: The Chronic Optimist
 
-| Anti-Pattern | Strumento Principale di Difesa |
-|-------------|-------------------------------|
-| Requisito Fantasma | Sezione Assunzioni + 5 Whys |
-| Cambia-Idea Seriale | Sign-off + Decision Log + CR process |
-| Tunnel della Soluzione | "Perché hai bisogno di questo?" + UX designer |
-| Stakeholder Invisibile | Stakeholder Analysis + Kick-off allargato |
-| Proxy senza Autorità | RACI matrix + accesso al decision-maker |
-| Sì ma... | DoR + freeze AC + separazione demo/feedback |
-| Ottimista Cronico | Stima dettagliata + dati storici + three-point |
+**Description:** The stakeholder systematically underestimates complexity, time, and risks. "It's not that hard" is the response to any estimate.
+
+**Signals:**
+- "It won't take that long"
+- "We did it in a weekend 10 years ago"
+- Pressure to reduce estimates without modifying scope
+- "With modern AI tools this takes an hour"
+
+**Damage:** Unrealistic estimates, impossible schedules, team under constant pressure.
+
+**Countermeasure:**
+- Estimates documented with detailed breakdown (not just the final number)
+- Reference to project historical data
+- "I'm happy to discuss how to reduce effort. We can reduce scope or increase implementation simplicity. But I cannot reduce the estimate without changing something."
+- Three-point estimation (optimistic, realistic, pessimistic) to make uncertainty visible
+
+---
+
+### AP-08: The HIPPO (Highest Paid Person's Opinion)
+
+**Description:** Decisions are made based on hierarchical rank, not knowledge of the domain or data. The senior manager who speaks last is "right" by default.
+
+**Signals:**
+- Decisions that change when the senior manager enters
+- Data and analysis ignored in favor of the "boss's" intuition
+- Team that doesn't express contrary opinions because "they decide anyway"
+
+**Damage:** Suboptimal decisions made for political reasons, demotivation of the technical team.
+
+**Countermeasure:**
+- Pre-load decisions with objective data (ADR, benchmarks, research)
+- RFC structure requiring evidence-based justification
+- "The last one to speak is right" is an anti-pattern — promote "show me the data" culture
+- Involve the HIPPO early to influence them with data instead of fighting them with opinions
+
+---
+
+### AP-09: The Arbitrary Deadliner
+
+**Description:** Deadlines are imposed without relation to work complexity or real business constraints. The date is "because I want it ready for [event]" without analysis.
+
+**Signals:**
+- Deadlines that slip without consequences (so they weren't real)
+- "It must be ready for Q1" without commercial justification
+- Same urgency for everything ("everything is priority 1")
+- Consequences not defined in case of deadline miss
+
+**Damage:** Team under constant pressure, technical debt accumulated to meet unrealistic deadlines, compromised quality.
+
+**Countermeasure:**
+- "What is the commercial consequence if we slip by 2 weeks?" — the answer often reveals the deadline was arbitrary
+- Offer options: "We can meet the date by reducing scope, or meet the scope by slipping [N] weeks. Which do you prefer?"
+- Explicitly document the scope/quality/time trade-off in the change request
+- The "impossible deadline" must be communicated in writing as soon as identified, with an alternative estimate
+
+---
+
+### AP-10: The Blame Shifter
+
+**Description:** When something goes wrong, blame is attributed to the technical team regardless of actual responsibilities.
+
+**Signals:**
+- "The system doesn't work" (without specifying what, when, how)
+- "The team didn't understand the requirements" (but the requirements were ambiguous)
+- "That's not what I asked for" (but it is exactly what was agreed in writing)
+- Revised version of the facts after a failure
+
+**Damage:** Blame culture, demotivated team, loss of professionals.
+
+**Countermeasure:**
+- Systematic CYA (Cover Your Ass): every decision, every change, every agreement — in writing
+- Blameless post-mortem: "What caused the problem?" not "Who caused the problem?"
+- Complete traceability: requirements → tasks → code → tests
+- Blameless post-mortem template (see section 04 — Communication Patterns)
+
+---
+
+### AP-11: The Feature Smuggler
+
+**Description:** Unplanned features enter the system without going through the formal process — directly to developers, via informal chat, "while you're at it."
+
+**Signals:**
+- "While you're doing that, also add..."
+- Direct conversations with developers bypassing the Product Owner
+- Features that appear in the system without a story in the backlog
+- "I asked [developer] directly"
+
+**Damage:** Untracked scope, unplanned effort, product inconsistency.
+
+**Countermeasure:**
+- Team culture: every functional request goes to the Product Owner / backlog, not directly to the developer
+- The developer responds: "I'll create a story in the backlog and put it in prioritization with the PO"
+- No development without an approved ticket/story
+- The PO must be the single filter for team priorities
+
+---
+
+### AP-12: The Post-Hoc Tester
+
+**Description:** The business wants to validate the system only when it is "finished," without involvement during development. Then, during UAT, hundreds of issues emerge.
+
+**Signals:**
+- Refusal to participate in interim demos
+- "Do your thing, call us when it's ready"
+- UAT launched close to the deadline
+- Requirement changes during UAT
+
+**Damage:** Late bug discovery (costly), last-minute changes, missed deadlines.
+
+**Countermeasure:**
+- Mandatory demos every sprint (not optional)
+- UAT planned as an explicit project phase with a fixed duration
+- Acceptance criteria written before development (BDD/ATDD)
+- "If you don't participate in interim demos, the risk of changes in UAT is borne by the business"
+
+---
+
+## Anti-Pattern / Countermeasure Matrix
+
+| Anti-Pattern | Main Defense Tool |
+|-------------|------------------|
+| Ghost Requirement | Assumptions Section + 5 Whys |
+| Serial Mind-Changer | Sign-off + Decision Log + CR process |
+| Solution Tunnel | "Why do you need this?" + UX designer |
+| Invisible Stakeholder | Stakeholder Analysis + expanded kick-off |
+| Proxy without Authority | RACI matrix + access to decision-maker |
+| Yes but... | DoR + AC freeze + demo/feedback separation |
+| Chronic Optimist | Detailed estimate + historical data + three-point |
 | HIPPO | ADR + data-driven decision + RFC |
-| Deadliner Arbitrario | Trade-off analysis + comunicazione scritta |
-| Blame Shifter | CYA + tracciabilità + blameless post-mortem |
-| Feature Smuggler | Cultura "tutto passa dal PO" + no ticket = no work |
-| Tester a Posteriori | Demo obbligatorie + BDD + UAT pianificata |
+| Arbitrary Deadliner | Trade-off analysis + written communication |
+| Blame Shifter | CYA + traceability + blameless post-mortem |
+| Feature Smuggler | "Everything goes through the PO" culture + no ticket = no work |
+| Post-Hoc Tester | Mandatory demos + BDD + planned UAT |
 
 ---
 
-*Precedente: [08 — Scope Management](./08-scope-management.md) | Prossimo: [10 — Domain-Driven Design](./10-ddd-protection.md)*
+*Previous: [08 — Scope Management](./08-scope-management.md) | Next: [10 — Domain-Driven Design](./10-ddd-protection.md)*

@@ -1,45 +1,45 @@
 # 08 — Scope Management
 
-> *"Lo scope creep non è un'aggiunta. È un furto silenzioso di tempo, qualità e morale."*
+> *"Scope creep is not an addition. It is a silent theft of time, quality, and morale."*
 
-Lo scope creep è l'espansione graduale e non controllata del perimetro di un progetto. È una delle cause più frequenti di ritardi, sforamenti di budget e fallimenti. La sua caratteristica principale è che avviene lentamente, spesso con richieste che sembrano "piccole" e "ragionevoli", finché il progetto non è irriconoscibile rispetto alla pianificazione originale.
+Scope creep is the gradual and uncontrolled expansion of a project's perimeter. It is one of the most frequent causes of delays, budget overruns, and failures. Its key characteristic is that it happens slowly, often with requests that seem "small" and "reasonable," until the project is unrecognizable compared to the original plan.
 
 ---
 
-## Anatomia dello Scope Creep
+## Anatomy of Scope Creep
 
-### Le 5 Forme dello Scope Creep
+### The 5 Forms of Scope Creep
 
-**1. Gold Plating (dal team)**
-Il team aggiunge funzionalità non richieste perché "sembra utile" o "è una buona idea". Anche quando viene dal team, è scope creep.
+**1. Gold Plating (from the team)**
+The team adds unrequested features because "it seems useful" or "it's a good idea." Even when it comes from the team, it is scope creep.
 
-**2. Feature Creep (dagli stakeholder)**
-Il business aggiunge funzionalità progressive, ognuna "piccola", che nel complesso stravolgono lo scope.
+**2. Feature Creep (from stakeholders)**
+The business adds progressive features, each "small," which collectively transform the scope.
 
-**3. Requirement Drift (ambiguità risolta in corsa)**
-I requisiti erano ambigui, ogni stakeholder li ha interpretati diversamente, e il team ha risolto le ambiguità in corso d'opera senza documentazione.
+**3. Requirement Drift (ambiguity resolved on the fly)**
+Requirements were ambiguous, each stakeholder interpreted them differently, and the team resolved ambiguities in progress without documentation.
 
 **4. Integration Creep**
-"Basta collegarlo al sistema X" — un'integrazione che sembrava triviale si rivela complessa e assorbe risorse non pianificate.
+"Just connect it to system X" — an integration that seemed trivial turns out to be complex and absorbs unplanned resources.
 
 **5. Quality Creep**
-Standard di qualità non definiti inizialmente che vengono imposti a progetto avanzato ("non sapevo che si aspettassero anche questo livello di testing").
+Quality standards not initially defined that are imposed as the project advances ("I didn't know they expected this level of testing too").
 
 ---
 
-## Il Processo Formale di Change Request
+## The Formal Change Request Process
 
-La Change Request (CR) è il meccanismo che rende lo scope creep *visibile e costoso*. Se una CR viene approvata, il cambiamento entra con le sue conseguenze chiare. Se viene rifiutata, il team non deve implementarla.
+The Change Request (CR) is the mechanism that makes scope creep *visible and costly*. If a CR is approved, the change enters with its clear consequences. If rejected, the team does not implement it.
 
-### Workflow CR
+### CR Workflow
 
 ```
-                    RICHIESTA
+                    REQUEST
                        │
                        ▼
             ┌──────────────────┐
-            │  Compilazione CR │
-            │  (richiedente)   │
+            │  CR Submission   │
+            │  (requester)     │
             └──────────────────┘
                        │
                        ▼
@@ -47,9 +47,9 @@ La Change Request (CR) è il meccanismo che rende lo scope creep *visibile e cos
             │ Impact Analysis  │
             │  (tech lead)     │
             │  - effort        │
-            │  - costo         │
-            │  - rischi        │
-            │  - dipendenze    │
+            │  - cost          │
+            │  - risks         │
+            │  - dependencies  │
             └──────────────────┘
                        │
                        ▼
@@ -59,224 +59,224 @@ La Change Request (CR) è il meccanismo che rende lo scope creep *visibile e cos
             └──────────────────┘
                ┌───────┴───────┐
                ▼               ▼
-          APPROVATA         RIFIUTATA
+          APPROVED          REJECTED
                │               │
                ▼               ▼
-        Aggiorna         Documenta
-        backlog +        motivazione
-        roadmap +        e notifica
-        budget          richiedente
+        Update           Document
+        backlog +        motivation
+        roadmap +        and notify
+        budget          requester
 ```
 
-### Template Change Request Completo
+### Complete Change Request Template
 
 ```markdown
 # Change Request — CR-[NNN]
 
 **ID:** CR-[NNN]
-**Data:** [YYYY-MM-DD]
-**Richiedente:** [nome] — [ruolo] — [email]
-**Priorità Richiesta:** Critica / Alta / Media / Bassa
-**Urgenza:** Deve entrare nello sprint corrente? [Sì/No — motivazione]
+**Date:** [YYYY-MM-DD]
+**Requester:** [name] — [role] — [email]
+**Requested Priority:** Critical / High / Medium / Low
+**Urgency:** Must enter current sprint? [Yes/No — justification]
 
 ---
 
-## 1. Descrizione del Cambiamento
+## 1. Change Description
 
-### Cosa si vuole aggiungere/modificare/rimuovere:
-[Descrizione chiara e completa]
+### What is to be added/modified/removed:
+[Clear and complete description]
 
-### Perché è necessario:
-[Motivazione di business]
+### Why it is needed:
+[Business justification]
 
-### Quale valore aggiunge:
-[Beneficio atteso, se possibile quantificato]
-
----
-
-## 2. Requisiti Impattati
-
-| ID Requisito | Descrizione | Tipo di Impatto |
-|--------------|-------------|-----------------|
-| REQ-XXX | [desc] | Modifica / Sostituzione / Integrazione |
-| REQ-YYY | [desc] | Dipendenza |
+### What value it adds:
+[Expected benefit, quantified if possible]
 
 ---
 
-## 3. Impact Analysis (compilata dal tech lead)
+## 2. Impacted Requirements
 
-**Effort stimato:** [ore / story points]
+| Requirement ID | Description | Impact Type |
+|----------------|-------------|-------------|
+| REQ-XXX | [desc] | Modification / Replacement / Integration |
+| REQ-YYY | [desc] | Dependency |
 
-**Componenti software impattate:**
-- [Componente A]: [tipo di modifica]
-- [Componente B]: [tipo di modifica]
+---
 
-**Test da aggiungere/aggiornare:**
+## 3. Impact Analysis (filled by tech lead)
+
+**Estimated effort:** [hours / story points]
+
+**Impacted software components:**
+- [Component A]: [type of modification]
+- [Component B]: [type of modification]
+
+**Tests to add/update:**
 - [Test 1]
 - [Test 2]
 
-**Database: schema migration necessaria?** [Sì/No — dettagli]
+**Database: schema migration required?** [Yes/No — details]
 
-**API: breaking changes?** [Sì/No — dettagli]
+**API: breaking changes?** [Yes/No — details]
 
-**Rischi:**
-| Rischio | Probabilità | Impatto | Mitigazione |
-|---------|-------------|---------|-------------|
-| [Rischio 1] | Alta/Media/Bassa | Alto/Medio/Basso | [come] |
+**Risks:**
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| [Risk 1] | High/Medium/Low | High/Medium/Low | [how] |
 
-**Funzionalità che potrebbero slittare** (se entra questa CR):
-- [Feature A]: da sprint [N] a sprint [N+1]
+**Features that may slip** (if this CR enters):
+- [Feature A]: from sprint [N] to sprint [N+1]
 - [Feature B]: ...
 
-**Stima costo (se applicabile):**
-- Effort sviluppo: [N] giorni × [€/giorno] = €[totale]
-- Testing extra: [N] giorni × [€/giorno] = €[totale]
-- **Totale CR:** €[totale]
+**Cost estimate (if applicable):**
+- Development effort: [N] days × [$/day] = $[total]
+- Extra testing: [N] days × [$/day] = $[total]
+- **CR Total:** $[total]
 
 ---
 
-## 4. Opzioni
+## 4. Options
 
-**Opzione A (implementazione completa):**
-Effort: [N] punti — Include: [tutto ciò che è stato richiesto]
+**Option A (full implementation):**
+Effort: [N] points — Includes: [everything requested]
 
-**Opzione B (implementazione minima):**
-Effort: [N] punti — Include: [il minimo necessario]
-Non include: [cosa viene escluso e perché]
+**Option B (minimum implementation):**
+Effort: [N] points — Includes: [the minimum necessary]
+Does not include: [what is excluded and why]
 
 ---
 
-## 5. Decisione
+## 5. Decision
 
-- [ ] **APPROVATA** — Opzione: [A/B] — Entra in: Sprint [N] / Roadmap [Q]
-- [ ] **RIFIUTATA** — Motivazione: [descrizione]
-- [ ] **DEFERITA** — A Sprint [N] — Motivazione: [descrizione]
-- [ ] **RINVIATA** — Rivederla dopo: [data/evento]
+- [ ] **APPROVED** — Option: [A/B] — Enters: Sprint [N] / Roadmap [Q]
+- [ ] **REJECTED** — Motivation: [description]
+- [ ] **DEFERRED** — To Sprint [N] — Motivation: [description]
+- [ ] **POSTPONED** — Review after: [date/event]
 
-**Firmato da:** _______________________ **Ruolo:** _____________ **Data:** _______
-**Firmato da:** _______________________ **Ruolo:** _____________ **Data:** _______
+**Signed by:** _______________________ **Role:** _____________ **Date:** _______
+**Signed by:** _______________________ **Role:** _____________ **Date:** _______
 ```
 
 ---
 
-## La Baseline dello Scope
+## The Scope Baseline
 
-All'inizio del progetto (o di ogni release), lo scope deve essere definito e *congelato* in un documento di baseline:
+At the beginning of the project (or each release), the scope must be defined and *frozen* in a baseline document:
 
 ```markdown
-# Scope Baseline — [Progetto] Release [N]
+# Scope Baseline — [Project] Release [N]
 
-**Data approvazione:** [data]
-**Approvato da:** [Product Owner], [Sponsor], [Tech Lead]
+**Approval date:** [date]
+**Approved by:** [Product Owner], [Sponsor], [Tech Lead]
 
-## In Scope (funzionalità incluse in questa release)
+## In Scope (features included in this release)
 
 ### MUST HAVE (MVP)
-- [Feature 1]: [descrizione breve] — Story points: [N]
-- [Feature 2]: [descrizione breve] — Story points: [N]
-- [Feature 3]: [descrizione breve] — Story points: [N]
+- [Feature 1]: [brief description] — Story points: [N]
+- [Feature 2]: [brief description] — Story points: [N]
+- [Feature 3]: [brief description] — Story points: [N]
 
-**Totale MUST:** [N] story points ≈ [N] settimane
+**MUST Total:** [N] story points ≈ [N] weeks
 
-### SHOULD HAVE (se il tempo lo permette)
-- [Feature 4]: [descrizione breve] — Story points: [N]
+### SHOULD HAVE (if time permits)
+- [Feature 4]: [brief description] — Story points: [N]
 
-## Esplicitamente Out of Scope
+## Explicitly Out of Scope
 
-Le seguenti funzionalità sono **esplicitamente escluse** da questa release:
-- [Feature X]: prevista per Release [N+1]
-- [Feature Y]: nessuna pianificazione attuale
-- [Integrazione Z]: out of scope per vincoli tecnici/budget
+The following features are **explicitly excluded** from this release:
+- [Feature X]: planned for Release [N+1]
+- [Feature Y]: no current planning
+- [Integration Z]: out of scope due to technical/budget constraints
 
-## Assunzioni
+## Assumptions
 
-Questa baseline assume:
-1. [Assunzione 1]
-2. [Assunzione 2]
-3. [Assunzione 3]
+This baseline assumes:
+1. [Assumption 1]
+2. [Assumption 2]
+3. [Assumption 3]
 
-## Firma di Accettazione
+## Acceptance Signature
 
-Con la firma di questo documento, le parti concordano che qualsiasi
-aggiunta alle funzionalità "In Scope" richiede una Change Request formale.
+By signing this document, the parties agree that any addition to the
+"In Scope" features requires a formal Change Request.
 
-| Nome | Ruolo | Firma | Data |
-|------|-------|-------|------|
-| [nome] | Product Owner | ________ | [data] |
-| [nome] | Business Sponsor | ________ | [data] |
-| [nome] | Tech Lead | ________ | [data] |
+| Name | Role | Signature | Date |
+|------|------|-----------|------|
+| [name] | Product Owner | ________ | [date] |
+| [name] | Business Sponsor | ________ | [date] |
+| [name] | Tech Lead | ________ | [date] |
 ```
 
 ---
 
-## Il Concetto di "Budget di Cambiamento"
+## The Concept of "Change Budget"
 
-Una tecnica avanzata per gestire lo scope creep è il **Change Budget**: all'inizio del progetto o del trimestre, si riserva esplicitamente una percentuale del budget/effort per i cambiamenti imprevedibili.
+An advanced technique for managing scope creep is the **Change Budget**: at the beginning of the project or quarter, explicitly reserve a percentage of the budget/effort for unforeseeable changes.
 
 ```
-Budget totale sprint: 100 punti
+Total sprint budget: 100 points
 
-80 punti → Feature pianificate (scope baseline)
-20 punti → Change Budget (per CR approvate durante lo sprint)
+80 points → Planned features (scope baseline)
+20 points → Change Budget (for CRs approved during the sprint)
 
-Se il Change Budget è esaurito, le nuove CR vanno al prossimo sprint.
-Se il Change Budget non viene usato, può andare a feature aggiuntive.
+If the Change Budget is exhausted, new CRs go to the next sprint.
+If the Change Budget is not used, it can go to additional features.
 ```
 
-Questo meccanismo ha un duplice effetto:
-1. Rende esplicito che i cambiamenti hanno un costo
-2. Crea un meccanismo di auto-regolazione: quando il budget è esaurito, gli stakeholder iniziano a prioritizzare meglio
+This mechanism has a dual effect:
+1. Makes explicit that changes have a cost
+2. Creates a self-regulating mechanism: when the budget is exhausted, stakeholders begin to prioritize better
 
 ---
 
-## Scope Creep: I Segnali d'Allarme
+## Scope Creep: Warning Signs
 
-Monitora questi indicatori per identificare lo scope creep precocemente:
+Monitor these indicators to identify scope creep early:
 
-| Segnale | Cosa Significa |
-|---------|----------------|
-| "Basta aggiungere..." detto spesso | Minimizzazione sistematica dei costi |
-| Storie che crescono durante lo sprint | Requirements non stabili al momento del commit |
-| Velocity in calo progressivo | Debito tecnico o scope non tracciato |
-| Riunioni sempre più frequenti per "allineamento" | Requisiti non chiari o in evoluzione |
-| "Era sottinteso" detto dal business | Requisiti impliciti non elicitati |
-| Continui spostamenti della deadline | Scope non controllato |
-| Feature "piccole" che si moltiplicano | Gold plating o feature creep sistematico |
+| Signal | What It Means |
+|--------|---------------|
+| "Just add..." said often | Systematic minimization of costs |
+| Stories that grow during the sprint | Requirements not stable at commit time |
+| Progressively declining velocity | Technical debt or untracked scope |
+| Increasingly frequent "alignment" meetings | Requirements unclear or evolving |
+| "It was implied" said by the business | Implicit requirements not elicited |
+| Continual deadline shifts | Uncontrolled scope |
+| "Small" features that multiply | Systematic gold plating or feature creep |
 
 ---
 
-## Tecniche di Contenimento
+## Containment Techniques
 
 ### Timeboxing
-Ogni attività ha una durata fissa. Se non si finisce entro il timebox, si rivaluta la priorità — non si espande il tempo.
+Every activity has a fixed duration. If not finished within the timebox, priority is reassessed — time is not expanded.
 
 ### Scope Freezing
-A un certo punto prima della release, il backlog viene "congelato": nessuna nuova storia entra, solo bug critici.
+At some point before the release, the backlog is "frozen": no new stories enter, only critical bugs.
 
 ### YAGNI — You Ain't Gonna Need It
-Principio di XP: non implementare funzionalità finché non sono necessarie. Ogni funzionalità ha un costo di sviluppo, manutenzione, e complessità. Se non serve adesso, non si fa.
+XP principle: don't implement features until they are needed. Every feature has a cost of development, maintenance, and complexity. If not needed now, don't build it.
 
 ### Minimum Viable Product (MVP)
-Identificare il minimo indispensabile che porta valore e rilasciarlo. Poi iterare. Questo obbliga gli stakeholder a prioritizzare esplicitamente.
+Identify the minimum indispensable that delivers value and release it. Then iterate. This forces stakeholders to explicitly prioritize.
 
 ---
 
-## Risposta alle Richieste Urgenti Non Pianificate
+## Responding to Unplanned Urgent Requests
 
-Script di risposta professionale per le situazioni più comuni:
+Professional response scripts for the most common situations:
 
-**"Mi serve questa cosa entro venerdì"**
-> "Posso analizzare l'impatto adesso e darti una stima entro [ora]. Se approvi la CR e sei disponibile a spostare [feature X] al prossimo sprint, possiamo procedere."
+**"I need this thing by Friday"**
+> "I can analyze the impact now and give you an estimate by [time]. If you approve the CR and are available to move [feature X] to the next sprint, we can proceed."
 
-**"Non è una cosa grande, ci vuole poco"**
-> "Capisco che sembri piccola. Lasciami fare la stima tecnica — di solito ci sono aspetti non ovvi. Ti rispondo entro [ora]."
+**"It's not a big thing, it won't take long"**
+> "I understand it seems small. Let me do the technical estimate — there are usually non-obvious aspects. I'll get back to you by [time]."
 
-**"Ma è urgentissimo, non c'è tempo per le procedure"**
-> "Se è un'emergenza di produzione che impatta i ricavi, possiamo seguire il processo hot-fix (15 minuti invece di 2 giorni). Per tutto il resto, saltare il processo mette a rischio la stabilità del sistema."
+**"But it's extremely urgent, there's no time for procedures"**
+> "If it's a production emergency impacting revenue, we can follow the hot-fix process (15 minutes instead of 2 days). For everything else, skipping the process puts the system's stability at risk."
 
-**"Non capisco perché ci vuole così tanto"**
-> "Posso mostrarti la breakdown della stima. [Componente A] richiede X per [motivo tecnico], [componente B] richiede Y per [motivo tecnico]. Preferisci fare solo la parte A per ridurre l'effort?"
+**"I don't understand why it takes so long"**
+> "I can show you the estimate breakdown. [Component A] requires X because of [technical reason], [component B] requires Y because of [technical reason]. Would you prefer to only do part A to reduce effort?"
 
 ---
 
-*Precedente: [07 — Agile come Scudo](./07-agile-protection.md) | Prossimo: [09 — Anti-Pattern degli Stakeholder](./09-stakeholder-antipatterns.md)*
+*Previous: [07 — Agile as a Shield](./07-agile-protection.md) | Next: [09 — Stakeholder Anti-Patterns](./09-stakeholder-antipatterns.md)*

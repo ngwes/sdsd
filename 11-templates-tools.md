@@ -1,79 +1,79 @@
-# 11 — Template e Strumenti Pratici
+# 11 — Practical Templates and Tools
 
-> *"Un template vuoto è meglio di un documento assente."*
+> *"An empty template is better than an absent document."*
 
-Questa sezione raccoglie template pronti all'uso, checklist operative e configurazioni di strumenti per implementare le pratiche SDSD immediatamente.
+This section collects ready-to-use templates, operational checklists, and tool configurations to implement SDSD practices immediately.
 
 ---
 
-## Template Fondamentali
+## Core Templates
 
 ### TEMPLATE 1: Kick-off Meeting Agenda
 
 ```markdown
-# Agenda Kick-off — [Nome Progetto]
+# Kick-off Agenda — [Project Name]
 
-**Data/Ora:** [data] [ora]
-**Luogo/Link:** [dove]
-**Durata:** 2-3 ore
+**Date/Time:** [date] [time]
+**Location/Link:** [where]
+**Duration:** 2-3 hours
 
-## Partecipanti Richiesti
+## Required Participants
 - [ ] Product Owner / Business Sponsor
 - [ ] Tech Lead / Architect
-- [ ] Developer (almeno 1 senior)
+- [ ] Developer (at least 1 senior)
 - [ ] QA Lead
-- [ ] UX Designer (se applicabile)
-- [ ] Rappresentante Operations/Security (se applicabile)
+- [ ] UX Designer (if applicable)
+- [ ] Operations/Security representative (if applicable)
 
 ## Agenda
 
-### 1. Obiettivi del Progetto (15 min)
-- Qual è il problema che stiamo risolvendo?
-- Qual è il valore atteso?
-- Come misuriamo il successo?
+### 1. Project Objectives (15 min)
+- What problem are we solving?
+- What is the expected value?
+- How do we measure success?
 
 ### 2. Stakeholder Map (20 min)
-- Chi sono tutti gli stakeholder?
-- Chi ha potere decisionale?
-- Chi deve essere consultato?
-- Chi deve essere informato?
+- Who are all the stakeholders?
+- Who has decision-making power?
+- Who needs to be consulted?
+- Who needs to be informed?
 
-### 3. Scope e Out-of-Scope (30 min)
-- Cosa è sicuramente IN scope?
-- Cosa è sicuramente OUT of scope?
-- Cosa è ancora da decidere (aree grigie)?
+### 3. Scope and Out-of-Scope (30 min)
+- What is definitely IN scope?
+- What is definitely OUT of scope?
+- What is yet to be decided (gray areas)?
 
-### 4. Assunzioni e Rischi (20 min)
-- Cosa stiamo assumendo come vero?
-- Quali sono i rischi principali?
-- Come li mitigiamo?
+### 4. Assumptions and Risks (20 min)
+- What are we assuming to be true?
+- What are the main risks?
+- How do we mitigate them?
 
-### 5. Vincoli (15 min)
-- Timeline fissa o flessibile?
-- Budget disponibile?
-- Vincoli tecnologici?
-- Vincoli normativi?
+### 5. Constraints (15 min)
+- Fixed or flexible timeline?
+- Available budget?
+- Technological constraints?
+- Regulatory constraints?
 
-### 6. Processo di Lavoro (20 min)
-- Metodologia (Agile, Scrum, Kanban)?
-- Cerimonie e loro frequenza
-- Canali di comunicazione
-- Processo di change request
+### 6. Working Process (20 min)
+- Methodology (Agile, Scrum, Kanban)?
+- Ceremonies and their frequency
+- Communication channels
+- Change request process
 - Escalation path
 
-### 7. Definizione di Successo (10 min)
-- DoD di alto livello
-- Criteri di acceptance della release
+### 7. Definition of Success (10 min)
+- High-level DoD
+- Release acceptance criteria
 
-### 8. Prossimi Passi (10 min)
-- Azioni immediate con owner e data
+### 8. Next Steps (10 min)
+- Immediate actions with owner and date
 
-## Output Atteso da Questo Meeting
-- [ ] Project Charter bozza
+## Expected Output from This Meeting
+- [ ] Draft Project Charter
 - [ ] Stakeholder Map
-- [ ] Risk Register iniziale
-- [ ] Scope Baseline bozza (da raffinare)
-- [ ] Accordo sul processo di lavoro
+- [ ] Initial Risk Register
+- [ ] Draft Scope Baseline (to be refined)
+- [ ] Agreement on working process
 ```
 
 ---
@@ -81,94 +81,94 @@ Questa sezione raccoglie template pronti all'uso, checklist operative e configur
 ### TEMPLATE 2: Project Charter
 
 ```markdown
-# Project Charter — [Nome Progetto]
+# Project Charter — [Project Name]
 
-**Versione:** 1.0
-**Data:** [data]
-**Sponsor:** [nome e ruolo]
+**Version:** 1.0
+**Date:** [date]
+**Sponsor:** [name and role]
 
-## 1. Visione e Obiettivi
+## 1. Vision and Objectives
 
-**Problema da risolvere:**
-[Descrizione del problema in termini di business]
+**Problem to solve:**
+[Description of the problem in business terms]
 
-**Soluzione proposta:**
-[Descrizione ad alto livello della soluzione]
+**Proposed solution:**
+[High-level description of the solution]
 
-**Obiettivi misurabili:**
-| Obiettivo | Metrica | Target | Baseline |
-|-----------|---------|--------|----------|
-| [Obj 1] | [come si misura] | [valore target] | [valore attuale] |
+**Measurable objectives:**
+| Objective | Metric | Target | Baseline |
+|-----------|--------|--------|----------|
+| [Obj 1] | [how it's measured] | [target value] | [current value] |
 
 ## 2. Scope
 
 ### In Scope
-- [Funzionalità 1]
-- [Funzionalità 2]
+- [Feature 1]
+- [Feature 2]
 
 ### Out of Scope
-- [Cosa esplicitamente escluso]
+- [What is explicitly excluded]
 
-### Da Definire
-- [Aree ancora aperte]
+### To Be Defined
+- [Still-open areas]
 
-## 3. Stakeholder
+## 3. Stakeholders
 
-| Nome | Ruolo | Tipo | Responsabilità |
-|------|-------|------|----------------|
-| [nome] | [ruolo] | Sponsor/PO/Dev/QA... | [cosa fa in questo progetto] |
+| Name | Role | Type | Responsibilities |
+|------|------|------|-----------------|
+| [name] | [role] | Sponsor/PO/Dev/QA... | [what they do in this project] |
 
-## 4. Timeline e Milestone
+## 4. Timeline and Milestones
 
-| Milestone | Data Target | Descrizione |
+| Milestone | Target Date | Description |
 |-----------|-------------|-------------|
-| [M1] | [data] | [cosa deve essere pronto] |
+| [M1] | [date] | [what must be ready] |
 
 ## 5. Budget
 
-**Budget approvato:** € ___________
+**Approved budget:** $ ___________
 **Contingency:** ___ %
 
-## 6. Rischi Principali
+## 6. Main Risks
 
-| Rischio | Probabilità | Impatto | Mitigazione | Owner |
-|---------|-------------|---------|-------------|-------|
-| [rischio] | A/M/B | A/M/B | [come] | [chi] |
+| Risk | Probability | Impact | Mitigation | Owner |
+|------|-------------|--------|------------|-------|
+| [risk] | H/M/L | H/M/L | [how] | [who] |
 
-## 7. Assunzioni
+## 7. Assumptions
 
-1. [Assunzione 1]
-2. [Assunzione 2]
+1. [Assumption 1]
+2. [Assumption 2]
 
-## 8. Vincoli
+## 8. Constraints
 
-1. [Vincolo 1]
-2. [Vincolo 2]
+1. [Constraint 1]
+2. [Constraint 2]
 
-## 9. Dipendenze Esterne
+## 9. External Dependencies
 
-| Dipendenza | Team/Sistema | Tipo | ETA |
-|------------|--------------|------|-----|
-| [dipendenza] | [da chi dipende] | Blocca/Impatta | [data] |
+| Dependency | Team/System | Type | ETA |
+|------------|-------------|------|-----|
+| [dependency] | [who it depends on] | Blocks/Impacts | [date] |
 
-## 10. Processo di Governance
+## 10. Governance Process
 
-**Change Request:** [link al processo]
-**Escalation:** [chi → chi → chi]
-**Reporting:** [cadenza, format, destinatari]
+**Change Request:** [link to process]
+**Escalation:** [who → who → who]
+**Reporting:** [cadence, format, recipients]
 
 ---
 
-## Firma di Approvazione
+## Approval Signature
 
-Con la firma di questo documento, le parti approvano il progetto come descritto
-e si impegnano a seguire il processo di governance definito.
+By signing this document, the parties approve the project as described
+and commit to following the defined governance process.
 
-| Ruolo | Nome | Firma | Data |
-|-------|------|-------|------|
-| Business Sponsor | | ________ | [data] |
-| Product Owner | | ________ | [data] |
-| Tech Lead | | ________ | [data] |
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Business Sponsor | | ________ | [date] |
+| Product Owner | | ________ | [date] |
+| Tech Lead | | ________ | [date] |
 ```
 
 ---
@@ -176,174 +176,174 @@ e si impegnano a seguire il processo di governance definito.
 ### TEMPLATE 3: RAID Log
 
 ```markdown
-# RAID Log — [Progetto]
+# RAID Log — [Project]
 
-*Aggiornato ogni sprint. Owner: [chi lo gestisce]*
+*Updated every sprint. Owner: [who manages it]*
 
-## Risks (Rischi)
+## Risks
 
-| ID | Rischio | Probabilità | Impatto | Score | Mitigazione | Owner | Status |
-|----|---------|-------------|---------|-------|-------------|-------|--------|
-| R01 | [desc] | Alta=3/Med=2/Bassa=1 | Alto=3/Med=2/Basso=1 | P×I | [come] | [chi] | Aperto/Mitigato/Chiuso |
+| ID | Risk | Probability | Impact | Score | Mitigation | Owner | Status |
+|----|------|-------------|--------|-------|------------|-------|--------|
+| R01 | [desc] | High=3/Med=2/Low=1 | High=3/Med=2/Low=1 | P×I | [how] | [who] | Open/Mitigated/Closed |
 
-## Assumptions (Assunzioni)
+## Assumptions
 
-| ID | Assunzione | Verificata? | Fonte | Data verifica | Rischio se falsa |
-|----|------------|-------------|-------|---------------|-----------------|
-| A01 | [cosa stiamo assumendo] | Sì/No | [chi ha confermato] | [data] | [cosa succede se è sbagliata] |
+| ID | Assumption | Verified? | Source | Verification date | Risk if false |
+|----|------------|-----------|--------|-------------------|---------------|
+| A01 | [what we're assuming] | Yes/No | [who confirmed] | [date] | [what happens if wrong] |
 
-## Issues (Problemi Aperti)
+## Issues
 
-| ID | Problema | Impatto | Owner | ETA | Status | Note |
-|----|----------|---------|-------|-----|--------|------|
-| I01 | [desc] | [su cosa impatta] | [chi risolve] | [quando] | Aperto/In corso/Chiuso | |
+| ID | Issue | Impact | Owner | ETA | Status | Notes |
+|----|-------|--------|-------|-----|--------|-------|
+| I01 | [desc] | [what it impacts] | [who resolves] | [when] | Open/In progress/Closed | |
 
-## Dependencies (Dipendenze)
+## Dependencies
 
-| ID | Dipendenza | Da Chi | Tipo | Data Necessaria | Status |
-|----|------------|--------|------|-----------------|--------|
-| D01 | [cosa serve] | [chi deve darlo] | Blocca/Impatta | [data] | In attesa/Ricevuta/A rischio |
+| ID | Dependency | From Whom | Type | Date Needed | Status |
+|----|------------|-----------|------|-------------|--------|
+| D01 | [what's needed] | [who must provide it] | Blocks/Impacts | [date] | Waiting/Received/At risk |
 ```
 
 ---
 
-### TEMPLATE 4: User Story Completa
+### TEMPLATE 4: Complete User Story
 
 ```markdown
-# US-[NNN]: [Titolo]
+# US-[NNN]: [Title]
 
-**Epic:** [nome dell'epic padre]
-**Sprint:** [sprint pianificato]
-**Priorità:** Must / Should / Could / Won't
+**Epic:** [parent epic name]
+**Sprint:** [planned sprint]
+**Priority:** Must / Should / Could / Won't
 **Story Points:** [N]
-**Owner:** [Product Owner che ha approvato]
+**Owner:** [Product Owner who approved]
 
 ## User Story
 
-Come [tipo di utente],
-voglio [funzionalità/azione],
-in modo da [beneficio/obiettivo].
+As a [type of user],
+I want [feature/action],
+so that [benefit/objective].
 
-## Contesto e Background
+## Context and Background
 
-[Perché questa storia è necessaria? Quale problema risolve?
- Qualsiasi contesto utile per il developer.]
+[Why is this story needed? What problem does it solve?
+ Any context useful for the developer.]
 
-## Criteri di Accettazione
+## Acceptance Criteria
 
 **Scenario 1: [Happy Path]**
 ```gherkin
-Dato che [contesto iniziale]
-Quando [azione dell'utente]
-Allora [risultato atteso]
-  E [altra conseguenza]
+Given [initial context]
+When [user action]
+Then [expected result]
+  And [other consequence]
 ```
 
 **Scenario 2: [Edge Case]**
 ```gherkin
-Dato che [contesto]
-Quando [azione]
-Allora [risultato]
+Given [context]
+When [action]
+Then [result]
 ```
 
 **Scenario 3: [Error Case]**
 ```gherkin
-Dato che [contesto di errore]
-Quando [azione che causa errore]
-Allora [messaggio di errore o comportamento difensivo]
+Given [error context]
+When [action that causes error]
+Then [error message or defensive behavior]
 ```
 
-## Assunzioni
+## Assumptions
 
-- [Cosa assumiamo come vero per questa storia]
-- [Es: l'utente è già autenticato]
-- [Es: il prodotto esiste nel catalogo]
+- [What we assume to be true for this story]
+- [e.g.: the user is already authenticated]
+- [e.g.: the product exists in the catalog]
 
-## Out of Scope per questa storia
+## Out of Scope for this story
 
-- [Cosa NON è incluso e andrà in una storia separata]
+- [What is NOT included and will go into a separate story]
 
-## Dipendenze
+## Dependencies
 
-- [US-NNN]: [descrizione della dipendenza]
-- [Sistema esterno]: [descrizione]
+- [US-NNN]: [description of dependency]
+- [External system]: [description]
 
-## Note Tecniche
+## Technical Notes
 
-[Eventuali vincoli o indicazioni tecniche concordate]
+[Any agreed technical constraints or guidance]
 
 ## Mockup / Wireframe
 
-[Link o immagine allegata]
+[Link or attached image]
 
 ---
 
 **Definition of Ready checklist:**
-- [ ] Formato corretto (As/Want/So that)
-- [ ] Acceptance Criteria completi
-- [ ] Story Points stimati
-- [ ] Nessuna dipendenza bloccante
-- [ ] Mockup disponibili (se richiesti)
-- [ ] Approvata dal PO: [nome] il [data]
+- [ ] Correct format (As/Want/So that)
+- [ ] Complete Acceptance Criteria
+- [ ] Estimated Story Points
+- [ ] No blocking dependencies
+- [ ] Mockups available (if required)
+- [ ] Approved by PO: [name] on [date]
 ```
 
 ---
 
-## Checklist Operative
+## Operational Checklists
 
 ### CHECKLIST 1: Pre-Sprint
 
 ```
 PRE-SPRINT CHECKLIST
 
-□ Sprint precedente chiuso (tutte le storie accepted o moved)
-□ Velocity dell'ultimo sprint registrata
-□ Backlog groomed (storie pronte hanno DoR)
-□ Priorità aggiornate dal PO
-□ Dipendenze esterne verificate
-□ Nessun blocco tecnico aperto non gestito
-□ RAID log aggiornato
-□ Retrospective actions dal sprint precedente trackate
-□ Sprint planning schedulato con PO presente
+□ Previous sprint closed (all stories accepted or moved)
+□ Last sprint velocity recorded
+□ Backlog groomed (ready stories meet DoR)
+□ Priorities updated by PO
+□ External dependencies verified
+□ No unmanaged open technical blockers
+□ RAID log updated
+□ Retrospective actions from previous sprint tracked
+□ Sprint planning scheduled with PO present
 ```
 
-### CHECKLIST 2: Definition of Ready (per ogni storia)
+### CHECKLIST 2: Definition of Ready (for each story)
 
 ```
 DEFINITION OF READY
 
-□ Formato User Story corretto
-□ Acceptance Criteria scritti in Gherkin (o equivalente)
-□ Story Points stimati dal team
-□ Priorità MoSCoW assegnata
-□ Mockup/wireframe allegati (se UI)
-□ Dipendenze identificate e non bloccanti
-□ Dati di test identificati e disponibili
-□ API esterne documentate (se integrazione)
-□ No open questions critiche
-□ PO disponibile per chiarimenti durante lo sprint
-□ Firmata/approvata dal PO
+□ Correct User Story format
+□ Acceptance Criteria written in Gherkin (or equivalent)
+□ Story Points estimated by team
+□ MoSCoW priority assigned
+□ Mockups/wireframes attached (if UI)
+□ Dependencies identified and non-blocking
+□ Test data identified and available
+□ External APIs documented (if integration)
+□ No critical open questions
+□ PO available for clarifications during sprint
+□ Signed/approved by PO
 ```
 
-### CHECKLIST 3: Definition of Done (per ogni storia)
+### CHECKLIST 3: Definition of Done (for each story)
 
 ```
 DEFINITION OF DONE
 
-□ Tutti gli acceptance criteria soddisfatti
-□ Unit test scritti e verdi (copertura ≥ 80%)
-□ Integration test aggiornati
-□ Code review approvata da almeno 1 peer
-□ Nessun linting error bloccante
-□ Nessun security vulnerability (SAST scan)
-□ API documentata (se modificata)
-□ README aggiornato (se necessario)
-□ ADR creato (se decisione architetturale)
-□ Story demo-ata al PO
-□ Accettata dal PO: [firma/data]
-□ Mergiata in develop/main
-□ CI/CD verde
-□ Deployata in staging
+□ All acceptance criteria satisfied
+□ Unit tests written and green (coverage ≥ 80%)
+□ Integration tests updated
+□ Code review approved by at least 1 peer
+□ No blocking linting errors
+□ No security vulnerabilities (SAST scan)
+□ API documented (if modified)
+□ README updated (if necessary)
+□ ADR created (if architectural decision)
+□ Story demo-ed to PO
+□ Accepted by PO: [signature/date]
+□ Merged into develop/main
+□ CI/CD green
+□ Deployed to staging
 ```
 
 ### CHECKLIST 4: Release Readiness
@@ -351,134 +351,134 @@ DEFINITION OF DONE
 ```
 RELEASE READINESS CHECKLIST
 
-QUALITÀ
-□ Tutti i test passanti (unit, integration, e2e)
-□ Performance test superato (conformità SLA)
-□ Security scan superato (no critical/high vulnerabilities)
-□ Accessibility test (se applicabile)
+QUALITY
+□ All tests passing (unit, integration, e2e)
+□ Performance test passed (SLA compliance)
+□ Security scan passed (no critical/high vulnerabilities)
+□ Accessibility test (if applicable)
 
-DOCUMENTAZIONE
-□ Release notes scritte
-□ Changelog aggiornato
-□ Documentazione utente aggiornata
-□ Runbook operativo aggiornato
+DOCUMENTATION
+□ Release notes written
+□ Changelog updated
+□ User documentation updated
+□ Operations runbook updated
 
-OPERAZIONI
-□ Rollback plan documentato e testato
-□ Database migration testata su staging
-□ Feature flags configurati correttamente
-□ Monitoring e alerting configurati
-□ On-call notificato
+OPERATIONS
+□ Rollback plan documented and tested
+□ Database migration tested on staging
+□ Feature flags configured correctly
+□ Monitoring and alerting configured
+□ On-call notified
 
 BUSINESS
-□ UAT completata e firmata dal PO
-□ Go/No-Go approvato da: [PO] e [Tech Lead]
-□ Comunicazione utenti preparata (se impatto UX)
-□ Training completato (se necessario)
+□ UAT completed and signed off by PO
+□ Go/No-Go approved by: [PO] and [Tech Lead]
+□ User communication prepared (if UX impact)
+□ Training completed (if necessary)
 
-FIRMA GO/NO-GO
-□ Tech Lead: _________________ Data: _______
-□ Product Owner: _____________ Data: _______
+GO/NO-GO SIGNATURE
+□ Tech Lead: _________________ Date: _______
+□ Product Owner: _____________ Date: _______
 ```
 
 ---
 
-## Strumenti Consigliati
+## Recommended Tools
 
-### Per la Gestione dei Requisiti
+### For Requirements Management
 
-| Strumento | Tipo | Pro | Contro |
-|-----------|------|-----|--------|
-| **Jira** | Ticket + Backlog | Molto diffuso, integrazioni | Costoso, complesso |
-| **Linear** | Ticket moderno | Veloce, UX eccellente | Meno feature enterprise |
-| **GitHub Issues + Projects** | Ticket + Board | Gratuito, vicino al codice | Funzionalità limitate |
-| **Azure DevOps** | Suite completa | Eccellente integrazione MS | Curva di apprendimento |
-| **Notion** | Documenti + DB | Flessibile per documentazione | Meno struttura per ticket |
+| Tool | Type | Pros | Cons |
+|------|------|------|------|
+| **Jira** | Ticket + Backlog | Very widespread, integrations | Expensive, complex |
+| **Linear** | Modern ticket | Fast, excellent UX | Fewer enterprise features |
+| **GitHub Issues + Projects** | Ticket + Board | Free, close to code | Limited features |
+| **Azure DevOps** | Full suite | Excellent MS integration | Learning curve |
+| **Notion** | Documents + DB | Flexible for documentation | Less structure for tickets |
 
-### Per la Documentazione
+### For Documentation
 
-| Strumento | Tipo | Pro |
-|-----------|------|-----|
-| **Confluence** | Wiki aziendale | Integrazione Jira, maturo |
-| **Notion** | Wiki moderno | Flessibile, bello |
-| **GitBook** | Docs-as-code | Versionabile, per dev |
-| **Obsidian** | Note personale | Offline, gratuito |
-| **MkDocs + Material** | Docs nel repo | Versionabile, open source |
+| Tool | Type | Pros |
+|------|------|------|
+| **Confluence** | Enterprise wiki | Jira integration, mature |
+| **Notion** | Modern wiki | Flexible, beautiful |
+| **GitBook** | Docs-as-code | Versionable, for devs |
+| **Obsidian** | Personal notes | Offline, free |
+| **MkDocs + Material** | Docs in repo | Versionable, open source |
 
-### Per gli ADR
+### For ADRs
 
-| Strumento | Descrizione |
-|-----------|-------------|
-| **adr-tools** | CLI tool, crea e gestisce ADR da terminale |
-| **Log4Brains** | Web UI per navigare ADR, supporta multiple repo |
-| **Backstage.io** | Developer portal con tech docs integrati |
-| **File Markdown nel repo** | Il modo più semplice e versionabile |
+| Tool | Description |
+|------|-------------|
+| **adr-tools** | CLI tool, creates and manages ADRs from terminal |
+| **Log4Brains** | Web UI for navigating ADRs, supports multiple repos |
+| **Backstage.io** | Developer portal with integrated tech docs |
+| **Markdown files in repo** | The simplest and most versionable way |
 
-### Per il BDD/ATDD
+### For BDD/ATDD
 
-| Tool | Linguaggio | Framework |
-|------|------------|-----------|
-| **Cucumber** | Java, JS, Ruby | Gherkin nativo |
-| **Behave** | Python | Gherkin per Python |
-| **SpecFlow** | .NET | Gherkin per .NET |
-| **Cypress** | JavaScript | BDD nativo |
-| **Playwright** | Multi-linguaggio | Può integrare BDD |
+| Tool | Language | Framework |
+|------|----------|-----------|
+| **Cucumber** | Java, JS, Ruby | Native Gherkin |
+| **Behave** | Python | Gherkin for Python |
+| **SpecFlow** | .NET | Gherkin for .NET |
+| **Cypress** | JavaScript | Native BDD |
+| **Playwright** | Multi-language | Can integrate BDD |
 
-### Per il Diagramming
+### For Diagramming
 
-| Strumento | Tipo | Note |
-|-----------|------|------|
-| **Mermaid** | Diagrammi nel codice | Integrato in GitHub/GitLab |
-| **PlantUML** | Diagrammi nel codice | Standard enterprise |
-| **Lucidchart** | Visuale collaborativo | Ottimo per stakeholder |
-| **Miro** | Whiteboard digitale | Perfetto per Event Storming |
-| **draw.io** | Diagrammi gratuiti | Desktop + web, gratuito |
-
----
-
-## Script di Risposta — Il "Phrase Book" SDSD
-
-Situazioni comuni e risposte professionali pre-costruite:
-
-```
-"Perché ci vuole così tanto?"
-→ "Posso mostrarti la breakdown della stima. [Componente A]
-   richiede X giorni per [motivo specifico]. Vuoi vedere i dettagli?"
-
-"Non mi avevi detto che ci voleva così tanto"
-→ "La stima è stata comunicata il [data] via [email/ticket ID].
-   Posso mandarti il link. Vuoi rivederla insieme?"
-
-"Ma è una piccola modifica!"
-→ "Hai ragione che sembra piccola. La mia stima tecnica è di
-   [N giorni] perché [motivo]. Posso mostrarti la breakdown
-   se vuoi verificare insieme."
-
-"Non è quello che avevo chiesto"
-→ "Capisco. Ho implementato ciò che era specificato nell'
-   acceptance criteria concordata il [data] con [nome].
-   Posso mostrarti il documento. Cosa vorresti fosse diverso?
-   Creiamo una Change Request?"
-
-"Fate questo entro domani"
-→ "Posso fare una stima adesso. Guardando lo scope, stimo [N]
-   giorni. Per rispettare la tua timeline, potremmo:
-   A) ridurre lo scope a [funzionalità core]
-   B) aggiungere risorse (ma vedi Brooks's Law)
-   C) accettare un rischio di qualità ridotta (devo documentarlo)
-   Quale preferisci?"
-
-"Il sistema non funziona"
-→ "Puoi descrivere il comportamento specifico che osservi?
-   Quale azione stai eseguendo? Cosa ti aspetti che succeda?
-   Cosa succede invece? Così posso investigare l'issue correttamente."
-
-"Era ovvio che doveva funzionare anche in questo modo"
-→ "Capisco che sembri ovvio. Non era nei requisiti concordati,
-   ma posso aggiungere questo comportamento tramite una Change
-   Request. Vuoi che ne faccia la stima?"
-```
+| Tool | Type | Notes |
+|------|------|-------|
+| **Mermaid** | Diagrams in code | Integrated in GitHub/GitLab |
+| **PlantUML** | Diagrams in code | Enterprise standard |
+| **Lucidchart** | Collaborative visual | Great for stakeholders |
+| **Miro** | Digital whiteboard | Perfect for Event Storming |
+| **draw.io** | Free diagrams | Desktop + web, free |
 
 ---
 
-*Precedente: [10 — DDD](./10-ddd-protection.md) | Prossimo: [12 — Riferimenti](./12-references.md)*
+## Response Scripts — The SDSD "Phrase Book"
+
+Common situations and pre-built professional responses:
+
+```
+"Why does it take so long?"
+→ "I can show you the estimate breakdown. [Component A]
+   requires X days for [specific reason]. Do you want to see the details?"
+
+"You didn't tell me it would take this long"
+→ "The estimate was communicated on [date] via [email/ticket ID].
+   I can send you the link. Would you like to review it together?"
+
+"But it's a small change!"
+→ "You're right that it seems small. My technical estimate is
+   [N days] because [reason]. I can show you the breakdown
+   if you'd like to verify together."
+
+"That's not what I asked for"
+→ "I understand. I implemented what was specified in the
+   acceptance criteria agreed on [date] with [name].
+   I can show you the document. What would you like to be different?
+   Shall we create a Change Request?"
+
+"Get this done by tomorrow"
+→ "I can do an estimate right now. Looking at the scope, I estimate [N]
+   days. To meet your timeline, we could:
+   A) reduce the scope to [core functionality]
+   B) add resources (but see Brooks's Law)
+   C) accept a risk of reduced quality (I would need to document this)
+   Which do you prefer?"
+
+"The system doesn't work"
+→ "Can you describe the specific behavior you're observing?
+   What action are you performing? What do you expect to happen?
+   What happens instead? That way I can investigate the issue correctly."
+
+"It was obvious it should also work this way"
+→ "I understand it seems obvious. It was not in the agreed requirements,
+   but I can add this behavior via a Change Request.
+   Would you like me to estimate it?"
+```
+
+---
+
+*Previous: [10 — DDD](./10-ddd-protection.md) | Next: [12 — References](./12-references.md)*

@@ -1,58 +1,58 @@
-# Diagrammi SDSD
+# SDSD Diagrams
 
-Questa cartella contiene i diagrammi visivi della documentazione SDSD.
+This folder contains visual diagrams for the SDSD documentation.
 
-## File Disponibili
+## Available Files
 
 ### `sdsd-overview.svg`
-**Panoramica del Framework SDSD**
+**SDSD Framework Overview**
 
-Mappa visuale dell'intero framework: al centro il developer e il progetto da proteggere, circondati dalle minacce esterne (in rosso) e dagli scudi difensivi (in verde). Mostra come ogni pratica SDSD risponde a una minaccia specifica.
+Visual map of the entire framework: at the center the developer and the project to be protected, surrounded by external threats (in red) and defensive shields (in green). Shows how each SDSD practice responds to a specific threat.
 
 ---
 
 ### `requirements-lifecycle.svg`
-**Ciclo di Vita dei Requisiti**
+**Requirements Lifecycle**
 
-Flusso completo dalla elicitazione alla gestione continua, con le 5 fasi principali e le pratiche SDSD associate a ciascuna. La barra RTM in fondo mostra come la traceability attraversa tutte le fasi.
+Complete flow from elicitation to ongoing management, with the 5 main phases and the SDSD practices associated with each. The RTM bar at the bottom shows how traceability spans all phases.
 
 ---
 
 ### `antipatterns-radar.svg`
-**Mappa degli Anti-Pattern degli Stakeholder**
+**Stakeholder Anti-Patterns Map**
 
-Diagramma scatter che posiziona i 12 anti-pattern catalogati su due assi: frequenza (quanto spesso si verificano) e danno potenziale (quanto impattano il progetto). Utile per prioritizzare le contromisure.
+Scatter diagram that positions the 12 cataloged anti-patterns on two axes: frequency (how often they occur) and potential damage (how much they impact the project). Useful for prioritizing countermeasures.
 
 ---
 
 ### `cost-of-defects.svg`
-**Costo di Correzione dei Difetti per Fase**
+**Cost of Defect Correction by Phase**
 
-Visualizzazione del principio di Barry Boehm: il costo di correzione di un difetto cresce esponenzialmente con il ritardo nella sua rilevazione. Da 1x in fase di requirements a 100x in produzione.
+Visualization of Barry Boehm's principle: the cost of correcting a defect grows exponentially with the delay in its detection. From 1x in the requirements phase to 100x in production.
 
 ---
 
-## Diagrammi Mermaid (per embedding in Markdown)
+## Mermaid Diagrams (for embedding in Markdown)
 
-I seguenti diagrammi sono in formato Mermaid e possono essere renderizzati direttamente in GitHub, GitLab, Notion, e altri strumenti che supportano Mermaid.
+The following diagrams are in Mermaid format and can be rendered directly in GitHub, GitLab, Notion, and other tools that support Mermaid.
 
 ### Change Request Flow
 
 ```mermaid
 flowchart TD
-    A([Richiesta di Cambiamento]) --> B[Compilazione CR Formale]
+    A([Change Request]) --> B[Formal CR Submission]
     B --> C[Impact Assessment - Tech Lead]
-    C --> D{Impatto Accettabile?}
-    D -->|Sì| E[Review PO + Tech Lead]
-    D -->|No - troppo costoso| F[Negoziazione Scope]
+    C --> D{Impact Acceptable?}
+    D -->|Yes| E[Review PO + Tech Lead]
+    D -->|No - too costly| F[Scope Negotiation]
     F --> E
-    E --> G{Decisione}
-    G -->|Approvata| H[Aggiorna Backlog + RTM]
-    G -->|Rifiutata| I[Documenta Motivazione]
-    G -->|Deferita| J[Schedulata per Sprint N+1]
-    H --> K([Implementazione nello Sprint pianificato])
-    I --> L([Notifica Richiedente])
-    J --> M([Review in Planning Sprint N+1])
+    E --> G{Decision}
+    G -->|Approved| H[Update Backlog + RTM]
+    G -->|Rejected| I[Document Motivation]
+    G -->|Deferred| J[Scheduled for Sprint N+1]
+    H --> K([Implementation in planned Sprint])
+    I --> L([Notify Requester])
+    J --> M([Review in Sprint N+1 Planning])
 
     style A fill:#1e293b,color:#94a3b8
     style K fill:#052e16,color:#86efac
@@ -66,16 +66,16 @@ flowchart TD
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Proposed : Decisione da prendere
-    Proposed --> UnderReview : RFC/discussione
-    UnderReview --> Proposed : Revisione necessaria
-    UnderReview --> Accepted : Consenso raggiunto
-    UnderReview --> Rejected : Alternativa scelta
-    Accepted --> Deprecated : Tecnologia obsoleta
-    Accepted --> Superseded : Nuova decisione migliore
+    [*] --> Proposed : Decision to make
+    Proposed --> UnderReview : RFC/discussion
+    UnderReview --> Proposed : Revision needed
+    UnderReview --> Accepted : Consensus reached
+    UnderReview --> Rejected : Alternative chosen
+    Accepted --> Deprecated : Technology obsolete
+    Accepted --> Superseded : Better new decision
     Deprecated --> [*]
     Rejected --> [*]
-    Superseded --> Proposed : Nuova proposta
+    Superseded --> Proposed : New proposal
 ```
 
 ---
@@ -107,12 +107,12 @@ quadrantChart
 
 ```mermaid
 graph LR
-    A[🗣️ Discovery\nBusiness + Dev + QA] -->|Gherkin scenarios| B[📝 Formulation\nScenari Gherkin formali]
-    B -->|Step definitions| C[🔴 Red\nTest automatici fallenti]
-    C -->|Implementazione| D[🟢 Green\nTest passanti]
-    D -->|Refactoring| E[✨ Refactor\nCodice pulito]
-    E -->|Nuova feature| A
-    D -->|Demo al PO| F[✅ Acceptance\nStoria accettata]
+    A[🗣️ Discovery\nBusiness + Dev + QA] -->|Gherkin scenarios| B[📝 Formulation\nFormal Gherkin scenarios]
+    B -->|Step definitions| C[🔴 Red\nFailing automated tests]
+    C -->|Implementation| D[🟢 Green\nPassing tests]
+    D -->|Refactoring| E[✨ Refactor\nClean code]
+    E -->|New feature| A
+    D -->|Demo to PO| F[✅ Acceptance\nStory accepted]
 
     style A fill:#1e3a5f,color:#93c5fd
     style B fill:#1e293b,color:#94a3b8
@@ -128,15 +128,15 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph L1["Layer 1: Prevenzione (Requisiti)"]
+    subgraph L1["Layer 1: Prevention (Requirements)"]
         direction LR
-        A[Elicitazione strutturata]
-        B[Sign-off formale]
+        A[Structured elicitation]
+        B[Formal sign-off]
         C[RTM]
-        D[Glossario]
+        D[Glossary]
     end
 
-    subgraph L2["Layer 2: Contenimento (Processo)"]
+    subgraph L2["Layer 2: Containment (Process)"]
         direction LR
         E[Change Request]
         F[Scope Baseline]
@@ -144,7 +144,7 @@ graph TB
         H[Agile Ceremonies]
     end
 
-    subgraph L3["Layer 3: Protezione (Architettura)"]
+    subgraph L3["Layer 3: Protection (Architecture)"]
         direction LR
         I[ADR]
         J[ACL - DDD]
@@ -152,7 +152,7 @@ graph TB
         L[Defensive Programming]
     end
 
-    subgraph L4["Layer 4: Evidenza (Test)"]
+    subgraph L4["Layer 4: Evidence (Tests)"]
         direction LR
         M[BDD/ATDD]
         N[Acceptance Tests]

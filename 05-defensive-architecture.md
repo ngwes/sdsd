@@ -1,31 +1,31 @@
 # 05 — Defensive Architecture
 
-> *"Un'architettura difensiva non è paranoia. È ingegneria."*
+> *"A defensive architecture is not paranoia. It is engineering."*
 
-La difesa architettuale è la pratica di progettare sistemi software che resistano non solo ai guasti tecnici, ma anche alle interferenze esterne: cambi di requisiti improvvisi, integrazioni con sistemi terzi inaffidabili, decisioni di business che impattano l'architettura, vendor lock-in, e la naturale evoluzione (spesso caotica) del dominio.
+Architectural defense is the practice of designing software systems that resist not only technical failures, but also external interference: sudden requirement changes, integrations with unreliable third-party systems, business decisions that impact architecture, vendor lock-in, and the natural (often chaotic) evolution of the domain.
 
 ---
 
 ## Anti-Corruption Layer (ACL) — Domain-Driven Design
 
-Il pattern più importante per SDSD a livello architetturale.
+The most important pattern for SDSD at the architectural level.
 
-### Il Problema
+### The Problem
 
-Quando il tuo sistema deve integrarsi con:
-- Sistemi legacy con modelli di dati obsoleti
-- API di terze parti con semantica diversa dal tuo dominio
-- Sistemi interni di altri team con terminologia diversa
-- Requisiti di business che cambiano frequentemente
+When your system needs to integrate with:
+- Legacy systems with outdated data models
+- Third-party APIs with semantics different from your domain
+- Internal systems from other teams with different terminology
+- Business requirements that change frequently
 
-Il rischio è che il "linguaggio" dell'esterno contamini il tuo modello interno, creando codice che rispecchia le ambiguità e le inefficienze dell'esterno.
+The risk is that the "language" of the external system contaminates your internal model, creating code that mirrors the ambiguities and inefficiencies of the outside world.
 
-### La Soluzione: ACL
+### The Solution: ACL
 
 ```
-SISTEMA ESTERNO (legacy/terze parti)
+EXTERNAL SYSTEM (legacy/third party)
          │
-         │  (modello e linguaggio esterno)
+         │  (external model and language)
          ▼
 ┌─────────────────────────────┐
 │    Anti-Corruption Layer    │
@@ -36,37 +36,37 @@ SISTEMA ESTERNO (legacy/terze parti)
 │  └─────────────────────┘   │
 └─────────────────────────────┘
          │
-         │  (modello e linguaggio interno, pulito)
+         │  (clean internal model and language)
          ▼
-   TUO SISTEMA INTERNO
+   YOUR INTERNAL SYSTEM
 ```
 
-L'ACL traduce, converte e adatta il mondo esterno al tuo modello. **Il tuo modello non si contamina mai.**
+The ACL translates, converts, and adapts the external world to your model. **Your model is never contaminated.**
 
-### Esempio Pratico
+### Practical Example
 
 ```python
-# SENZA ACL: il modello esterno inquina il tuo dominio
+# WITHOUT ACL: the external model pollutes your domain
 class OrderFromLegacyERP:
     def __init__(self):
-        self.ord_num = None      # Questo è l'ID ordine nel legacy
-        self.cust_cd = None      # Codice cliente
-        self.qty_tot = None      # Quantità totale (ma in quale unità??)
-        self.stat_flg = "P"      # "P"=Pending, "C"=Completed... nel legacy
+        self.ord_num = None      # This is the order ID in the legacy system
+        self.cust_cd = None      # Customer code
+        self.qty_tot = None      # Total quantity (but in what units??)
+        self.stat_flg = "P"      # "P"=Pending, "C"=Completed... in the legacy
 
-# Il tuo codice deve sapere cosa significano questi campi cryptici.
-# Se il legacy cambia, il tuo codice si rompe.
+# Your code must know what these cryptic fields mean.
+# If the legacy changes, your code breaks.
 
-# CON ACL: il tuo dominio è pulito
+# WITH ACL: your domain is clean
 class Order:
     def __init__(self):
         self.id: UUID = None
         self.customer_id: UUID = None
         self.total_quantity: Decimal = None
-        self.status: OrderStatus = None  # Enum chiaro
+        self.status: OrderStatus = None  # Clear enum
 
 class LegacyERPAdapter:
-    """Anti-Corruption Layer verso il sistema legacy"""
+    """Anti-Corruption Layer toward the legacy system"""
 
     STATUS_MAP = {"P": OrderStatus.PENDING, "C": OrderStatus.COMPLETED, ...}
 
@@ -79,26 +79,26 @@ class LegacyERPAdapter:
         return order
 
     def from_domain(self, order: Order) -> dict:
-        # Traduzione inversa per aggiornare il legacy
+        # Reverse translation to update the legacy
         return {
             "ord_num": str(order.id),
             "stat_flg": {v: k for k, v in self.STATUS_MAP.items()}[order.status]
         }
 ```
 
-> 💡 **Protezione SDSD:** quando il sistema legacy cambia (e cambierà), modifichi **solo l'ACL**. Il tuo dominio rimane intatto. Il tuo core business logic non viene toccato.
+> 💡 **SDSD Protection:** when the legacy system changes (and it will), you modify **only the ACL**. Your domain remains intact. Your core business logic is not touched.
 
 ---
 
 ## Bounded Contexts — Domain-Driven Design
 
-### Il Problema
+### The Problem
 
-In sistemi grandi, lo stesso termine può significare cose diverse in contesti diversi. "Cliente" per il CRM è una persona con dati anagrafici e storico acquisti. "Cliente" per il sistema di fatturazione è una partita IVA con un limite di credito. "Cliente" per il sistema di assistenza è un utente con ticket aperti.
+In large systems, the same term can mean different things in different contexts. "Customer" for CRM is a person with personal data and purchase history. "Customer" for the billing system is a VAT number with a credit limit. "Customer" for the support system is a user with open tickets.
 
-Se usi lo stesso oggetto `Customer` per tutti questi contesti, diventa un oggetto con decine di campi, la maggior parte nulli a seconda del contesto, con regole di business che si contraddicono.
+If you use the same `Customer` object for all these contexts, it becomes an object with dozens of fields, most of which are null depending on the context, with business rules that contradict each other.
 
-### La Soluzione: Bounded Contexts
+### The Solution: Bounded Contexts
 
 ```
 ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐
@@ -107,120 +107,120 @@ Se usi lo stesso oggetto `Customer` per tutti questi contesti, diventa un oggett
 │  Customer:      │  │  Customer:       │  │  Customer:      │
 │  - firstName    │  │  - vatNumber     │  │  - userId       │
 │  - lastName     │  │  - creditLimit   │  │  - openTickets  │
-│  - email        │  │  - paymentTerms  │  │  - sla Tier     │
+│  - email        │  │  - paymentTerms  │  │  - slaTier      │
 │  - history      │  │  - invoices      │  │  - lastContact  │
 └─────────────────┘  └──────────────────┘  └─────────────────┘
          │                    │                     │
          └────────────────────┼─────────────────────┘
                      Context Map
-              (definisce le relazioni tra contesti)
+              (defines the relationships between contexts)
 ```
 
-Ogni bounded context ha:
-- Il proprio modello di dominio
-- Il proprio vocabolario
-- La propria base dati (idealmente)
-- La propria squadra di sviluppo (Conway's Law)
+Each bounded context has:
+- Its own domain model
+- Its own vocabulary
+- Its own database (ideally)
+- Its own development team (Conway's Law)
 
-> 💡 **Protezione SDSD:** quando il business chiede modifiche al concetto di "Cliente" per la fatturazione, impattano solo il Billing Context. Non tocchi il CRM. Non rompere l'assistenza.
+> 💡 **SDSD Protection:** when the business requests changes to the "Customer" concept for billing, they only impact the Billing Context. You don't touch the CRM. You don't break support.
 
 ---
 
 ## Feature Flags
 
-### Il Problema
+### The Problem
 
-Stakeholder che vogliono attivare/disattivare funzionalità senza deployment. Rilasci che devono essere reversibili. A/B testing. Rollout graduali.
+Stakeholders who want to activate/deactivate features without deployment. Releases that must be reversible. A/B testing. Gradual rollouts.
 
-### La Soluzione
+### The Solution
 
-I Feature Flag (o Feature Toggle) sono condizioni runtime che controllano l'attivazione di funzionalità:
+Feature Flags (or Feature Toggles) are runtime conditions that control feature activation:
 
 ```python
 class FeatureFlags:
     NEW_DASHBOARD_ENABLED = os.getenv("FF_NEW_DASHBOARD", "false") == "true"
     BETA_CHECKOUT_FLOW = os.getenv("FF_BETA_CHECKOUT", "false") == "true"
 
-# Nel codice
+# In code
 def get_dashboard(user: User):
     if FeatureFlags.NEW_DASHBOARD_ENABLED and user.is_beta_tester:
         return new_dashboard_view(user)
     return legacy_dashboard_view(user)
 ```
 
-**Tipi di Feature Flag:**
+**Types of Feature Flags:**
 
-| Tipo | Scopo | Durata |
-|------|-------|--------|
-| **Release Flag** | Nasconde feature in sviluppo | Breve (poi rimosso) |
-| **Experiment Flag** | A/B testing | Breve (poi rimosso) |
-| **Ops Flag** | Controllo operativo (circuit breaker) | Lungo/permanente |
-| **Permission Flag** | Funzionalità per ruolo/tenant | Permanente |
+| Type | Purpose | Duration |
+|------|---------|----------|
+| **Release Flag** | Hides features under development | Short (then removed) |
+| **Experiment Flag** | A/B testing | Short (then removed) |
+| **Ops Flag** | Operational control (circuit breaker) | Long/permanent |
+| **Permission Flag** | Features by role/tenant | Permanent |
 
-> 💡 **Protezione SDSD:** quando il business dice "spegni quella funzionalità immediatamente", puoi farlo senza deployment. Quando dicono "voglio testare la nuova versione solo su 10% degli utenti", puoi farlo. Quando dicono "ci siamo sbagliati, torna come prima", puoi farlo in 30 secondi.
+> 💡 **SDSD Protection:** when the business says "turn off that feature immediately," you can do it without deployment. When they say "I want to test the new version on only 10% of users," you can do it. When they say "we were wrong, go back to the old way," you can do it in 30 seconds.
 
 ---
 
 ## Defensive Programming
 
-La difesa a livello di codice: ogni funzione assume che i suoi input possano essere sbagliati.
+Defense at the code level: every function assumes its inputs could be wrong.
 
 ### Design by Contract (DbC)
 
-Introdotto da Bertrand Meyer, formalizzato in Eiffel, applicabile in qualsiasi linguaggio:
+Introduced by Bertrand Meyer, formalized in Eiffel, applicable in any language:
 
 ```python
 from dataclasses import dataclass
 from typing import Optional
 
 def process_order(order_id: str, quantity: int, discount: float) -> dict:
-    # PRECONDIZIONI: validazione degli input
-    assert order_id and len(order_id) > 0, "order_id non può essere vuoto"
-    assert quantity > 0, f"quantity deve essere positivo, ricevuto: {quantity}"
-    assert 0.0 <= discount <= 1.0, f"discount deve essere tra 0 e 1, ricevuto: {discount}"
+    # PRECONDITIONS: input validation
+    assert order_id and len(order_id) > 0, "order_id cannot be empty"
+    assert quantity > 0, f"quantity must be positive, received: {quantity}"
+    assert 0.0 <= discount <= 1.0, f"discount must be between 0 and 1, received: {discount}"
 
-    # Logica principale
+    # Main logic
     order = fetch_order(order_id)
     total = order.price * quantity * (1 - discount)
 
-    # POSTCONDIZIONI: verifica degli output
-    assert total >= 0, f"Il totale non può essere negativo: {total}"
-    assert total <= order.price * quantity, "Il totale con sconto non può superare il prezzo pieno"
+    # POSTCONDITIONS: output verification
+    assert total >= 0, f"Total cannot be negative: {total}"
+    assert total <= order.price * quantity, "Total with discount cannot exceed full price"
 
     return {"order_id": order_id, "total": total, "quantity": quantity}
 ```
 
-### Principio di Fail Fast
+### Fail Fast Principle
 
-Non aspettare che un errore si propaghi. Rileva e solleva l'eccezione il prima possibile:
+Don't wait for an error to propagate. Detect and raise the exception as early as possible:
 
 ```python
-# ❌ Fail LATE: l'errore emerge 10 layer dopo
+# ❌ Fail LATE: error surfaces 10 layers later
 def process_payment(user_id, amount):
-    user = get_user(user_id)  # user potrebbe essere None
-    # ... 50 righe di codice ...
-    result = charge_card(user.payment_method)  # NullPointerException qui
-    # Impossibile capire dove è andato storto
+    user = get_user(user_id)  # user could be None
+    # ... 50 lines of code ...
+    result = charge_card(user.payment_method)  # NullPointerException here
+    # Impossible to understand what went wrong
 
-# ✅ Fail FAST: errore rilevato subito con contesto chiaro
+# ✅ Fail FAST: error detected immediately with clear context
 def process_payment(user_id: str, amount: Decimal) -> PaymentResult:
     if not user_id:
-        raise ValueError("user_id è obbligatorio")
+        raise ValueError("user_id is required")
     if amount <= 0:
-        raise ValueError(f"amount deve essere positivo, ricevuto: {amount}")
+        raise ValueError(f"amount must be positive, received: {amount}")
 
     user = get_user(user_id)
     if user is None:
-        raise UserNotFoundError(f"Utente {user_id} non trovato")
+        raise UserNotFoundError(f"User {user_id} not found")
     if user.payment_method is None:
-        raise PaymentMethodMissingError(f"Utente {user_id} non ha un metodo di pagamento")
+        raise PaymentMethodMissingError(f"User {user_id} has no payment method")
 
     return charge_card(user.payment_method, amount)
 ```
 
-### Input Sanitization e Validation
+### Input Sanitization and Validation
 
-Mai fidarsi dell'input esterno (form, API, database legacy, messaggi da altri servizi):
+Never trust external input (forms, APIs, legacy databases, messages from other services):
 
 ```python
 from pydantic import BaseModel, validator, Field
@@ -228,9 +228,9 @@ from typing import Optional
 import re
 
 class OrderRequest(BaseModel):
-    """Schema di validazione per le richieste di ordine"""
+    """Validation schema for order requests"""
 
-    customer_email: str = Field(..., description="Email del cliente")
+    customer_email: str = Field(..., description="Customer email")
     product_id: str = Field(..., min_length=1, max_length=50)
     quantity: int = Field(..., gt=0, le=1000)
     discount_code: Optional[str] = Field(None, max_length=20)
@@ -238,14 +238,14 @@ class OrderRequest(BaseModel):
     @validator('customer_email')
     def email_must_be_valid(cls, v):
         if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', v):
-            raise ValueError(f'Email non valida: {v}')
+            raise ValueError(f'Invalid email: {v}')
         return v.lower()
 
     @validator('discount_code')
     def sanitize_discount_code(cls, v):
         if v is None:
             return v
-        # Rimuovi caratteri non alfanumerici (prevenzione injection)
+        # Remove non-alphanumeric characters (injection prevention)
         return re.sub(r'[^A-Z0-9\-]', '', v.upper())
 ```
 
@@ -253,17 +253,17 @@ class OrderRequest(BaseModel):
 
 ## Circuit Breaker Pattern
 
-Quando il tuo sistema dipende da servizi esterni (API di terze parti, sistemi legacy), un Circuit Breaker previene che il fallimento dell'esterno causi il fallimento del tuo sistema:
+When your system depends on external services (third-party APIs, legacy systems), a Circuit Breaker prevents the failure of the external system from causing the failure of your system:
 
 ```
-CHIUSO (normale)         APERTO (protezione)      SEMI-APERTO (sonda)
+CLOSED (normal)          OPEN (protection)        HALF-OPEN (probe)
    ┌─────────┐               ┌─────────┐               ┌─────────┐
-   │  Req → │──successo──▶│  Blocca │──timeout──▶│  Testa  │
-   │ Serv   │               │  tutto  │               │  1 req  │
+   │  Req →  │──success──▶  │  Block  │──timeout──▶  │  Test   │
+   │  Svc    │               │  all    │               │  1 req  │
    └─────────┘               └─────────┘               └─────────┘
         │                                                   │
-        │ troppi errori                               successo │ errore
-        └──────────────────────────────────────▶ APERTO   CHIUSO
+        │ too many errors                         success │ error
+        └──────────────────────────────────────▶ OPEN   CLOSED
 ```
 
 ```python
@@ -280,7 +280,7 @@ class CircuitBreaker:
             if time.time() - self.last_failure_time > self.timeout:
                 self.state = "HALF-OPEN"
             else:
-                raise CircuitOpenError("Servizio non disponibile")
+                raise CircuitOpenError("Service unavailable")
 
         try:
             result = func(*args, **kwargs)
@@ -305,44 +305,44 @@ class CircuitBreaker:
 
 ## Strangler Fig Pattern
 
-Quando devi migrare un sistema legacy senza un "big bang rewrite":
+When you need to migrate a legacy system without a "big bang rewrite":
 
 ```
-FASE 1: Nuovo sistema a fianco del legacy
+PHASE 1: New system alongside legacy
 ┌──────────┐    ┌─────────────┐
-│  Facade  │───▶│  Sistema    │
-│ (Router) │    │  Legacy     │
+│  Facade  │───▶│  Legacy     │
+│ (Router) │    │  System     │
 └──────────┘    └─────────────┘
 
-FASE 2: Nuove feature nel nuovo sistema
+PHASE 2: New features in the new system
 ┌──────────┐    ┌─────────────┐
-│  Facade  │───▶│  Sistema    │
-│ (Router) │    │  Legacy     │
-│          │───▶│  Nuovo      │ (nuove feature qui)
+│  Facade  │───▶│  Legacy     │
+│ (Router) │    │  System     │
+│          │───▶│  New        │ (new features here)
 └──────────┘    └─────────────┘
 
-FASE 3: Migrazione graduale
+PHASE 3: Gradual migration
 ┌──────────┐    ┌─────────────┐
-│  Facade  │───▶│  Sistema    │ (solo feature non ancora migrate)
-│ (Router) │    │  Legacy     │
-│          │───▶│  Nuovo      │ (la maggioranza qui)
+│  Facade  │───▶│  Legacy     │ (only features not yet migrated)
+│ (Router) │    │  System     │
+│          │───▶│  New        │ (majority here)
 └──────────┘    └─────────────┘
 
-FASE 4: Legacy deprecato
+PHASE 4: Legacy deprecated
 ┌──────────┐    ┌─────────────┐
-│  Facade  │───▶│  Nuovo      │ (tutto qui)
-│ (Router) │    │  Sistema    │
+│  Facade  │───▶│  New        │ (everything here)
+│ (Router) │    │  System     │
 └──────────┘    └─────────────┘
-              (legacy spento)
+              (legacy shut down)
 ```
 
-> 💡 **Protezione SDSD:** il business può continuare a operare durante la migrazione. Non c'è un momento di "big freeze" in cui tutto si ferma. I rischi sono distribuiti nel tempo.
+> 💡 **SDSD Protection:** the business can continue operating during the migration. There is no "big freeze" moment where everything stops. Risks are distributed over time.
 
 ---
 
 ## Hexagonal Architecture (Ports & Adapters)
 
-Alistair Cockburn (2005): il core business logic non deve dipendere da nulla di esterno.
+Alistair Cockburn (2005): the core business logic must not depend on anything external.
 
 ```
                     ┌─────────────────────────────┐
@@ -359,47 +359,47 @@ Alistair Cockburn (2005): il core business logic non deve dipendere da nulla di 
                     └─────────────────────────────┘
 ```
 
-Il core non sa nulla di HTTP, SQL, o librerie specifiche. Può essere testato isolatamente. Se il database cambia (da SQL a NoSQL, da vendor A a vendor B), cambi solo l'adapter, non il core.
+The core knows nothing about HTTP, SQL, or specific libraries. It can be tested in isolation. If the database changes (from SQL to NoSQL, from vendor A to vendor B), you only change the adapter, not the core.
 
-> 💡 **Protezione SDSD:** quando il business dice "usiamo un'altra piattaforma di email" o "migriamo a un altro database", l'impatto è contenuto agli adapter, non al core. Questo argomento vale oro nelle discussioni di architettura.
+> 💡 **SDSD Protection:** when the business says "we're using a different email platform" or "we're migrating to another database," the impact is contained to the adapters, not the core. This argument is golden in architecture discussions.
 
 ---
 
 ## CQRS — Command Query Responsibility Segregation
 
-Separa il modello di lettura dal modello di scrittura:
+Separates the read model from the write model:
 
 ```
                     ┌─────────────┐
 WRITE side          │  Commands   │
-(modello            │  (Write)    │──▶ Database scrittura
- ottimizzato per    │  Handler    │    (normalizzato, consistente)
- le regole di       └─────────────┘
- business)
+(model              │  (Write)    │──▶ Write database
+ optimized for      │  Handler    │    (normalized, consistent)
+ business rules)    └─────────────┘
+
                     ┌─────────────┐
 READ side           │  Queries    │
-(modello            │  (Read)     │──▶ Database lettura
- ottimizzato per    │  Handler    │    (denormalizzato, veloce)
- le query UI)       └─────────────┘
+(model              │  (Read)     │──▶ Read database
+ optimized for      │  Handler    │    (denormalized, fast)
+ UI queries)        └─────────────┘
 ```
 
-> 💡 **Protezione SDSD:** quando il business chiede "aggiungi questo campo al report" (query), non tocchi il modello di write. Quando dice "aggiungi questa regola di validazione" (command), non impatti le performance delle query.
+> 💡 **SDSD Protection:** when the business asks "add this field to the report" (query), you don't touch the write model. When they say "add this validation rule" (command), you don't impact query performance.
 
 ---
 
-## Riepilogo: Pattern per Scenario
+## Summary: Pattern by Scenario
 
-| Scenario | Pattern Consigliato |
+| Scenario | Recommended Pattern |
 |----------|---------------------|
-| Integrazione con sistema legacy | Anti-Corruption Layer |
-| Dominio complesso con molti team | Bounded Contexts |
-| Feature sperimentali o rollout graduale | Feature Flags |
-| Dipendenza da servizi esterni instabili | Circuit Breaker |
-| Migrazione graduale legacy → nuovo | Strangler Fig |
-| Sistema con molte integrazioni | Hexagonal Architecture |
-| Report complessi + regole business complesse | CQRS |
-| Input non fidati da stakeholder | Defensive Programming + DbC |
+| Integration with legacy system | Anti-Corruption Layer |
+| Complex domain with many teams | Bounded Contexts |
+| Experimental features or gradual rollout | Feature Flags |
+| Dependency on unstable external services | Circuit Breaker |
+| Gradual legacy → new migration | Strangler Fig |
+| System with many integrations | Hexagonal Architecture |
+| Complex reports + complex business rules | CQRS |
+| Untrusted input from stakeholders | Defensive Programming + DbC |
 
 ---
 
-*Precedente: [04 — Communication Patterns](./04-communication-patterns.md) | Prossimo: [06 — ADR & Documentazione Decisionale](./06-adr-documentation.md)*
+*Previous: [04 — Communication Patterns](./04-communication-patterns.md) | Next: [06 — ADR & Decision Documentation](./06-adr-documentation.md)*

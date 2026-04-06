@@ -1,76 +1,76 @@
-# 10 — Domain-Driven Design come Strumento di Protezione
+# 10 — Domain-Driven Design as a Protection Tool
 
-> *"Se non hai un linguaggio condiviso, non hai capito niente — e non puoi dimostrare che il problema è tuo."*
+> *"If you don't have a shared language, you haven't understood anything — and you can't prove the problem is yours."*
 
-Domain-Driven Design (DDD), introdotto da Eric Evans nel suo libro del 2003, è molto più di un approccio architetturale. È un **framework per la costruzione di un linguaggio e un modello condivisi** tra domain expert e developer. In ottica SDSD, il DDD è uno strumento di protezione fondamentale: crea tracciabilità linguistica, riduce l'ambiguità, e rende esplicite le responsabilità di dominio.
+Domain-Driven Design (DDD), introduced by Eric Evans in his 2003 book, is much more than an architectural approach. It is a **framework for building a shared language and model** between domain experts and developers. From an SDSD perspective, DDD is a fundamental protection tool: it creates linguistic traceability, reduces ambiguity, and makes domain responsibilities explicit.
 
 ---
 
-## Il Cuore del DDD: Ubiquitous Language
+## The Heart of DDD: Ubiquitous Language
 
-### Il Problema Linguistico
+### The Linguistic Problem
 
-Il business usa parole come "ordine", "fattura", "cliente", "pagamento". I developer usano le stesse parole, ma spesso con significati diversi. Peggio: lo stesso business usa la stessa parola con significati diversi in contesti diversi.
+The business uses words like "order," "invoice," "customer," "payment." Developers use the same words, but often with different meanings. Worse: the same business uses the same word with different meanings in different contexts.
 
 ```
-"Ordine" nel CRM:         = opportunità di vendita
-"Ordine" nel warehouse:   = lista di picking
-"Ordine" in fatturazione: = documento legale
-"Ordine" nell'API:        = record nel database
+"Order" in CRM:         = sales opportunity
+"Order" in warehouse:   = picking list
+"Order" in billing:     = legal document
+"Order" in API:         = database record
 
-→ Quattro cose diverse chiamate allo stesso modo.
+→ Four different things called the same name.
 ```
 
-Questo crea ambiguità nei requisiti, incomprensioni nelle specifiche, e bug in produzione.
+This creates ambiguity in requirements, misunderstandings in specifications, and bugs in production.
 
-### La Soluzione: Ubiquitous Language
+### The Solution: Ubiquitous Language
 
-L'Ubiquitous Language (UL) è un vocabolario **preciso e condiviso**, usato da tutti (business e dev) in modo consistente, senza ambiguità.
+The Ubiquitous Language (UL) is a **precise and shared** vocabulary, used by everyone (business and dev) consistently, without ambiguity.
 
-**Caratteristiche:**
-- Ogni termine ha una definizione univoca e formale
-- I termini vengono usati nel codice (classi, metodi, variabili) esattamente come nel dominio
-- Il vocabolario si evolve con il dominio, ma sempre in modo esplicito
-- I conflitti linguistici sono segnali di Bounded Context diversi
+**Characteristics:**
+- Every term has a unique and formal definition
+- Terms are used in the code (classes, methods, variables) exactly as in the domain
+- The vocabulary evolves with the domain, but always explicitly
+- Linguistic conflicts are signals of different Bounded Contexts
 
-### Come si costruisce
+### How to Build It
 
-**1. Glossario Collaborativo:**
+**1. Collaborative Glossary:**
 ```markdown
-# Glossario di Dominio — [Sistema]
-*Ultima revisione: [data] — [autore]*
+# Domain Glossary — [System]
+*Last revision: [date] — [author]*
 
-## Ordine (nel contesto Sales)
-Un accordo tra un cliente e l'azienda per l'acquisto di uno o più prodotti.
-L'ordine esiste quando il cliente ha confermato l'acquisto ma prima del pagamento.
-Attributi: ID, cliente, data, prodotti, totale, stato (bozza/confermato/annullato).
-**NON è** una fattura. **NON è** un'opportunità di vendita.
+## Order (in Sales context)
+An agreement between a customer and the company for the purchase of one or more products.
+The order exists when the customer has confirmed the purchase but before payment.
+Attributes: ID, customer, date, products, total, status (draft/confirmed/cancelled).
+**Is NOT** an invoice. **Is NOT** a sales opportunity.
 
-## Ordine (nel contesto Warehouse)
-Istruzione di picking per il magazzino, derivata da un Ordine Sales confermato.
-Contiene le posizioni fisiche dei prodotti da prelevare.
-**Termine alternativo nel contesto Warehouse:** "Picking List"
+## Order (in Warehouse context)
+Picking instruction for the warehouse, derived from a confirmed Sales Order.
+Contains the physical locations of the products to be retrieved.
+**Alternative term in Warehouse context:** "Picking List"
 
-## Cliente
-Persona fisica o giuridica che ha effettuato almeno un acquisto.
-**Differenza da Prospect:** il Prospect non ha ancora comprato.
-**Differenza da Lead:** il Lead è solo un contatto, non ha avuto interazioni commerciali.
+## Customer
+Individual or legal entity who has made at least one purchase.
+**Difference from Prospect:** the Prospect has not yet bought.
+**Difference from Lead:** the Lead is just a contact, has had no commercial interactions.
 ```
 
 **2. Event Storming (Domain Modeling):**
-Workshop facilitato in cui business e developer mappano insieme il dominio usando post-it:
-- **Arancioni:** Domain Events ("Ordine Creato", "Pagamento Ricevuto")
-- **Blu:** Commands ("Crea Ordine", "Approva Pagamento")
-- **Gialli:** Aggregate/Policy
-- **Rosa:** External Systems
+Facilitated workshop in which business and developers map the domain together using sticky notes:
+- **Orange:** Domain Events ("Order Created", "Payment Received")
+- **Blue:** Commands ("Create Order", "Approve Payment")
+- **Yellow:** Aggregate/Policy
+- **Pink:** External Systems
 
 ---
 
-## Bounded Contexts come Difesa Architetturale
+## Bounded Contexts as Architectural Defense
 
-### Mappatura dei Contesti
+### Context Mapping
 
-La Context Map è il documento che descrive le relazioni tra i Bounded Contexts:
+The Context Map is the document that describes the relationships between Bounded Contexts:
 
 ```
 ┌─────────────┐    ┌──────────────┐    ┌─────────────────┐
@@ -86,75 +86,75 @@ La Context Map è il documento che descrive le relazioni tra i Bounded Contexts:
                     Context Map
 ```
 
-**Tipi di Relazioni tra Contesti:**
+**Types of Relationships Between Contexts:**
 
-| Pattern | Descrizione | Quando usarlo |
-|---------|-------------|---------------|
-| **Shared Kernel** | Due team condividono un sottoinsieme del modello | Team che collaborano strettamente |
-| **Customer/Supplier** | Un team dipende dall'altro per i dati | Gerarchia chiara |
-| **Conformist** | Uno si adatta all'altro senza influenza | Integrazione con sistema dominante |
-| **ACL** | Anti-Corruption Layer tra contesti incompatibili | Integrazione con legacy o terze parti |
-| **Open Host Service** | API pubblica con protocollo aperto | Molti consumatori |
-| **Published Language** | Linguaggio formale condiviso | Integrazione tra sistemi multipli |
+| Pattern | Description | When to Use |
+|---------|-------------|-------------|
+| **Shared Kernel** | Two teams share a subset of the model | Closely collaborating teams |
+| **Customer/Supplier** | One team depends on the other for data | Clear hierarchy |
+| **Conformist** | One adapts to the other without influence | Integration with a dominant system |
+| **ACL** | Anti-Corruption Layer between incompatible contexts | Integration with legacy or third parties |
+| **Open Host Service** | Public API with open protocol | Many consumers |
+| **Published Language** | Formal shared language | Integration between multiple systems |
 
-### Protezione SDSD dei Bounded Contexts
+### SDSD Protection of Bounded Contexts
 
-I Bounded Contexts proteggono in questo modo:
+Bounded Contexts protect in this way:
 
-**Scenario:** il team di fatturazione vuole modificare il modello di "Cliente" per aggiungere la partita IVA.
+**Scenario:** the billing team wants to modify the "Customer" model to add a VAT number.
 
-**Senza BC:** tocchi la classe `Customer` condivisa → tutti i sistemi potrebbero rompersi → chi è responsabile?
+**Without BC:** you touch the shared `Customer` class → all systems could break → who is responsible?
 
-**Con BC:** aggiungi `vatNumber` al `Customer` del Billing Context. Il Sales Context non è toccato. Il cambiamento è atomico e la responsabilità è chiara.
-
----
-
-## Strategic DDD: Strumenti di Esplorazione del Dominio
-
-### Event Storming — Pratica
-
-**Partecipanti:** domain expert, developer, PO, UX designer
-
-**Materiali:** muro grande, post-it di colori diversi, pennarelli
-
-**Processo in 4 fasi:**
-
-**Fase 1 — Chaotic Exploration** (30-60 min)
-Ogni partecipante scrive domain events su post-it arancioni. Nessun ordine, nessuna critica. Solo eventi: cose che "sono accadute" nel sistema.
-
-```
-Ordine Creato  |  Pagamento Ricevuto  |  Prodotto Esaurito
-Stock Aggiornato  |  Email Inviata  |  Spedizione Avviata
-```
-
-**Fase 2 — Timeline** (30-60 min)
-Gli eventi vengono ordinati cronologicamente sul muro. Emergono duplicati e conflitti → si discutono e si risolvono.
-
-**Fase 3 — Commands e Policy**
-Per ogni evento: cosa lo ha causato? Un comando (umano) o una policy (automatica)?
-
-```
-[Crea Ordine] → <Ordine Creato>
-              Se pagamento > €100 → [Richiedi Approvazione] → <Approvazione Richiesta>
-```
-
-**Fase 4 — Aggregate e Context**
-Raggruppamento degli elementi in aggregati e identificazione dei bounded context.
-
-**Output:** mappa visuale del dominio che diventa la base per:
-- I requisiti del sistema
-- La struttura dei bounded context
-- L'ubiquitous language
-- Le User Story
+**With BC:** you add `vatNumber` to the `Customer` of the Billing Context. The Sales Context is untouched. The change is atomic and responsibility is clear.
 
 ---
 
-## Tactical DDD: Pattern di Implementazione
+## Strategic DDD: Domain Exploration Tools
 
-### Entities e Value Objects
+### Event Storming — Practice
+
+**Participants:** domain experts, developers, PO, UX designers
+
+**Materials:** large wall, differently colored sticky notes, markers
+
+**4-phase process:**
+
+**Phase 1 — Chaotic Exploration** (30-60 min)
+Each participant writes domain events on orange sticky notes. No order, no criticism. Only events: things that "have happened" in the system.
+
+```
+Order Created  |  Payment Received  |  Product Out of Stock
+Stock Updated  |  Email Sent        |  Shipment Started
+```
+
+**Phase 2 — Timeline** (30-60 min)
+Events are ordered chronologically on the wall. Duplicates and conflicts emerge → they are discussed and resolved.
+
+**Phase 3 — Commands and Policy**
+For each event: what caused it? A command (human) or a policy (automated)?
+
+```
+[Create Order] → <Order Created>
+              If payment > $100 → [Request Approval] → <Approval Requested>
+```
+
+**Phase 4 — Aggregate and Context**
+Grouping of elements into aggregates and identification of bounded contexts.
+
+**Output:** visual domain map that becomes the basis for:
+- System requirements
+- Bounded context structure
+- Ubiquitous language
+- User Stories
+
+---
+
+## Tactical DDD: Implementation Patterns
+
+### Entities and Value Objects
 
 ```python
-# Value Object: immutabile, definito dai suoi valori
+# Value Object: immutable, defined by its values
 @dataclass(frozen=True)
 class Money:
     amount: Decimal
@@ -162,16 +162,16 @@ class Money:
 
     def __post_init__(self):
         if self.amount < 0:
-            raise ValueError("L'importo non può essere negativo")
+            raise ValueError("Amount cannot be negative")
         if self.currency not in ["EUR", "USD", "GBP"]:
-            raise ValueError(f"Valuta non supportata: {self.currency}")
+            raise ValueError(f"Unsupported currency: {self.currency}")
 
     def add(self, other: 'Money') -> 'Money':
         if self.currency != other.currency:
-            raise ValueError("Non si possono sommare valute diverse")
+            raise ValueError("Cannot add different currencies")
         return Money(self.amount + other.amount, self.currency)
 
-# Entity: identificata dal suo ID, mutabile
+# Entity: identified by its ID, mutable
 class Order:
     def __init__(self, order_id: UUID, customer_id: UUID):
         self._id = order_id
@@ -184,37 +184,37 @@ class Order:
         return self._id
 
     def add_item(self, product_id: UUID, quantity: int, price: Money) -> None:
-        # Business rule: non posso aggiungere item a un ordine confermato
+        # Business rule: cannot add items to a confirmed order
         if self._status != OrderStatus.DRAFT:
             raise OrderNotDraftError(
-                f"Impossibile aggiungere item: ordine in stato {self._status}"
+                f"Cannot add item: order in status {self._status}"
             )
         self._items.append(OrderItem(product_id, quantity, price))
 
     def confirm(self) -> None:
-        # Business rule: un ordine senza item non può essere confermato
+        # Business rule: an order without items cannot be confirmed
         if not self._items:
-            raise EmptyOrderError("Non si può confermare un ordine vuoto")
+            raise EmptyOrderError("Cannot confirm an empty order")
         self._status = OrderStatus.CONFIRMED
 ```
 
-### Aggregates e Invarianti
+### Aggregates and Invariants
 
-Un Aggregate è un cluster di Entities e Value Objects trattato come un'unità. Ha un Aggregate Root che garantisce le invarianti (le regole di business che devono essere sempre vere).
+An Aggregate is a cluster of Entities and Value Objects treated as a unit. It has an Aggregate Root that guarantees invariants (business rules that must always be true).
 
 ```python
 class Order:  # Aggregate Root
     """
-    Invarianti dell'Aggregate Order:
-    1. Un ordine senza item non può essere confermato
-    2. Il totale non può essere negativo
-    3. Un ordine annullato non può essere riattivato
-    4. Solo l'Aggregate Root può modificare gli item (non accedere
-       direttamente a OrderItem dall'esterno!)
+    Order Aggregate Invariants:
+    1. An order without items cannot be confirmed
+    2. The total cannot be negative
+    3. A cancelled order cannot be reactivated
+    4. Only the Aggregate Root can modify items (do not access
+       OrderItem directly from outside!)
     """
 
     def total(self) -> Money:
-        """Invariante: il totale è la somma degli item"""
+        """Invariant: the total is the sum of items"""
         if not self._items:
             return Money(Decimal('0'), 'EUR')
         return sum(
@@ -223,78 +223,78 @@ class Order:  # Aggregate Root
         )
 
     def cancel(self, reason: str) -> None:
-        """Invariante: non si può annullare un ordine già spedito"""
+        """Invariant: cannot cancel an already-shipped order"""
         if self._status == OrderStatus.SHIPPED:
             raise OrderAlreadyShippedError(
-                "Non è possibile annullare un ordine già spedito. "
-                "Procedere con il reso."
+                "Cannot cancel an already-shipped order. "
+                "Proceed with a return."
             )
         self._status = OrderStatus.CANCELLED
         self._cancellation_reason = reason
-        # Emette un Domain Event
+        # Emits a Domain Event
         self._events.append(OrderCancelled(self._id, reason))
 ```
 
 ### Domain Events
 
-Gli eventi di dominio permettono la comunicazione tra bounded context senza accoppiamento diretto:
+Domain events allow communication between bounded contexts without direct coupling:
 
 ```python
 @dataclass
 class OrderConfirmed:
-    """Domain Event: emesso quando un ordine viene confermato"""
+    """Domain Event: emitted when an order is confirmed"""
     order_id: UUID
     customer_id: UUID
     total: Money
     items: list[OrderItemSnapshot]
     confirmed_at: datetime
 
-    # Questo evento verrà consumato da:
-    # - Billing Context: per creare la fattura
-    # - Warehouse Context: per creare il picking list
-    # - Notification Context: per inviare l'email di conferma
+    # This event will be consumed by:
+    # - Billing Context: to create the invoice
+    # - Warehouse Context: to create the picking list
+    # - Notification Context: to send the confirmation email
 ```
 
 ---
 
-## DDD come Strumento di Conversazione con il Business
+## DDD as a Conversation Tool with the Business
 
-### Il Pattern "Bring the Model"
+### The "Bring the Model" Pattern
 
-Invece di spiegare il codice agli stakeholder, porta il **modello di dominio**:
+Instead of explaining code to stakeholders, bring the **domain model**:
 
 ```
-NON fare:
-"Abbiamo una classe Order con una lista di OrderItems e uno stato FSM"
+DON'T do this:
+"We have an Order class with a list of OrderItems and an FSM state"
 
-FARE:
-"Quando un cliente fa un ordine, il sistema tiene traccia di:
- - Quali prodotti ha ordinato (in che quantità, a quale prezzo)
- - In che stato si trova l'ordine (bozza → confermato → spedito → consegnato)
- - Chi ha effettuato l'ordine e quando
+DO this:
+"When a customer places an order, the system keeps track of:
+ - Which products they ordered (in what quantity, at what price)
+ - What state the order is in (draft → confirmed → shipped → delivered)
+ - Who placed the order and when
 
- Le regole sono:
- - Un ordine vuoto non può essere confermato
- - Un ordine spedito non può essere annullato direttamente
+ The rules are:
+ - An empty order cannot be confirmed
+ - A shipped order cannot be cancelled directly
 
- Siamo d'accordo su questo? Ci sono casi che ho dimenticato?"
+ Do we agree on this? Are there any cases I've missed?"
 ```
 
-Questa conversazione usa il linguaggio del dominio, non il linguaggio tecnico. Gli stakeholder possono correggere le incomprensioni prima che vengano implementate.
+This conversation uses the domain language, not the technical language. Stakeholders can correct misunderstandings before they are implemented.
 
 ---
 
-## Il Valore del DDD in SDSD
+## The Value of DDD in SDSD
 
-| Pratica DDD | Protezione SDSD |
+| DDD Practice | SDSD Protection |
 |-------------|-----------------|
-| Ubiquitous Language | "Il termine X significa Y, come concordato nel glossario del [data]" |
-| Bounded Contexts | I cambiamenti sono circoscritti, le responsabilità chiare |
-| Domain Events | La comunicazione tra sistemi è tracciabile e auditabile |
-| Aggregates con invarianti | Le regole di business sono nel codice, non in testa a qualcuno |
-| Event Storming | La modellazione del dominio è un atto collaborativo, documentato |
-| Context Map | "Questo problema è nel dominio del Billing Context, non del nostro" |
+| Ubiquitous Language | "Term X means Y, as agreed in the glossary of [date]" |
+| Bounded Contexts | Changes are circumscribed, responsibilities clear |
+| Domain Events | Communication between systems is traceable and auditable |
+| Aggregates with invariants | Business rules are in the code, not in someone's head |
+| Event Storming | Domain modeling is a collaborative, documented act |
+| Context Map | "This problem is in the Billing Context domain, not ours" |
 
 ---
 
-*Precedente: [09 — Anti-Pattern degli Stakeholder](./09-stakeholder-antipatterns.md) | Prossimo: [11 — Template e Strumenti](./11-templates-tools.md)*
+*Previous: [09 — Stakeholder Anti-Patterns](./09-stakeholder-antipatterns.md) | Next: [11 — Templates and Tools](./11-templates-tools.md)*
