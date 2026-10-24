@@ -175,14 +175,14 @@ size and can be addressed in the future with read replicas.
 
 ```
 project/
-├── src/
-├── tests/
-└── docs/
-    └── decisions/
-        ├── 0001-postgresql-database.md
-        ├── 0002-hexagonal-architecture.md
-        ├── 0003-jwt-authentication.md
-        └── README.md  (ADR index)
+ src/
+ tests/
+ docs/
+     decisions/
+         0001-postgresql-database.md
+         0002-hexagonal-architecture.md
+         0003-jwt-authentication.md
+         README.md  (ADR index)
 ```
 
 **Advantages of keeping them in the repo:**
@@ -374,20 +374,20 @@ Decision documentation has full value only if it is **navigable and interconnect
 
 ```
 REQUIREMENT (RTM)
-    │ implemented by
-    ▼
+     implemented by
+    
 USER STORY (backlog)
-    │ derived from
-    ▼
+     derived from
+    
 TASK / COMMIT (git)
-    │ justified by
-    ▼
+     justified by
+    
 ADR / RFC (docs/decisions)
-    │ validated by
-    ▼
+     validated by
+    
 ACCEPTANCE TEST (CI/CD)
-    │ verified by
-    ▼
+     verified by
+    
 PRODUCTION METRICS (monitoring)
 ```
 

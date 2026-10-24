@@ -73,16 +73,16 @@ Facilitated workshop in which business and developers map the domain together us
 The Context Map is the document that describes the relationships between Bounded Contexts:
 
 ```
-┌─────────────┐    ┌──────────────┐    ┌─────────────────┐
-│   SALES     │    │   BILLING    │    │    SHIPPING     │
-│  Context    │    │   Context    │    │    Context      │
-│             │    │              │    │                 │
-│  Customer   │──▶ │  Customer    │──▶ │  Shipment       │
-│  Order      │    │  Invoice     │    │  Address        │
-│  Product    │    │  Payment     │    │  Carrier        │
-└─────────────┘    └──────────────┘    └─────────────────┘
-       │                  │                    │
-       └──────────────────┴────────────────────┘
+        
+   SALES            BILLING            SHIPPING     
+  Context           Context            Context      
+                                                    
+  Customer      Customer       Shipment       
+  Order            Invoice           Address        
+  Product          Payment           Carrier        
+        
+                                             
+       
                     Context Map
 ```
 

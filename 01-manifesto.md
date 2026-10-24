@@ -164,41 +164,41 @@ It means we have been burned too many times by them.
 
 ```
 SDSD
-├── Requirements Protection
-│   ├── Rigorous Requirements Engineering
-│   ├── Formal sign-off
-│   ├── Requirements Traceability Matrix
-│   └── Ubiquitous Language / Glossary
-│
-├── Decision Protection
-│   ├── Architecture Decision Records
-│   ├── Decision Log
-│   ├── RFC Process
-│   └── Meeting Minutes with tracked actions
-│
-├── Scope Protection
-│   ├── Change Request Process
-│   ├── Impact Assessment
-│   ├── Definition of Ready
-│   └── Formal backlog grooming
-│
-├── Quality Protection
-│   ├── Definition of Done
-│   ├── Explicit Acceptance Criteria
-│   ├── BDD / ATDD
-│   └── Tests as contracts
-│
-├── Architectural Protection
-│   ├── Anti-Corruption Layer (DDD)
-│   ├── Bounded Contexts
-│   ├── Feature Flags
-│   └── Defensive Programming
-│
-└── Communication Protection
-    ├── Demo driven development
-    ├── Escalation structures
-    ├── Stakeholder matrix
-    └── Public Risk Register
+ Requirements Protection
+    Rigorous Requirements Engineering
+    Formal sign-off
+    Requirements Traceability Matrix
+    Ubiquitous Language / Glossary
+
+ Decision Protection
+    Architecture Decision Records
+    Decision Log
+    RFC Process
+    Meeting Minutes with tracked actions
+
+ Scope Protection
+    Change Request Process
+    Impact Assessment
+    Definition of Ready
+    Formal backlog grooming
+
+ Quality Protection
+    Definition of Done
+    Explicit Acceptance Criteria
+    BDD / ATDD
+    Tests as contracts
+
+ Architectural Protection
+    Anti-Corruption Layer (DDD)
+    Bounded Contexts
+    Feature Flags
+    Defensive Programming
+
+ Communication Protection
+     Demo driven development
+     Escalation structures
+     Stakeholder matrix
+     Public Risk Register
 ```
 
 ---

@@ -15,7 +15,7 @@ This section collects the books, academic papers, articles, and online resources
 
 The book that defined DDD. Essential for understanding Ubiquitous Language, Bounded Contexts, Aggregates, and how language protects architecture. Required reading for every developer working on complex domains.
 
-**SDSD Relevance:** ⭐⭐⭐⭐⭐ — Provides the most comprehensive framework for managing domain complexity.
+**SDSD Relevance:**  — Provides the most comprehensive framework for managing domain complexity.
 
 ---
 
@@ -24,7 +24,7 @@ The book that defined DDD. Essential for understanding Ubiquitous Language, Boun
 
 The practical counterpart to Evans's book. Shows how to implement DDD with concrete code examples.
 
-**SDSD Relevance:** ⭐⭐⭐⭐ — Translates Evans's concepts into everyday practice.
+**SDSD Relevance:**  — Translates Evans's concepts into everyday practice.
 
 ---
 
@@ -33,7 +33,7 @@ The practical counterpart to Evans's book. Shows how to implement DDD with concr
 
 Technique for building a visual map of user stories that reveals gaps in requirements and creates a shared language with stakeholders.
 
-**SDSD Relevance:** ⭐⭐⭐⭐⭐ — Practical tool for eliciting requirements collaboratively and visibly.
+**SDSD Relevance:**  — Practical tool for eliciting requirements collaboratively and visibly.
 
 ---
 
@@ -42,7 +42,7 @@ Technique for building a visual map of user stories that reveals gaps in require
 
 Technique for linking technical deliverables to business objectives, making explicit why something is being built.
 
-**SDSD Relevance:** ⭐⭐⭐⭐ — Tool for aligning business goals and developed features.
+**SDSD Relevance:**  — Tool for aligning business goals and developed features.
 
 ---
 
@@ -53,7 +53,7 @@ Technique for linking technical deliverables to business objectives, making expl
 
 The founding text of managerial software engineering. Contains Brooks's Law, the "No Silver Bullet" essay, and decades of wisdom on why software is hard.
 
-**SDSD Relevance:** ⭐⭐⭐⭐⭐ — Provides the historical arguments for defending realistic estimates.
+**SDSD Relevance:**  — Provides the historical arguments for defending realistic estimates.
 
 ---
 
@@ -62,7 +62,7 @@ The founding text of managerial software engineering. Contains Brooks's Law, the
 
 De-facto standard for readable and maintainable code. Clean code defends itself: it is easier to understand, test, and modify.
 
-**SDSD Relevance:** ⭐⭐⭐⭐ — Clean code reduces the "mysteries" that stakeholders interpret as inefficiency.
+**SDSD Relevance:**  — Clean code reduces the "mysteries" that stakeholders interpret as inefficiency.
 
 ---
 
@@ -71,7 +71,7 @@ De-facto standard for readable and maintainable code. Clean code defends itself:
 
 The refactoring catalog. Essential for justifying time spent on technical debt.
 
-**SDSD Relevance:** ⭐⭐⭐⭐ — Provides a professional vocabulary for communicating technical work to stakeholders.
+**SDSD Relevance:**  — Provides a professional vocabulary for communicating technical work to stakeholders.
 
 ---
 
@@ -82,7 +82,7 @@ The refactoring catalog. Essential for justifying time spent on technical debt.
 
 Complete guide to XP (Extreme Programming) practices. Includes TDD, pair programming, continuous integration, and much more.
 
-**SDSD Relevance:** ⭐⭐⭐⭐ — XP practices are some of the most effective countermeasures to stakeholder problems.
+**SDSD Relevance:**  — XP practices are some of the most effective countermeasures to stakeholder problems.
 
 ---
 
@@ -91,7 +91,7 @@ Complete guide to XP (Extreme Programming) practices. Includes TDD, pair program
 
 The complete guide to Behavior-Driven Development with practical examples.
 
-**SDSD Relevance:** ⭐⭐⭐⭐⭐ — BDD is the main tool for transforming requirements into executable contracts.
+**SDSD Relevance:**  — BDD is the main tool for transforming requirements into executable contracts.
 
 ---
 
@@ -100,7 +100,7 @@ The complete guide to Behavior-Driven Development with practical examples.
 
 Patterns for creating requirement specifications that become executable tests. The theoretical foundation of ATDD.
 
-**SDSD Relevance:** ⭐⭐⭐⭐⭐ — Provides the method for creating formal proof that software does what was agreed.
+**SDSD Relevance:**  — Provides the method for creating formal proof that software does what was agreed.
 
 ---
 
@@ -109,7 +109,7 @@ Patterns for creating requirement specifications that become executable tests. T
 
 Practical techniques for estimating realistically and communicating uncertainties to stakeholders.
 
-**SDSD Relevance:** ⭐⭐⭐⭐ — Documented estimates are protection against stakeholder optimism.
+**SDSD Relevance:**  — Documented estimates are protection against stakeholder optimism.
 
 ---
 
@@ -120,7 +120,7 @@ Practical techniques for estimating realistically and communicating uncertaintie
 
 A novel about software projects. Readable, fun, and profound.
 
-**SDSD Relevance:** ⭐⭐⭐ — Illustrates project problems in a narrative way, useful for explaining them to non-technical stakeholders.
+**SDSD Relevance:**  — Illustrates project problems in a narrative way, useful for explaining them to non-technical stakeholders.
 
 ---
 
@@ -129,7 +129,7 @@ A novel about software projects. Readable, fun, and profound.
 
 Analysis of "death march" projects — those everyone knows will fail but no one says so.
 
-**SDSD Relevance:** ⭐⭐⭐ — Recognize the signs of a doomed project and know how to respond.
+**SDSD Relevance:**  — Recognize the signs of a doomed project and know how to respond.
 
 ---
 
@@ -138,7 +138,7 @@ Analysis of "death march" projects — those everyone knows will fail but no one
 
 Risk management in software projects, with a quantitative approach.
 
-**SDSD Relevance:** ⭐⭐⭐⭐ — The Risk Register and quantitative risk management are fundamental protection tools.
+**SDSD Relevance:**  — The Risk Register and quantitative risk management are fundamental protection tools.
 
 ---
 

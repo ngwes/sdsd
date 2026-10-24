@@ -28,7 +28,7 @@ According to the Chaos Report, the three factors most correlated with success ar
 2. **Executive management support**
 3. **Clear statement of requirements**
 
-> 💡 **SDSD Implication:** two of the three success factors relate to requirements management and human involvement. Not technology. Not the framework. People and requirements.
+>  **SDSD Implication:** two of the three success factors relate to requirements management and human involvement. Not technology. Not the framework. People and requirements.
 
 ### Primary Causes of Failure
 
@@ -43,7 +43,7 @@ According to the Chaos Report, the three factors most correlated with success ar
 | Lack of planning | 23% |
 | Project no longer needed | 9% |
 
-> 💡 **SDSD Implication:** the first two causes (requirements and involvement) alone account for nearly 75% of failures. The "unclear requirements" problem is not an exception: it is the primary cause of failure in the industry.
+>  **SDSD Implication:** the first two causes (requirements and involvement) alone account for nearly 75% of failures. The "unclear requirements" problem is not an exception: it is the primary cause of failure in the industry.
 
 ---
 
@@ -55,7 +55,7 @@ A well-established principle of software engineering (derived from Barry Boehm's
 
 ```
 Detection phase            Relative cost
-─────────────────────────────────────────
+
 Requirements                    1x
 Design                         5x
 Implementation                10x
@@ -63,7 +63,7 @@ Testing                       20x
 Production                   100x
 ```
 
-> 💡 **SDSD Implication:** a wrong requirement identified during requirements engineering costs 100 times less than the same wrong requirement identified in production. Investing in rigorous requirements elicitation practices is not overhead: it is economic savings.
+>  **SDSD Implication:** a wrong requirement identified during requirements engineering costs 100 times less than the same wrong requirement identified in production. Investing in rigorous requirements elicitation practices is not overhead: it is economic savings.
 
 ### Cost of Requirements Volatility
 
@@ -91,7 +91,7 @@ Fred Brooks, in his seminal article published in *IEEE Computer*, identifies the
 - Derived from inadequate tools, languages, processes
 - Reducible with good practices
 
-> 💡 **SDSD Implication:** the complexity of stakeholder requirements is partly *essential* (the domain is truly complex) and partly *accidental* (derived from inadequate communication processes). SDSD reduces accidental complexity.
+>  **SDSD Implication:** the complexity of stakeholder requirements is partly *essential* (the domain is truly complex) and partly *accidental* (derived from inadequate communication processes). SDSD reduces accidental complexity.
 
 ### "The Mythical Man-Month" — Fred Brooks (1975)
 
@@ -99,7 +99,7 @@ Introduces **Brooks's Law**: *"Adding manpower to a late software project makes 
 
 The mechanism: each new team member must be trained, and training uses resources of the existing team. More people means more communication channels (n*(n-1)/2), more coordination overhead.
 
-> 💡 **SDSD Implication:** the solution to project problems is not adding people. It is removing ambiguity and improving processes — exactly what SDSD proposes.
+>  **SDSD Implication:** the solution to project problems is not adding people. It is removing ambiguity and improving processes — exactly what SDSD proposes.
 
 ### Conway's Law — Melvin Conway (1968)
 
@@ -107,7 +107,7 @@ The mechanism: each new team member must be trained, and training uses resources
 
 Software architectures mirror the organizational structures that produce them. If the organization is fragmented, inconsistent, with power silos, so will the software be.
 
-> 💡 **SDSD Implication:** understanding the stakeholder's organizational structure helps you predict where requirements problems will arise and where zones of conflict will be.
+>  **SDSD Implication:** understanding the stakeholder's organizational structure helps you predict where requirements problems will arise and where zones of conflict will be.
 
 ### Root Cause Analysis Studies
 
@@ -126,7 +126,7 @@ A phenomenon documented in literature is the **software visibility paradox**: so
 
 Brooks himself identifies this invisibility as one of the four essential properties of software (along with complexity, conformity, and changeability) that make it fundamentally different from any other engineering discipline.
 
-> 💡 **SDSD Implication:** the problem is not the bad faith of stakeholders. It is that software is structurally invisible and therefore incomprehensible to those who don't build it. SDSD practices (demos, visualizations, prototypes, tests) are tools to make software *visible*.
+>  **SDSD Implication:** the problem is not the bad faith of stakeholders. It is that software is structurally invisible and therefore incomprehensible to those who don't build it. SDSD practices (demos, visualizations, prototypes, tests) are tools to make software *visible*.
 
 ---
 
@@ -152,7 +152,7 @@ A 2017 PMI (Project Management Institute) study reveals that **every billion dol
 
 The same study indicates that organizations with high project management maturity complete 92% of projects successfully, compared to 33% of low-maturity organizations.
 
-> 💡 **SDSD Implication:** process maturity — exactly what SDSD promotes — is the most predictive factor of project success, more so than the technology used, the team, or the budget.
+>  **SDSD Implication:** process maturity — exactly what SDSD promotes — is the most predictive factor of project success, more so than the technology used, the team, or the budget.
 
 ---
 
@@ -162,14 +162,14 @@ The same study indicates that organizations with high project management maturit
 CAUSES OF SOFTWARE FAILURE
 (source: Standish Group Chaos Report aggregated)
 
-Poor/incomplete requirements     ████████████████████████████ 39%
-Lack of user involvement         ██████████████████████ 33%
-Lack of resources                ████████████████████ 29%
-Unrealistic expectations         ████████████████████ 29%
-Lack of executive support        ████████████████████ 29%
-Requirements changed mid-project ████████████████ 24%
-Lack of planning                 ███████████████ 23%
-Project no longer needed         ██████ 9%
+Poor/incomplete requirements      39%
+Lack of user involvement          33%
+Lack of resources                 29%
+Unrealistic expectations          29%
+Lack of executive support         29%
+Requirements changed mid-project  24%
+Lack of planning                  23%
+Project no longer needed          9%
 
 Requirements and communication problems → 87% of cases
 Pure technical problems → < 15% of cases

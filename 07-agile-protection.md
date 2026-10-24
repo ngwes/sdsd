@@ -192,11 +192,11 @@ SPRINT REVIEW — Sprint [N]
 Date: [date]
 
 Accepted Stories:
-✅ US-042 — [title] — Accepted by [PO] on [date]
-✅ US-043 — [title] — Accepted by [PO] on [date]
+ US-042 — [title] — Accepted by [PO] on [date]
+ US-043 — [title] — Accepted by [PO] on [date]
 
 Rejected Stories:
-❌ BUG-017 — [title] — Reason: [description]
+ BUG-017 — [title] — Reason: [description]
    Action: AC review and retry Sprint [N+1]
 
 Feedback Received:
@@ -251,15 +251,15 @@ BY: End of week
              /    \
             / Gherkin\
            /  Scenarios\
-          /─────────────\
+          /\
          /               \
         /  Developer      \
        /  (Step Definitions)\
-      /─────────────────────\
+      /\
      /                       \
     /   QA / Tester           \
    /    (Test Execution)       \
-  /──────────────────────────── \
+  / \
 ```
 
 BDD is the bridge between business language and code. Gherkin scenarios are written together, understandable by everyone, and executed automatically.

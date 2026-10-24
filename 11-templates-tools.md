@@ -296,15 +296,15 @@ Then [error message or defensive behavior]
 ```
 PRE-SPRINT CHECKLIST
 
-□ Previous sprint closed (all stories accepted or moved)
-□ Last sprint velocity recorded
-□ Backlog groomed (ready stories meet DoR)
-□ Priorities updated by PO
-□ External dependencies verified
-□ No unmanaged open technical blockers
-□ RAID log updated
-□ Retrospective actions from previous sprint tracked
-□ Sprint planning scheduled with PO present
+ Previous sprint closed (all stories accepted or moved)
+ Last sprint velocity recorded
+ Backlog groomed (ready stories meet DoR)
+ Priorities updated by PO
+ External dependencies verified
+ No unmanaged open technical blockers
+ RAID log updated
+ Retrospective actions from previous sprint tracked
+ Sprint planning scheduled with PO present
 ```
 
 ### CHECKLIST 2: Definition of Ready (for each story)
@@ -312,17 +312,17 @@ PRE-SPRINT CHECKLIST
 ```
 DEFINITION OF READY
 
-□ Correct User Story format
-□ Acceptance Criteria written in Gherkin (or equivalent)
-□ Story Points estimated by team
-□ MoSCoW priority assigned
-□ Mockups/wireframes attached (if UI)
-□ Dependencies identified and non-blocking
-□ Test data identified and available
-□ External APIs documented (if integration)
-□ No critical open questions
-□ PO available for clarifications during sprint
-□ Signed/approved by PO
+ Correct User Story format
+ Acceptance Criteria written in Gherkin (or equivalent)
+ Story Points estimated by team
+ MoSCoW priority assigned
+ Mockups/wireframes attached (if UI)
+ Dependencies identified and non-blocking
+ Test data identified and available
+ External APIs documented (if integration)
+ No critical open questions
+ PO available for clarifications during sprint
+ Signed/approved by PO
 ```
 
 ### CHECKLIST 3: Definition of Done (for each story)
@@ -330,20 +330,20 @@ DEFINITION OF READY
 ```
 DEFINITION OF DONE
 
-□ All acceptance criteria satisfied
-□ Unit tests written and green (coverage ≥ 80%)
-□ Integration tests updated
-□ Code review approved by at least 1 peer
-□ No blocking linting errors
-□ No security vulnerabilities (SAST scan)
-□ API documented (if modified)
-□ README updated (if necessary)
-□ ADR created (if architectural decision)
-□ Story demo-ed to PO
-□ Accepted by PO: [signature/date]
-□ Merged into develop/main
-□ CI/CD green
-□ Deployed to staging
+ All acceptance criteria satisfied
+ Unit tests written and green (coverage ≥ 80%)
+ Integration tests updated
+ Code review approved by at least 1 peer
+ No blocking linting errors
+ No security vulnerabilities (SAST scan)
+ API documented (if modified)
+ README updated (if necessary)
+ ADR created (if architectural decision)
+ Story demo-ed to PO
+ Accepted by PO: [signature/date]
+ Merged into develop/main
+ CI/CD green
+ Deployed to staging
 ```
 
 ### CHECKLIST 4: Release Readiness
@@ -352,33 +352,33 @@ DEFINITION OF DONE
 RELEASE READINESS CHECKLIST
 
 QUALITY
-□ All tests passing (unit, integration, e2e)
-□ Performance test passed (SLA compliance)
-□ Security scan passed (no critical/high vulnerabilities)
-□ Accessibility test (if applicable)
+ All tests passing (unit, integration, e2e)
+ Performance test passed (SLA compliance)
+ Security scan passed (no critical/high vulnerabilities)
+ Accessibility test (if applicable)
 
 DOCUMENTATION
-□ Release notes written
-□ Changelog updated
-□ User documentation updated
-□ Operations runbook updated
+ Release notes written
+ Changelog updated
+ User documentation updated
+ Operations runbook updated
 
 OPERATIONS
-□ Rollback plan documented and tested
-□ Database migration tested on staging
-□ Feature flags configured correctly
-□ Monitoring and alerting configured
-□ On-call notified
+ Rollback plan documented and tested
+ Database migration tested on staging
+ Feature flags configured correctly
+ Monitoring and alerting configured
+ On-call notified
 
 BUSINESS
-□ UAT completed and signed off by PO
-□ Go/No-Go approved by: [PO] and [Tech Lead]
-□ User communication prepared (if UX impact)
-□ Training completed (if necessary)
+ UAT completed and signed off by PO
+ Go/No-Go approved by: [PO] and [Tech Lead]
+ User communication prepared (if UX impact)
+ Training completed (if necessary)
 
 GO/NO-GO SIGNATURE
-□ Tech Lead: _________________ Date: _______
-□ Product Owner: _____________ Date: _______
+ Tech Lead: _________________ Date: _______
+ Product Owner: _____________ Date: _______
 ```
 
 ---

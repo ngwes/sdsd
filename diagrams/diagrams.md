@@ -107,12 +107,12 @@ quadrantChart
 
 ```mermaid
 graph LR
-    A[🗣️ Discovery\nBusiness + Dev + QA] -->|Gherkin scenarios| B[📝 Formulation\nFormal Gherkin scenarios]
-    B -->|Step definitions| C[🔴 Red\nFailing automated tests]
+    A[ Discovery\nBusiness + Dev + QA] -->|Gherkin scenarios| B[ Formulation\nFormal Gherkin scenarios]
+    B -->|Step definitions| C[ Red\nFailing automated tests]
     C -->|Implementation| D[🟢 Green\nPassing tests]
-    D -->|Refactoring| E[✨ Refactor\nClean code]
+    D -->|Refactoring| E[ Refactor\nClean code]
     E -->|New feature| A
-    D -->|Demo to PO| F[✅ Acceptance\nStory accepted]
+    D -->|Demo to PO| F[ Acceptance\nStory accepted]
 
     style A fill:#1e3a5f,color:#93c5fd
     style B fill:#1e293b,color:#94a3b8

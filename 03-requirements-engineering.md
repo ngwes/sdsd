@@ -26,20 +26,20 @@ This is normal. It's not a lack of intelligence: it's the cognitive structure of
 
 ```
 BUSINESS NEED
-       │
-       ▼
+       
+       
 BUSINESS OBJECTIVE (Goal)
-       │
-       ▼
+       
+       
 USER REQUIREMENT
-       │
-       ▼
+       
+       
 SYSTEM REQUIREMENT
-       │
-       ▼
+       
+       
 SOFTWARE REQUIREMENT
-       │
-       ▼
+       
+       
 DESIGN SPECIFICATION
 ```
 
@@ -56,7 +56,7 @@ DESIGN SPECIFICATION
 **Constraint Requirements:** in what context it operates.
 > Example: "The system must comply with GDPR."
 
-> ⚠️ **Common trap:** stakeholders describe almost exclusively functional requirements and forget non-functional ones. NFRs often drive the most important architectural decisions and are the most expensive to correct later.
+>  **Common trap:** stakeholders describe almost exclusively functional requirements and forget non-functional ones. NFRs often drive the most important architectural decisions and are the most expensive to correct later.
 
 ---
 
@@ -212,7 +212,7 @@ Before starting development, every requirement should pass this verification:
 | **C**ould Have | Desirable, enters if there's time |
 | **W**on't Have (this time) | Out of scope for now, planned for the future |
 
-> 💡 **SDSD Defense:** MoSCoW prioritization, done together with stakeholders and documented, is your protection when asked "why didn't you also do X?" — "Because X was classified as Won't Have, as agreed on [date] with [stakeholder]."
+>  **SDSD Defense:** MoSCoW prioritization, done together with stakeholders and documented, is your protection when asked "why didn't you also do X?" — "Because X was classified as Won't Have, as agreed on [date] with [stakeholder]."
 
 ---
 
@@ -224,8 +224,8 @@ The RTM is a document that links each requirement to its source, the tests that 
 
 | Req ID | Description | Source | Priority | US/Task | Test Case | Status | Signed by |
 |--------|-------------|--------|----------|---------|-----------|--------|-----------|
-| REQ-001 | User authentication via email | Interview 2024-03-01 | Must | US-012 | TC-045, TC-046 | ✅ Done | M. Rossi |
-| REQ-002 | Password reset | Interview 2024-03-01 | Must | US-013 | TC-047 | 🔄 In Dev | M. Rossi |
+| REQ-001 | User authentication via email | Interview 2024-03-01 | Must | US-012 | TC-045, TC-046 |  Done | M. Rossi |
+| REQ-002 | Password reset | Interview 2024-03-01 | Must | US-013 | TC-047 |  In Dev | M. Rossi |
 | REQ-003 | Social login (Google) | Workshop 2024-03-15 | Should | US-020 | TC-060 | ⏳ Todo | F. Bianchi |
 
 ### Defensive Use of the RTM
@@ -245,24 +245,24 @@ Requirements volatility is inevitable. SDSD does not try to eliminate it; it see
 
 ```
 CHANGE REQUEST
-        │
-        ▼
+        
+        
   Formal CR submission
   (description, requester, date)
-        │
-        ▼
+        
+        
   Impact Assessment
   (effort, risks, dependencies)
-        │
-        ▼
+        
+        
   Review by Product Owner + Tech Lead
-        │
-        ▼
+        
+        
      Decision
-     ┌────┴────┐
+     
    Approve   Reject / Defer
-     │             │
-     ▼             ▼
+                  
+                  
   Update       Document
   backlog      motivation
   and RTM

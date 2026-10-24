@@ -24,20 +24,20 @@ The risk is that the "language" of the external system contaminates your interna
 
 ```
 EXTERNAL SYSTEM (legacy/third party)
-         │
-         │  (external model and language)
-         ▼
-┌─────────────────────────────┐
-│    Anti-Corruption Layer    │
-│  ┌─────────────────────┐   │
-│  │   Adapter/Translator │   │
-│  │   Facade             │   │
-│  │   Gateway            │   │
-│  └─────────────────────┘   │
-└─────────────────────────────┘
-         │
-         │  (clean internal model and language)
-         ▼
+         
+           (external model and language)
+         
+
+    Anti-Corruption Layer    
+     
+     Adapter/Translator    
+     Facade                
+     Gateway               
+     
+
+         
+           (clean internal model and language)
+         
    YOUR INTERNAL SYSTEM
 ```
 
@@ -86,7 +86,7 @@ class LegacyERPAdapter:
         }
 ```
 
-> 💡 **SDSD Protection:** when the legacy system changes (and it will), you modify **only the ACL**. Your domain remains intact. Your core business logic is not touched.
+>  **SDSD Protection:** when the legacy system changes (and it will), you modify **only the ACL**. Your domain remains intact. Your core business logic is not touched.
 
 ---
 
@@ -101,17 +101,17 @@ If you use the same `Customer` object for all these contexts, it becomes an obje
 ### The Solution: Bounded Contexts
 
 ```
-┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐
-│   CRM Context   │  │ Billing Context  │  │ Support Context │
-│                 │  │                  │  │                 │
-│  Customer:      │  │  Customer:       │  │  Customer:      │
-│  - firstName    │  │  - vatNumber     │  │  - userId       │
-│  - lastName     │  │  - creditLimit   │  │  - openTickets  │
-│  - email        │  │  - paymentTerms  │  │  - slaTier      │
-│  - history      │  │  - invoices      │  │  - lastContact  │
-└─────────────────┘  └──────────────────┘  └─────────────────┘
-         │                    │                     │
-         └────────────────────┼─────────────────────┘
+    
+   CRM Context      Billing Context     Support Context 
+                                                        
+  Customer:          Customer:           Customer:      
+  - firstName        - vatNumber         - userId       
+  - lastName         - creditLimit       - openTickets  
+  - email            - paymentTerms      - slaTier      
+  - history          - invoices          - lastContact  
+    
+                                                  
+         
                      Context Map
               (defines the relationships between contexts)
 ```
@@ -122,7 +122,7 @@ Each bounded context has:
 - Its own database (ideally)
 - Its own development team (Conway's Law)
 
-> 💡 **SDSD Protection:** when the business requests changes to the "Customer" concept for billing, they only impact the Billing Context. You don't touch the CRM. You don't break support.
+>  **SDSD Protection:** when the business requests changes to the "Customer" concept for billing, they only impact the Billing Context. You don't touch the CRM. You don't break support.
 
 ---
 
@@ -157,7 +157,7 @@ def get_dashboard(user: User):
 | **Ops Flag** | Operational control (circuit breaker) | Long/permanent |
 | **Permission Flag** | Features by role/tenant | Permanent |
 
-> 💡 **SDSD Protection:** when the business says "turn off that feature immediately," you can do it without deployment. When they say "I want to test the new version on only 10% of users," you can do it. When they say "we were wrong, go back to the old way," you can do it in 30 seconds.
+>  **SDSD Protection:** when the business says "turn off that feature immediately," you can do it without deployment. When they say "I want to test the new version on only 10% of users," you can do it. When they say "we were wrong, go back to the old way," you can do it in 30 seconds.
 
 ---
 
@@ -195,14 +195,14 @@ def process_order(order_id: str, quantity: int, discount: float) -> dict:
 Don't wait for an error to propagate. Detect and raise the exception as early as possible:
 
 ```python
-# ❌ Fail LATE: error surfaces 10 layers later
+#  Fail LATE: error surfaces 10 layers later
 def process_payment(user_id, amount):
     user = get_user(user_id)  # user could be None
     # ... 50 lines of code ...
     result = charge_card(user.payment_method)  # NullPointerException here
     # Impossible to understand what went wrong
 
-# ✅ Fail FAST: error detected immediately with clear context
+#  Fail FAST: error detected immediately with clear context
 def process_payment(user_id: str, amount: Decimal) -> PaymentResult:
     if not user_id:
         raise ValueError("user_id is required")
@@ -257,13 +257,13 @@ When your system depends on external services (third-party APIs, legacy systems)
 
 ```
 CLOSED (normal)          OPEN (protection)        HALF-OPEN (probe)
-   ┌─────────┐               ┌─────────┐               ┌─────────┐
-   │  Req →  │──success──▶  │  Block  │──timeout──▶  │  Test   │
-   │  Svc    │               │  all    │               │  1 req  │
-   └─────────┘               └─────────┘               └─────────┘
-        │                                                   │
-        │ too many errors                         success │ error
-        └──────────────────────────────────────▶ OPEN   CLOSED
+                                 
+     Req →  success    Block  timeout    Test   
+     Svc                     all                     1 req  
+                                 
+                                                           
+         too many errors                         success  error
+         OPEN   CLOSED
 ```
 
 ```python
@@ -309,34 +309,34 @@ When you need to migrate a legacy system without a "big bang rewrite":
 
 ```
 PHASE 1: New system alongside legacy
-┌──────────┐    ┌─────────────┐
-│  Facade  │───▶│  Legacy     │
-│ (Router) │    │  System     │
-└──────────┘    └─────────────┘
+    
+  Facade    Legacy     
+ (Router)       System     
+    
 
 PHASE 2: New features in the new system
-┌──────────┐    ┌─────────────┐
-│  Facade  │───▶│  Legacy     │
-│ (Router) │    │  System     │
-│          │───▶│  New        │ (new features here)
-└──────────┘    └─────────────┘
+    
+  Facade    Legacy     
+ (Router)       System     
+            New         (new features here)
+    
 
 PHASE 3: Gradual migration
-┌──────────┐    ┌─────────────┐
-│  Facade  │───▶│  Legacy     │ (only features not yet migrated)
-│ (Router) │    │  System     │
-│          │───▶│  New        │ (majority here)
-└──────────┘    └─────────────┘
+    
+  Facade    Legacy      (only features not yet migrated)
+ (Router)       System     
+            New         (majority here)
+    
 
 PHASE 4: Legacy deprecated
-┌──────────┐    ┌─────────────┐
-│  Facade  │───▶│  New        │ (everything here)
-│ (Router) │    │  System     │
-└──────────┘    └─────────────┘
+    
+  Facade    New         (everything here)
+ (Router)       System     
+    
               (legacy shut down)
 ```
 
-> 💡 **SDSD Protection:** the business can continue operating during the migration. There is no "big freeze" moment where everything stops. Risks are distributed over time.
+>  **SDSD Protection:** the business can continue operating during the migration. There is no "big freeze" moment where everything stops. Risks are distributed over time.
 
 ---
 
@@ -345,23 +345,23 @@ PHASE 4: Legacy deprecated
 Alistair Cockburn (2005): the core business logic must not depend on anything external.
 
 ```
-                    ┌─────────────────────────────┐
-                    │                             │
-   REST API ───────▶│  Port (Input)               │
-   CLI     ───────▶│                             │
-   Queue   ───────▶│     CORE DOMAIN             │
-                    │     (Business Logic)        │
-                    │                             │
-                    │  Port (Output)              │
-                    │                   ─────────▶│ Database
-                    │                   ─────────▶│ Email Service
-                    │                   ─────────▶│ External API
-                    └─────────────────────────────┘
+                    
+                                                 
+   REST API   Port (Input)               
+   CLI                                  
+   Queue        CORE DOMAIN             
+                         (Business Logic)        
+                                                 
+                      Port (Output)              
+                                        Database
+                                        Email Service
+                                        External API
+                    
 ```
 
 The core knows nothing about HTTP, SQL, or specific libraries. It can be tested in isolation. If the database changes (from SQL to NoSQL, from vendor A to vendor B), you only change the adapter, not the core.
 
-> 💡 **SDSD Protection:** when the business says "we're using a different email platform" or "we're migrating to another database," the impact is contained to the adapters, not the core. This argument is golden in architecture discussions.
+>  **SDSD Protection:** when the business says "we're using a different email platform" or "we're migrating to another database," the impact is contained to the adapters, not the core. This argument is golden in architecture discussions.
 
 ---
 
@@ -370,20 +370,20 @@ The core knows nothing about HTTP, SQL, or specific libraries. It can be tested 
 Separates the read model from the write model:
 
 ```
-                    ┌─────────────┐
-WRITE side          │  Commands   │
-(model              │  (Write)    │──▶ Write database
- optimized for      │  Handler    │    (normalized, consistent)
- business rules)    └─────────────┘
+                    
+WRITE side            Commands   
+(model                (Write)     Write database
+ optimized for        Handler        (normalized, consistent)
+ business rules)    
 
-                    ┌─────────────┐
-READ side           │  Queries    │
-(model              │  (Read)     │──▶ Read database
- optimized for      │  Handler    │    (denormalized, fast)
- UI queries)        └─────────────┘
+                    
+READ side             Queries    
+(model                (Read)      Read database
+ optimized for        Handler        (denormalized, fast)
+ UI queries)        
 ```
 
-> 💡 **SDSD Protection:** when the business asks "add this field to the report" (query), you don't touch the write model. When they say "add this validation rule" (command), you don't impact query performance.
+>  **SDSD Protection:** when the business asks "add this field to the report" (query), you don't touch the write model. When they say "add this validation rule" (command), you don't impact query performance.
 
 ---
 

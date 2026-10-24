@@ -52,7 +52,7 @@ Thank you,
 [signature]
 ```
 
-> 💡 **The last paragraph is crucial.** Silence becomes implicit consent, documented.
+>  **The last paragraph is crucial.** Silence becomes implicit consent, documented.
 
 ---
 
@@ -117,7 +117,7 @@ SDSD DEMO STRUCTURE
    - New requests → Backlog, not current sprint
 ```
 
-> ⚠️ **Anti-pattern:** the demo becomes a "I just had an idea" session. Every new request during a demo is a Change Request, not an immediate change.
+>  **Anti-pattern:** the demo becomes a "I just had an idea" session. Every new request during a demo is a Change Request, not an immediate change.
 
 ---
 
@@ -138,16 +138,16 @@ The **Interest/Power** matrix divides stakeholders into 4 quadrants:
 
 ```
           HIGH POWER
-               │
-  Actively     │   Keep Informed
-  Manage       │   and Engaged
-               │
-LOW ───────────┼─────────── HIGH
-INTEREST       │             INTEREST
-               │
-  Monitor      │   Keep
-  Minimally    │   Satisfied
-               │
+               
+  Actively        Keep Informed
+  Manage          and Engaged
+               
+LOW  HIGH
+INTEREST                    INTEREST
+               
+  Monitor         Keep
+  Minimally       Satisfied
+               
           LOW POWER
 ```
 
@@ -169,7 +169,7 @@ Level 3: Resolution with management (Sponsor)
     ↓ decision made at the highest necessary level
 ```
 
-> 💡 **SDSD Rule:** every escalation step must be documented. Whoever decides, signs the decision. Escalation is not defeat: it is professionalism.
+>  **SDSD Rule:** every escalation step must be documented. Whoever decides, signs the decision. Escalation is not defeat: it is professionalism.
 
 ---
 
@@ -177,7 +177,7 @@ Level 3: Resolution with management (Sponsor)
 
 When you need to say "no" or "it's not possible," use **impact language** instead of direct refusal:
 
-| ❌ Instead of... | ✅ Say... |
+|  Instead of... |  Say... |
 |----------------|----------|
 | "It can't be done" | "If we do X, we can do it in [time/cost]. Otherwise alternative Y requires [less/more]" |
 | "It's too complicated" | "This feature requires an estimate of 3 weeks and impacts module Z. Do you want to proceed by shifting [other feature]?" |

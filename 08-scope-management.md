@@ -35,33 +35,33 @@ The Change Request (CR) is the mechanism that makes scope creep *visible and cos
 
 ```
                     REQUEST
-                       │
-                       ▼
-            ┌──────────────────┐
-            │  CR Submission   │
-            │  (requester)     │
-            └──────────────────┘
-                       │
-                       ▼
-            ┌──────────────────┐
-            │ Impact Analysis  │
-            │  (tech lead)     │
-            │  - effort        │
-            │  - cost          │
-            │  - risks         │
-            │  - dependencies  │
-            └──────────────────┘
-                       │
-                       ▼
-            ┌──────────────────┐
-            │ Review & Decide  │
-            │  (PO + TL)       │
-            └──────────────────┘
-               ┌───────┴───────┐
-               ▼               ▼
+                       
+                       
+            
+              CR Submission   
+              (requester)     
+            
+                       
+                       
+            
+             Impact Analysis  
+              (tech lead)     
+              - effort        
+              - cost          
+              - risks         
+              - dependencies  
+            
+                       
+                       
+            
+             Review & Decide  
+              (PO + TL)       
+            
+               
+                              
           APPROVED          REJECTED
-               │               │
-               ▼               ▼
+                              
+                              
         Update           Document
         backlog +        motivation
         roadmap +        and notify
