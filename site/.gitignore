@@ -1,0 +1,25 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# generated from the Markdown files at the repository root (see scripts/sync-content.mjs)
+src/content/docs/
+public/images/diagrams/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
