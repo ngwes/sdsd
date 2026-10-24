@@ -11,7 +11,7 @@ Wrong code is almost always the symptom. The cause lies upstream: interpreted re
 SDSD was born from the need to equip the developers with a set of practices, patterns, and behaviors that allow them to:
 
 1. **Build quality software** despite the surrounding environment
-2. **Protect themselves** from unfaire blame attribution
+2. **Protect themselves** from unfair blame attribution
 3. **Protect the product** from irrational interference
 4. **Protect the project** from volatile requirements and scope creep
 5. **Create a professional working environment** even where none exists
@@ -203,4 +203,4 @@ SDSD
 
 ---
 
-*Next: [02 — Data and Statistics on Software Failures](./02-dati-statistiche.md)*
+*Next: [02 — Data and Statistics on Software Failures](./02-data-statistics.md)*

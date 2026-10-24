@@ -326,4 +326,4 @@ CHANGE REQUEST
 
 ---
 
-*Previous: [02 — Data and Statistics](./02-dati-statistiche.md) | Next: [04 — Communication Patterns](./04-communication-patterns.md)*
+*Previous: [02 — Data and Statistics](./02-data-statistics.md) | Next: [04 — Communication Patterns](./04-communication-patterns.md)*

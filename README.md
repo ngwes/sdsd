@@ -22,7 +22,7 @@ This documentation suite is organized into progressive sections. Sequential read
 | # | File | Content |
 |---|------|---------|
 | 01 | [SDSD Manifesto](./01-manifesto.md) | Founding principles, philosophy, and declaration of intent |
-| 02 | [Data and Statistics](./02-dati-statistiche.md) | Research, studies, and data on software failures |
+| 02 | [Data and Statistics](./02-data-statistics.md) | Research, studies, and data on software failures |
 | 03 | [Requirements Engineering](./03-requirements-engineering.md) | Techniques for managing ambiguous, incomplete, or volatile requirements |
 | 04 | [Communication Patterns](./04-communication-patterns.md) | Communication strategies with non-technical stakeholders |
 | 05 | [Defensive Architecture](./05-defensive-architecture.md) | Architectural patterns that resist external interference |
@@ -60,7 +60,7 @@ For those in a hurry, these are the highest-impact practices:
 - **Software Architects** who need to defend their choices
 - **Tech Leads** who want to protect their team
 - **CTOs / VPs of Engineering** who need to manage technical governance
-- **Developers** (at any level) who find the mselves in dysfunctional contexts
+- **Developers** (at any level) who find themselves in dysfunctional contexts
 
 ---
 
