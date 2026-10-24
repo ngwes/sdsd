@@ -5,8 +5,8 @@
   <rect width="900" height="600" fill="#0f172a"/>
 
   <!-- Title -->
-  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#f1f5f9">Costo di Correzione dei Difetti per Fase</text>
-  <text x="450" y="62" text-anchor="middle" font-size="13" fill="#64748b">Più tardi si trova il bug, più costa correggerlo — Barry Boehm, IBM (1970s → confermato da numerosi studi)</text>
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#f1f5f9">Cost of Defect Correction by Phase</text>
+  <text x="450" y="62" text-anchor="middle" font-size="13" fill="#64748b">The later a bug is found, the more it costs to fix — Barry Boehm, IBM (1970s → confirmed by numerous studies)</text>
 
   <!-- Chart area -->
   <!-- Y axis -->
@@ -21,7 +21,7 @@
   <text x="110" y="255" text-anchor="end" font-size="11" fill="#64748b">50x</text>
   <text x="110" y="165" text-anchor="end" font-size="11" fill="#64748b">75x</text>
   <text x="110" y="90" text-anchor="end" font-size="11" fill="#64748b">100x</text>
-  <text x="20" y="300" text-anchor="middle" font-size="13" fill="#64748b" transform="rotate(-90, 20, 300)">Costo Relativo</text>
+  <text x="20" y="300" text-anchor="middle" font-size="13" fill="#64748b" transform="rotate(-90, 20, 300)">Relative Cost</text>
 
   <!-- Grid lines -->
   <line x1="120" y1="435" x2="860" y2="435" stroke="#1e293b" stroke-width="1"/>
@@ -34,7 +34,7 @@
   <!-- Requirements: 1x = bar height 4px (just a sliver) at y=476 -->
   <rect x="155" y="476" width="100" height="4" rx="3" fill="#22c55e"/>
   <text x="205" y="470" text-anchor="middle" font-size="20" fill="#22c55e">1x</text>
-  <text x="205" y="510" text-anchor="middle" font-size="12" fill="#86efac" font-weight="bold">Requisiti</text>
+  <text x="205" y="510" text-anchor="middle" font-size="12" fill="#86efac" font-weight="bold">Requirements</text>
   <text x="205" y="527" text-anchor="middle" font-size="11" fill="#64748b">Discovery</text>
 
   <!-- Design: 5x = y=435-20=435, height=20? Let's scale: 100x = 390px range from 480 to 90. So 1x=480, 5x ≈ 460, 10x≈441, 25x≈381, 50x≈282, 100x≈90 -->
@@ -43,12 +43,12 @@
   <rect x="285" y="460" width="100" height="20" rx="3" fill="#84cc16"/>
   <text x="335" y="452" text-anchor="middle" font-size="18" fill="#84cc16">5x</text>
   <text x="335" y="510" text-anchor="middle" font-size="12" fill="#bef264" font-weight="bold">Design</text>
-  <text x="335" y="527" text-anchor="middle" font-size="11" fill="#64748b">Architettura</text>
+  <text x="335" y="527" text-anchor="middle" font-size="11" fill="#64748b">Architecture</text>
 
   <!-- Implementation: 10x → y = 480 - (10/100)*390 = 480-39 = 441 -->
   <rect x="415" y="441" width="100" height="39" rx="3" fill="#eab308"/>
   <text x="465" y="432" text-anchor="middle" font-size="18" fill="#eab308">10x</text>
-  <text x="465" y="510" text-anchor="middle" font-size="12" fill="#fde047" font-weight="bold">Sviluppo</text>
+  <text x="465" y="510" text-anchor="middle" font-size="12" fill="#fde047" font-weight="bold">Development</text>
   <text x="465" y="527" text-anchor="middle" font-size="11" fill="#64748b">Implementation</text>
 
   <!-- Testing: 20x → y = 480 - (20/100)*390 = 480-78 = 402 -->
@@ -60,7 +60,7 @@
   <!-- Production: 100x → y = 480 - (100/100)*390 = 90 -->
   <rect x="720" y="90" width="100" height="390" rx="3" fill="#ef4444"/>
   <text x="770" y="78" text-anchor="middle" font-size="24" font-weight="bold" fill="#ef4444">100x</text>
-  <text x="770" y="510" text-anchor="middle" font-size="12" fill="#fca5a5" font-weight="bold">Produzione</text>
+  <text x="770" y="510" text-anchor="middle" font-size="12" fill="#fca5a5" font-weight="bold">Production</text>
   <text x="770" y="527" text-anchor="middle" font-size="11" fill="#64748b">Post-release</text>
 
   <!-- Exponential curve -->
@@ -68,19 +68,18 @@
 
   <!-- SDSD annotation box -->
   <rect x="130" y="105" width="370" height="120" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
-  <text x="315" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#60a5fa">💡 Implicazione SDSD</text>
-  <text x="145" y="155" font-size="12" fill="#93c5fd">Investire 1 ora in requirements engineering</text>
-  <text x="145" y="175" font-size="12" fill="#93c5fd">equivale a risparmiare fino a 100 ore di</text>
-  <text x="145" y="195" font-size="12" fill="#93c5fd">lavoro in produzione.</text>
-  <text x="145" y="215" font-size="12" fill="#93c5fd">La documentazione non è overhead:</text>
-  <text x="145" y="215" font-size="12" fill="#22c55e">                                     è ROI.</text>
+  <text x="315" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#60a5fa">💡 SDSD Implication</text>
+  <text x="145" y="155" font-size="12" fill="#93c5fd">Investing 1 hour in requirements engineering</text>
+  <text x="145" y="175" font-size="12" fill="#93c5fd">is equivalent to saving up to 100 hours of</text>
+  <text x="145" y="195" font-size="12" fill="#93c5fd">work in production.</text>
+  <text x="145" y="215" font-size="12" fill="#93c5fd">Documentation is not overhead: <tspan fill="#22c55e">it is ROI.</tspan></text>
 
   <!-- Arrow from annotation to bar 1 -->
   <line x1="315" y1="225" x2="280" y2="465" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowBlue)"/>
 
   <!-- Source note -->
-  <text x="450" y="565" text-anchor="middle" font-size="11" fill="#475569">Fonte: Barry Boehm (1976), IBM Systems Sciences Institute, NIST SP 002 (2002)</text>
-  <text x="450" y="582" text-anchor="middle" font-size="10" fill="#475569">Nota: i moltiplicatori esatti variano per studio e tipo di progetto; la tendenza esponenziale è consistente tra tutte le ricerche</text>
+  <text x="450" y="565" text-anchor="middle" font-size="11" fill="#475569">Source: Barry Boehm (1976), IBM Systems Sciences Institute, NIST SP 002 (2002)</text>
+  <text x="450" y="582" text-anchor="middle" font-size="10" fill="#475569">Note: exact multipliers vary by study and project type; the exponential trend is consistent across all research</text>
 
   <!-- Arrow markers -->
   <defs>
