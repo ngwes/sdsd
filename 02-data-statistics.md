@@ -121,8 +121,8 @@ A phenomenon documented in literature is the **software visibility paradox**: so
 
 - Underestimation of required effort
 - Misunderstanding of complexity
-- Irrational expectations about development timelines
-- Inability to assess the quality of work done
+- Unrealistic expectations about development timelines
+- Difficulty assessing the quality of work done
 
 Brooks himself identifies this invisibility as one of the four essential properties of software (along with complexity, conformity, and changeability) that make it fundamentally different from any other engineering discipline.
 

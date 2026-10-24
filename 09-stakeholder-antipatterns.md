@@ -4,6 +4,8 @@
 
 Cataloging stakeholder anti-patterns is not an exercise in cynicism: it is **professional pattern recognition**. Those who recognize an anti-pattern can apply the correct countermeasure instead of reacting emotionally or randomly.
 
+These anti-patterns describe *behaviors* that arise from circumstances and incentives, not types of people: anyone, developers included, can fall into them on a bad day.
+
 ---
 
 ## Anti-Pattern Catalog

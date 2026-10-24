@@ -12,7 +12,7 @@ SDSD was born from the need to equip the developers with a set of practices, pat
 
 1. **Build quality software** despite the surrounding environment
 2. **Protect themselves** from unfair blame attribution
-3. **Protect the product** from irrational interference
+3. **Protect the product** from uncoordinated interference
 4. **Protect the project** from volatile requirements and scope creep
 5. **Create a professional working environment** even where none exists
 
