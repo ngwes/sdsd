@@ -66,7 +66,7 @@ For those in a hurry, these are the highest-impact practices:
 
 ## Philosophical Note
 
-SDSD does not assume bad faith from stakeholders. It assumes that **incompetence, ambiguity, and the inability to articulate complex needs are normal conditions**, not exceptions. A doctor does not complain about patients who cannot make their own diagnosis. A lawyer does not complain about clients who don't know the law. A professional software developer does not complain about stakeholders who don't understand software: **they equip themselves.**
+SDSD does not assume bad faith from stakeholders. It assumes that **gaps in domain knowledge, ambiguity, and difficulty articulating complex needs are normal conditions**, not exceptions. A doctor does not complain about patients who cannot make their own diagnosis. A lawyer does not complain about clients who don't know the law. A professional software developer does not complain about stakeholders who don't understand software: **they equip themselves.**
 
 ---
 
